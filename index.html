@@ -1692,7 +1692,7 @@
                     addAutoResizeToAllTextareas();
                     // Scroll al final donde está la nueva empresa
                     const container = document.getElementById('reunionesContainer');
-                    if (container && container.lastChild) {
+                    if (container && container.lastChild && container.lastChild instanceof Element) {
                         container.lastChild.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
                 }, 100);
@@ -1744,7 +1744,7 @@
                     addAutoResizeToAllTextareas();
                     // Scroll al final donde está la nueva empresa
                     const container = document.getElementById('adicionalContainer');
-                    if (container && container.lastChild) {
+                    if (container && container.lastChild && container.lastChild instanceof Element) {
                         container.lastChild.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
                 }, 100);
@@ -2188,6 +2188,8 @@
             }
             
             localStorage.setItem('textos_modificados_automechanika', JSON.stringify(textosData));
+            console.log('💾 Seguimiento actualizado:', field, '=', value, 'para', type, index);
+            console.log('💾 Datos guardados en localStorage (textos_modificados_automechanika)');
             saveSeguimiento();
         }
         
@@ -2252,6 +2254,11 @@
             }
             
             localStorage.setItem('textos_modificados_automechanika', JSON.stringify(textosData));
+            console.log('💾 Campo actualizado:', field, '=', value, 'para', type, index);
+            console.log('💾 Datos guardados en localStorage (textos_modificados_automechanika)');
+            
+            // También llamar a saveData() para mantener consistencia completa
+            saveData();
             showSaveIndicator();
         }
         
