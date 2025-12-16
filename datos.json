@@ -1,33 +1,6 @@
 {
   "reuniones": [
     {
-      "company": "Test 1",
-      "person": "Test 1",
-      "product": "Test 1fgh",
-      "time": "",
-      "stand": "",
-      "comments": "Prueba Json, texto guardado. Foto eliminada. Seguimiento, Responsable, email, y acciones.",
-      "id": 1763363438764,
-      "fotos": [],
-      "seguimiento": {
-        "responsable": "Equipo Calidad",
-        "contactado": false,
-        "respuestaRecibida": false,
-        "proximaAccion": "",
-        "fechaSeguimiento": "",
-        "acciones": [
-          "Pruebas 1",
-          "Pruebas 2",
-          "Pruebas 3"
-        ],
-        "estado": "finalizado",
-        "email": "krum@lizaerte.com"
-      },
-      "departamento": "Lizarte",
-      "prioridad": 3,
-      "fotos_extra": []
-    },
-    {
       "company": "ALTEZZA",
       "person": "Gustavo/Gloria",
       "product": "Grupo hidráulico, conectores DAES, Husillos DAES",
@@ -37,7 +10,7 @@
       "id": 1763364468847,
       "fotos": [],
       "seguimiento": {
-        "responsable": "Equipo Compras",
+        "responsable": "Calidad",
         "contactado": false,
         "respuestaRecibida": false,
         "proximaAccion": "",
@@ -46,11 +19,11 @@
           "Homologar nuevos grupos hidráulicos",
           "Comprobar de nuevo si Honda CR-V sería interesante comprar DAES nuevas"
         ],
-        "estado": "pendiente",
-        "email": "jbaztan@lizarte.com"
+        "estado": "contactado",
+        "email": "jhualde@lizarte.com"
       },
       "departamento": "Innovación",
-      "prioridad": 1,
+      "prioridad": 0,
       "fotos_extra": []
     },
     {
@@ -63,7 +36,7 @@
       "id": 1763378341743,
       "fotos": [],
       "seguimiento": {
-        "responsable": "Equipo Compras",
+        "responsable": "Innovación",
         "contactado": false,
         "respuestaRecibida": false,
         "proximaAccion": "",
@@ -71,7 +44,8 @@
         "acciones": [
           "Posible proveedor de anillos de airbag"
         ],
-        "estado": "pendiente"
+        "estado": "pendiente",
+        "email": "krum@lizarte.com"
       },
       "departamento": "Innovación",
       "prioridad": 1,
@@ -109,7 +83,7 @@
       "id": 1763896381600,
       "fotos": [],
       "seguimiento": {
-        "responsable": "Equipo Calidad",
+        "responsable": "Innovación",
         "contactado": false,
         "respuestaRecibida": false,
         "proximaAccion": "",
@@ -119,10 +93,10 @@
           "Segunda acción; qué necesitan para mandarnos una bomba sin software para que nosotros carguemos el nuestro?"
         ],
         "estado": "contactado",
-        "email": "jhualde@lizarte.com"
+        "email": "krum@lizarte.com"
       },
       "departamento": "Innovación",
-      "prioridad": 1,
+      "prioridad": 0,
       "fotos_extra": []
     },
     {
@@ -135,16 +109,19 @@
       "id": 1763954957878,
       "fotos": [],
       "seguimiento": {
-        "responsable": "",
+        "responsable": "Innovación",
         "contactado": false,
         "respuestaRecibida": false,
         "proximaAccion": "",
         "fechaSeguimiento": "",
-        "acciones": [],
-        "estado": "pendiente"
+        "acciones": [
+          "Valorar los productos que ofrecen como posibles nuevos productos a comercializar"
+        ],
+        "estado": "pendiente",
+        "email": "krum@lizarte.com"
       },
       "departamento": "Innovación",
-      "prioridad": 1,
+      "prioridad": 2,
       "fotos_extra": []
     },
     {
