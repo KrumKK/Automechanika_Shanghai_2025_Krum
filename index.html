@@ -2155,6 +2155,39 @@
             } else {
                 appData.adicional[index].seguimiento[field] = value;
             }
+            
+            // También actualizar en textos_modificados_automechanika para mantener consistencia
+            const textosData = JSON.parse(localStorage.getItem('textos_modificados_automechanika') || '{}');
+            const item = type === 'reuniones' ? appData.reuniones[index] : appData.adicional[index];
+            const itemId = item.id;
+            
+            if (type === 'reuniones') {
+                if (!textosData[itemId]) textosData[itemId] = {};
+                textosData[itemId].seguimiento = item.seguimiento;
+                textosData[itemId].company = item.company || '';
+                textosData[itemId].person = item.person || '';
+                textosData[itemId].product = item.product || '';
+                textosData[itemId].time = item.time || '';
+                textosData[itemId].stand = item.stand || '';
+                textosData[itemId].comments = item.comments || '';
+                textosData[itemId].departamento = item.departamento || 'Lizarte';
+                textosData[itemId].prioridad = item.prioridad !== undefined ? item.prioridad : 1;
+                textosData[itemId].fotos = item.fotos || [];
+                textosData[itemId].fotos_extra = item.fotos_extra || [];
+            } else {
+                if (!textosData[itemId]) textosData[itemId] = {};
+                textosData[itemId].seguimiento = item.seguimiento;
+                textosData[itemId].empresa = item.empresa || '';
+                textosData[itemId].producto = item.producto || '';
+                textosData[itemId].notas = item.notas || '';
+                textosData[itemId].oportunidad = item.oportunidad || '';
+                textosData[itemId].departamento = item.departamento || 'Lizarte';
+                textosData[itemId].prioridad = item.prioridad !== undefined ? item.prioridad : 1;
+                textosData[itemId].fotos = item.fotos || [];
+                textosData[itemId].fotos_extra = item.fotos_extra || [];
+            }
+            
+            localStorage.setItem('textos_modificados_automechanika', JSON.stringify(textosData));
             saveSeguimiento();
         }
         
@@ -2165,12 +2198,58 @@
                 appData.adicional[index][field] = value;
             }
             
-            // Guardar textos modificados en localStorage
+            // Guardar TODA la estructura completa del item en localStorage
             const textosData = JSON.parse(localStorage.getItem('textos_modificados_automechanika') || '{}');
-            const itemId = type === 'reuniones' ? appData.reuniones[index].id : appData.adicional[index].id;
+            const item = type === 'reuniones' ? appData.reuniones[index] : appData.adicional[index];
+            const itemId = item.id;
             
-            if (!textosData[itemId]) textosData[itemId] = {};
-            textosData[itemId][field] = value;
+            if (type === 'reuniones') {
+                // Guardar estructura completa de reunión
+                textosData[itemId] = {
+                    company: item.company || '',
+                    person: item.person || '',
+                    product: item.product || '',
+                    time: item.time || '',
+                    stand: item.stand || '',
+                    comments: item.comments || '',
+                    departamento: item.departamento || 'Lizarte',
+                    prioridad: item.prioridad !== undefined ? item.prioridad : 1,
+                    fotos: item.fotos || [],
+                    fotos_extra: item.fotos_extra || [],
+                    seguimiento: item.seguimiento || {
+                        responsable: "",
+                        contactado: false,
+                        respuestaRecibida: false,
+                        proximaAccion: "",
+                        fechaSeguimiento: "",
+                        acciones: [],
+                        estado: "pendiente",
+                        email: ""
+                    }
+                };
+            } else {
+                // Guardar estructura completa de adicional
+                textosData[itemId] = {
+                    empresa: item.empresa || '',
+                    producto: item.producto || '',
+                    notas: item.notas || '',
+                    oportunidad: item.oportunidad || '',
+                    departamento: item.departamento || 'Lizarte',
+                    prioridad: item.prioridad !== undefined ? item.prioridad : 1,
+                    fotos: item.fotos || [],
+                    fotos_extra: item.fotos_extra || [],
+                    seguimiento: item.seguimiento || {
+                        responsable: "",
+                        contactado: false,
+                        respuestaRecibida: false,
+                        proximaAccion: "",
+                        fechaSeguimiento: "",
+                        acciones: [],
+                        estado: "pendiente",
+                        email: ""
+                    }
+                };
+            }
             
             localStorage.setItem('textos_modificados_automechanika', JSON.stringify(textosData));
             showSaveIndicator();
@@ -2236,6 +2315,38 @@
             const item = type === 'reuniones' ? appData.reuniones[index] : appData.adicional[index];
             if (!item.seguimiento.acciones) item.seguimiento.acciones = [];
             item.seguimiento.acciones.push('');
+            
+            // Actualizar en textos_modificados_automechanika (actualizar seguimiento completo)
+            const textosData = JSON.parse(localStorage.getItem('textos_modificados_automechanika') || '{}');
+            const itemId = item.id;
+            
+            if (type === 'reuniones') {
+                if (!textosData[itemId]) textosData[itemId] = {};
+                textosData[itemId].seguimiento = item.seguimiento;
+                textosData[itemId].company = item.company || '';
+                textosData[itemId].person = item.person || '';
+                textosData[itemId].product = item.product || '';
+                textosData[itemId].time = item.time || '';
+                textosData[itemId].stand = item.stand || '';
+                textosData[itemId].comments = item.comments || '';
+                textosData[itemId].departamento = item.departamento || 'Lizarte';
+                textosData[itemId].prioridad = item.prioridad !== undefined ? item.prioridad : 1;
+                textosData[itemId].fotos = item.fotos || [];
+                textosData[itemId].fotos_extra = item.fotos_extra || [];
+            } else {
+                if (!textosData[itemId]) textosData[itemId] = {};
+                textosData[itemId].seguimiento = item.seguimiento;
+                textosData[itemId].empresa = item.empresa || '';
+                textosData[itemId].producto = item.producto || '';
+                textosData[itemId].notas = item.notas || '';
+                textosData[itemId].oportunidad = item.oportunidad || '';
+                textosData[itemId].departamento = item.departamento || 'Lizarte';
+                textosData[itemId].prioridad = item.prioridad !== undefined ? item.prioridad : 1;
+                textosData[itemId].fotos = item.fotos || [];
+                textosData[itemId].fotos_extra = item.fotos_extra || [];
+            }
+            
+            localStorage.setItem('textos_modificados_automechanika', JSON.stringify(textosData));
             saveSeguimiento();
             renderAll();
         }
@@ -2243,6 +2354,38 @@
         function updateAccion(type, index, accionIdx, value) {
             const item = type === 'reuniones' ? appData.reuniones[index] : appData.adicional[index];
             item.seguimiento.acciones[accionIdx] = value;
+            
+            // Actualizar en textos_modificados_automechanika (actualizar seguimiento completo)
+            const textosData = JSON.parse(localStorage.getItem('textos_modificados_automechanika') || '{}');
+            const itemId = item.id;
+            
+            if (type === 'reuniones') {
+                if (!textosData[itemId]) textosData[itemId] = {};
+                textosData[itemId].seguimiento = item.seguimiento;
+                textosData[itemId].company = item.company || '';
+                textosData[itemId].person = item.person || '';
+                textosData[itemId].product = item.product || '';
+                textosData[itemId].time = item.time || '';
+                textosData[itemId].stand = item.stand || '';
+                textosData[itemId].comments = item.comments || '';
+                textosData[itemId].departamento = item.departamento || 'Lizarte';
+                textosData[itemId].prioridad = item.prioridad !== undefined ? item.prioridad : 1;
+                textosData[itemId].fotos = item.fotos || [];
+                textosData[itemId].fotos_extra = item.fotos_extra || [];
+            } else {
+                if (!textosData[itemId]) textosData[itemId] = {};
+                textosData[itemId].seguimiento = item.seguimiento;
+                textosData[itemId].empresa = item.empresa || '';
+                textosData[itemId].producto = item.producto || '';
+                textosData[itemId].notas = item.notas || '';
+                textosData[itemId].oportunidad = item.oportunidad || '';
+                textosData[itemId].departamento = item.departamento || 'Lizarte';
+                textosData[itemId].prioridad = item.prioridad !== undefined ? item.prioridad : 1;
+                textosData[itemId].fotos = item.fotos || [];
+                textosData[itemId].fotos_extra = item.fotos_extra || [];
+            }
+            
+            localStorage.setItem('textos_modificados_automechanika', JSON.stringify(textosData));
             saveSeguimiento();
         }
         
@@ -2250,6 +2393,38 @@
             if (!confirm('¿Eliminar esta acción?')) return;
             const item = type === 'reuniones' ? appData.reuniones[index] : appData.adicional[index];
             item.seguimiento.acciones.splice(accionIdx, 1);
+            
+            // Actualizar en textos_modificados_automechanika (actualizar seguimiento completo)
+            const textosData = JSON.parse(localStorage.getItem('textos_modificados_automechanika') || '{}');
+            const itemId = item.id;
+            
+            if (type === 'reuniones') {
+                if (!textosData[itemId]) textosData[itemId] = {};
+                textosData[itemId].seguimiento = item.seguimiento;
+                textosData[itemId].company = item.company || '';
+                textosData[itemId].person = item.person || '';
+                textosData[itemId].product = item.product || '';
+                textosData[itemId].time = item.time || '';
+                textosData[itemId].stand = item.stand || '';
+                textosData[itemId].comments = item.comments || '';
+                textosData[itemId].departamento = item.departamento || 'Lizarte';
+                textosData[itemId].prioridad = item.prioridad !== undefined ? item.prioridad : 1;
+                textosData[itemId].fotos = item.fotos || [];
+                textosData[itemId].fotos_extra = item.fotos_extra || [];
+            } else {
+                if (!textosData[itemId]) textosData[itemId] = {};
+                textosData[itemId].seguimiento = item.seguimiento;
+                textosData[itemId].empresa = item.empresa || '';
+                textosData[itemId].producto = item.producto || '';
+                textosData[itemId].notas = item.notas || '';
+                textosData[itemId].oportunidad = item.oportunidad || '';
+                textosData[itemId].departamento = item.departamento || 'Lizarte';
+                textosData[itemId].prioridad = item.prioridad !== undefined ? item.prioridad : 1;
+                textosData[itemId].fotos = item.fotos || [];
+                textosData[itemId].fotos_extra = item.fotos_extra || [];
+            }
+            
+            localStorage.setItem('textos_modificados_automechanika', JSON.stringify(textosData));
             saveSeguimiento();
             renderAll();
         }
