@@ -1102,6 +1102,11 @@
         📤 EXPORTAR
     </button>
     
+    <!-- Botón para activar auto-guardado -->
+    <button class="btn-float-export" style="bottom: 100px; background: linear-gradient(135deg, #10b981 0%, #059669 100%);" onclick="activarAutoGuardado()" title="Activar guardado automático en datos.json" id="btnAutoGuardado">
+        💾 AUTO-GUARDAR
+    </button>
+    
     <!-- Modal para seleccionar dónde añadir empresa -->
     <div id="addEmpresaModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 10000; justify-content: center; align-items: center;">
         <div style="background: white; border-radius: 16px; padding: 30px; width: 90%; max-width: 400px; box-shadow: 0 10px 40px rgba(0,0,0,0.3);">
@@ -1259,6 +1264,7 @@
         let appData = null;
         let equipoLizarte = [];
         let currentUploadTarget = null;
+        let fileHandle = null; // Handle del archivo para auto-guardado
         let appConfig = {
             titulo: 'Seguimiento Automechanika Shanghai 2025',
             subtitulo: 'Lizarte - Sistema de Gestión de Contactos',
@@ -1639,6 +1645,159 @@
             
             localStorage.setItem('textos_modificados_automechanika', JSON.stringify(textosData));
             console.log('💾 Datos guardados en localStorage (estructura completa con fotos)');
+            
+            // Auto-guardar en archivo si está disponible
+            autoSaveToFile();
+        }
+        
+        // Función para generar el JSON completo con todos los cambios
+        async function generarJSONCompleto() {
+            try {
+                // Cargar datos base
+                const response = await fetch('datos.json');
+                if (!response.ok) {
+                    throw new Error('No se pudo cargar datos.json');
+                }
+                const datosBase = await response.json();
+                
+                // Aplicar textos modificados
+                const textosModificados = JSON.parse(localStorage.getItem('textos_modificados_automechanika') || '{}');
+                
+                // Actualizar empresas existentes en reuniones
+                datosBase.reuniones.forEach(item => {
+                    if (textosModificados[item.id]) {
+                        Object.assign(item, textosModificados[item.id]);
+                    }
+                });
+                
+                // Añadir NUEVAS empresas en reuniones
+                Object.keys(textosModificados).forEach(id => {
+                    const existeEnReuniones = datosBase.reuniones.find(item => item.id == id);
+                    const existeEnAdicional = datosBase.adicional.find(item => item.id == id);
+                    
+                    if (!existeEnReuniones && !existeEnAdicional) {
+                        const nuevaEmpresa = textosModificados[id];
+                        if (nuevaEmpresa.company !== undefined) {
+                            datosBase.reuniones.push({
+                                id: id,
+                                ...nuevaEmpresa
+                            });
+                        } else if (nuevaEmpresa.empresa !== undefined) {
+                            datosBase.adicional.push({
+                                id: id,
+                                ...nuevaEmpresa
+                            });
+                        }
+                    }
+                });
+                
+                // Actualizar empresas existentes en adicional
+                datosBase.adicional.forEach(item => {
+                    if (textosModificados[item.id]) {
+                        Object.assign(item, textosModificados[item.id]);
+                    }
+                });
+                
+                // Aplicar seguimiento
+                const seguimientoData = JSON.parse(localStorage.getItem('seguimiento_v2_automechanika') || '{}');
+                datosBase.reuniones.forEach(item => {
+                    if (seguimientoData[item.id]) {
+                        item.seguimiento = seguimientoData[item.id];
+                    }
+                });
+                datosBase.adicional.forEach(item => {
+                    if (seguimientoData[item.id]) {
+                        item.seguimiento = seguimientoData[item.id];
+                    }
+                });
+                
+                // Aplicar fotos borradas
+                const deletedPhotosData = JSON.parse(localStorage.getItem('deleted_photos_automechanika') || '{}');
+                datosBase.reuniones.forEach(item => {
+                    if (deletedPhotosData[item.id] && deletedPhotosData[item.id].length > 0) {
+                        const deletedIndices = deletedPhotosData[item.id];
+                        if (!item.fotos || !Array.isArray(item.fotos)) item.fotos = [];
+                        item.fotos = item.fotos.filter((foto, idx) => !deletedIndices.includes(idx));
+                    }
+                });
+                datosBase.adicional.forEach(item => {
+                    if (deletedPhotosData[item.id] && deletedPhotosData[item.id].length > 0) {
+                        const deletedIndices = deletedPhotosData[item.id];
+                        if (!item.fotos || !Array.isArray(item.fotos)) item.fotos = [];
+                        item.fotos = item.fotos.filter((foto, idx) => !deletedIndices.includes(idx));
+                    }
+                });
+                
+                return JSON.stringify(datosBase, null, 2);
+            } catch (error) {
+                console.error('❌ Error generando JSON completo:', error);
+                return null;
+            }
+        }
+        
+        // Función para solicitar permiso y guardar el handle del archivo
+        async function solicitarPermisoArchivo() {
+            if (!('showOpenFilePicker' in window)) {
+                console.log('⚠️ File System Access API no disponible en este navegador');
+                return false;
+            }
+            
+            try {
+                const [handle] = await window.showOpenFilePicker({
+                    types: [{
+                        description: 'Archivo JSON',
+                        accept: { 'application/json': ['.json'] }
+                    }],
+                    suggestedName: 'datos.json',
+                    multiple: false
+                });
+                
+                fileHandle = handle;
+                localStorage.setItem('fileHandlePermission', 'granted');
+                console.log('✅ Permiso de archivo concedido');
+                return true;
+            } catch (error) {
+                if (error.name === 'AbortError') {
+                    console.log('⚠️ Usuario canceló la selección de archivo');
+                } else {
+                    console.error('❌ Error solicitando permiso:', error);
+                }
+                return false;
+            }
+        }
+        
+        // Función para auto-guardar en el archivo
+        async function autoSaveToFile() {
+            // Solo intentar si tenemos el handle del archivo
+            if (!fileHandle) {
+                // Intentar cargar el permiso guardado
+                const permisoGuardado = localStorage.getItem('fileHandlePermission');
+                if (permisoGuardado === 'granted') {
+                    // El usuario ya dio permiso antes, pero necesitamos seleccionar el archivo de nuevo
+                    // Por ahora, no hacemos nada automático sin interacción del usuario
+                    return;
+                }
+                return;
+            }
+            
+            try {
+                const jsonString = await generarJSONCompleto();
+                if (!jsonString) {
+                    console.warn('⚠️ No se pudo generar JSON, omitiendo auto-guardado');
+                    return;
+                }
+                
+                const writable = await fileHandle.createWritable();
+                await writable.write(jsonString);
+                await writable.close();
+                
+                console.log('✅ Archivo datos.json actualizado automáticamente');
+            } catch (error) {
+                console.error('❌ Error auto-guardando archivo:', error);
+                // Si hay error, limpiar el handle para que se solicite de nuevo
+                fileHandle = null;
+                localStorage.removeItem('fileHandlePermission');
+            }
         }
         
         function showAddEmpresaModal() {
@@ -2215,6 +2374,9 @@
             console.log('💾 Seguimiento actualizado:', field, '=', value, 'para', type, index);
             console.log('💾 Datos guardados en localStorage (textos_modificados_automechanika)');
             saveSeguimiento();
+            
+            // Auto-guardar en archivo si está activado
+            autoSaveToFile();
         }
         
         function updateTexto(type, index, field, value) {
@@ -2283,6 +2445,10 @@
             
             // También llamar a saveData() para mantener consistencia completa
             saveData();
+            
+            // Auto-guardar en archivo si está activado
+            autoSaveToFile();
+            
             showSaveIndicator();
         }
         
@@ -2379,6 +2545,10 @@
             
             localStorage.setItem('textos_modificados_automechanika', JSON.stringify(textosData));
             saveSeguimiento();
+            
+            // Auto-guardar en archivo si está activado
+            autoSaveToFile();
+            
             renderAll();
         }
         
@@ -2418,6 +2588,9 @@
             
             localStorage.setItem('textos_modificados_automechanika', JSON.stringify(textosData));
             saveSeguimiento();
+            
+            // Auto-guardar en archivo si está activado
+            autoSaveToFile();
         }
         
         function deleteAccion(type, index, accionIdx) {
@@ -2457,6 +2630,10 @@
             
             localStorage.setItem('textos_modificados_automechanika', JSON.stringify(textosData));
             saveSeguimiento();
+            
+            // Auto-guardar en archivo si está activado
+            autoSaveToFile();
+            
             renderAll();
         }
         
