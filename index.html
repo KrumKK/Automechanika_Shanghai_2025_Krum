@@ -1692,8 +1692,20 @@
                     addAutoResizeToAllTextareas();
                     // Scroll al final donde está la nueva empresa
                     const container = document.getElementById('reunionesContainer');
-                    if (container && container.lastChild && container.lastChild instanceof Element) {
-                        container.lastChild.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    if (container) {
+                        // Buscar el último elemento hijo válido (no nodos de texto)
+                        let lastElement = container.lastElementChild;
+                        if (!lastElement) {
+                            // Si no hay lastElementChild, buscar el último nodo que sea un Element
+                            let child = container.lastChild;
+                            while (child && child.nodeType !== 1) {
+                                child = child.previousSibling;
+                            }
+                            lastElement = child;
+                        }
+                        if (lastElement && typeof lastElement.scrollIntoView === 'function') {
+                            lastElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
                     }
                 }, 100);
                 
@@ -1744,8 +1756,20 @@
                     addAutoResizeToAllTextareas();
                     // Scroll al final donde está la nueva empresa
                     const container = document.getElementById('adicionalContainer');
-                    if (container && container.lastChild && container.lastChild instanceof Element) {
-                        container.lastChild.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    if (container) {
+                        // Buscar el último elemento hijo válido (no nodos de texto)
+                        let lastElement = container.lastElementChild;
+                        if (!lastElement) {
+                            // Si no hay lastElementChild, buscar el último nodo que sea un Element
+                            let child = container.lastChild;
+                            while (child && child.nodeType !== 1) {
+                                child = child.previousSibling;
+                            }
+                            lastElement = child;
+                        }
+                        if (lastElement && typeof lastElement.scrollIntoView === 'function') {
+                            lastElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
                     }
                 }, 100);
                 
