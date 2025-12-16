@@ -642,25 +642,28 @@
     },
     {
       "id": "1765886037129",
-      "company": "Nueva Empresa",
-      "person": "asdasd",
-      "product": "asdads",
+      "company": "MVA SPARES",
+      "person": "Boryana Kolev; boryanakolev@gmail.com",
+      "product": "Refabricación LizOn",
       "time": "",
       "stand": "",
-      "comments": "",
+      "comments": "Empresa gestionado por Búlgaros en South Africa. Le conocí en el feria, estaban buscando productos al igual que yo. \nMe presento y les explico a lo que nos dedicamos, muestran gran interés en la sección de LizOn. Quieren comenzar a hacer reman de mecatrónica en su empresa pero tienen pocos conocimientos. \nPosibilidad de venderles producto LizOn pero ojo, el retorno del casco sería un problema. \nPosibilidad de venderles los smartCan \nPosibilidad de venderles formación en reman de LizOn",
       "departamento": "Innovación",
-      "prioridad": 1,
+      "prioridad": 0,
       "fotos": [],
       "fotos_extra": [],
       "seguimiento": {
-        "responsable": "",
+        "responsable": "Innovación",
         "contactado": false,
         "respuestaRecibida": false,
         "proximaAccion": "",
         "fechaSeguimiento": "",
-        "acciones": [],
-        "estado": "pendiente",
-        "email": ""
+        "acciones": [
+          "Primera toma de contacto, ya hecha. ",
+          "Explorar que posibilidad hay de trabajar con ellos "
+        ],
+        "estado": "contactado",
+        "email": "krum@lizarte.com"
       }
     }
   ],
