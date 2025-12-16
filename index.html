@@ -1314,7 +1314,60 @@
             });
             
             loadConfig();
-            // NO llamamos a loadSeguimiento() ni loadDocumentos() porque el JSON ya tiene todo
+            
+            // Aplicar modificaciones de localStorage (textos modificados y nuevas empresas)
+            console.log('📝 Aplicando modificaciones de localStorage...');
+            const textosModificados = JSON.parse(localStorage.getItem('textos_modificados_automechanika') || '{}');
+            
+            // Aplicar modificaciones a empresas existentes
+            appData.reuniones.forEach(item => {
+                if (textosModificados[item.id]) {
+                    Object.assign(item, textosModificados[item.id]);
+                }
+            });
+            
+            appData.adicional.forEach(item => {
+                if (textosModificados[item.id]) {
+                    Object.assign(item, textosModificados[item.id]);
+                }
+            });
+            
+            // Añadir NUEVAS empresas que no están en el JSON base
+            Object.keys(textosModificados).forEach(id => {
+                const existeEnReuniones = appData.reuniones.find(item => item.id == id);
+                const existeEnAdicional = appData.adicional.find(item => item.id == id);
+                
+                if (!existeEnReuniones && !existeEnAdicional) {
+                    const nuevaEmpresa = textosModificados[id];
+                    if (nuevaEmpresa.company !== undefined) {
+                        console.log('➕ Añadiendo nueva reunión desde localStorage:', nuevaEmpresa.company);
+                        appData.reuniones.push({
+                            id: id,
+                            ...nuevaEmpresa
+                        });
+                    } else if (nuevaEmpresa.empresa !== undefined) {
+                        console.log('➕ Añadiendo nueva empresa adicional desde localStorage:', nuevaEmpresa.empresa);
+                        appData.adicional.push({
+                            id: id,
+                            ...nuevaEmpresa
+                        });
+                    }
+                }
+            });
+            
+            // Aplicar seguimiento de localStorage (por si acaso hay diferencias)
+            const seguimientoData = JSON.parse(localStorage.getItem('seguimiento_v2_automechanika') || '{}');
+            appData.reuniones.forEach(item => {
+                if (seguimientoData[item.id]) {
+                    item.seguimiento = seguimientoData[item.id];
+                }
+            });
+            appData.adicional.forEach(item => {
+                if (seguimientoData[item.id]) {
+                    item.seguimiento = seguimientoData[item.id];
+                }
+            });
+            
             populateResponsableFilter();
             renderAll();
             updateStats();
