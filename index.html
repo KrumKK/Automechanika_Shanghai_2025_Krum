@@ -1312,25 +1312,54 @@
             
             loadConfig();
             
+            // Cargar lista de empresas eliminadas PRIMERO para evitar añadirlas
+            const empresasEliminadas = JSON.parse(localStorage.getItem('empresas_eliminadas_automechanika') || '{}');
+            console.log('🗑️ Empresas eliminadas en localStorage:', empresasEliminadas);
+            
             // Aplicar modificaciones de localStorage (textos modificados y nuevas empresas)
             console.log('📝 Aplicando modificaciones de localStorage...');
             const textosModificados = JSON.parse(localStorage.getItem('textos_modificados_automechanika') || '{}');
             
-            // Aplicar modificaciones a empresas existentes
+            // Función auxiliar para verificar si un ID fue eliminado
+            const fueEliminada = (id) => {
+                const idStr = String(id);
+                const idNum = Number(id);
+                return (empresasEliminadas.reuniones && (
+                    empresasEliminadas.reuniones.includes(idStr) || 
+                    empresasEliminadas.reuniones.includes(id) ||
+                    empresasEliminadas.reuniones.includes(idNum) ||
+                    empresasEliminadas.reuniones.some(eid => String(eid) === idStr || Number(eid) === idNum)
+                )) || (empresasEliminadas.adicional && (
+                    empresasEliminadas.adicional.includes(idStr) || 
+                    empresasEliminadas.adicional.includes(id) ||
+                    empresasEliminadas.adicional.includes(idNum) ||
+                    empresasEliminadas.adicional.some(eid => String(eid) === idStr || Number(eid) === idNum)
+                ));
+            };
+            
+            // Aplicar modificaciones a empresas existentes (solo si no fueron eliminadas)
+            appData.reuniones = appData.reuniones.filter(item => !fueEliminada(item.id));
             appData.reuniones.forEach(item => {
-                if (textosModificados[item.id]) {
+                if (textosModificados[item.id] && !fueEliminada(item.id)) {
                     Object.assign(item, textosModificados[item.id]);
                 }
             });
             
+            appData.adicional = appData.adicional.filter(item => !fueEliminada(item.id));
             appData.adicional.forEach(item => {
-                if (textosModificados[item.id]) {
+                if (textosModificados[item.id] && !fueEliminada(item.id)) {
                     Object.assign(item, textosModificados[item.id]);
                 }
             });
             
-            // Añadir NUEVAS empresas que no están en el JSON base
+            // Añadir NUEVAS empresas que no están en el JSON base Y no fueron eliminadas
             Object.keys(textosModificados).forEach(id => {
+                // No añadir si fue eliminada
+                if (fueEliminada(id)) {
+                    console.log('🚫 Omitiendo empresa eliminada desde textos_modificados (ID:', id, ')');
+                    return;
+                }
+                
                 const existeEnReuniones = appData.reuniones.find(item => String(item.id) === String(id));
                 const existeEnAdicional = appData.adicional.find(item => String(item.id) === String(id));
                 
@@ -1355,31 +1384,28 @@
             // Aplicar seguimiento de localStorage (por si acaso hay diferencias)
             const seguimientoData = JSON.parse(localStorage.getItem('seguimiento_v2_automechanika') || '{}');
             appData.reuniones.forEach(item => {
-                if (seguimientoData[item.id]) {
+                if (seguimientoData[item.id] && !fueEliminada(item.id)) {
                     item.seguimiento = seguimientoData[item.id];
                 }
             });
             appData.adicional.forEach(item => {
-                if (seguimientoData[item.id]) {
+                if (seguimientoData[item.id] && !fueEliminada(item.id)) {
                     item.seguimiento = seguimientoData[item.id];
                 }
             });
             
-            // Eliminar empresas que fueron borradas
-            const empresasEliminadas = JSON.parse(localStorage.getItem('empresas_eliminadas_automechanika') || '{}');
+            // Filtrado final adicional por seguridad (aunque ya se filtró arriba)
             if (empresasEliminadas.reuniones && empresasEliminadas.reuniones.length > 0) {
-                console.log('🗑️ Filtrando', empresasEliminadas.reuniones.length, 'reuniones eliminadas');
-                appData.reuniones = appData.reuniones.filter(item => {
-                    const itemId = String(item.id);
-                    return !empresasEliminadas.reuniones.includes(itemId) && !empresasEliminadas.reuniones.includes(item.id);
-                });
+                console.log('🗑️ Filtrado final - Eliminando', empresasEliminadas.reuniones.length, 'reuniones eliminadas');
+                const antes = appData.reuniones.length;
+                appData.reuniones = appData.reuniones.filter(item => !fueEliminada(item.id));
+                console.log('🗑️ Reuniones antes:', antes, 'después:', appData.reuniones.length);
             }
             if (empresasEliminadas.adicional && empresasEliminadas.adicional.length > 0) {
-                console.log('🗑️ Filtrando', empresasEliminadas.adicional.length, 'empresas adicionales eliminadas');
-                appData.adicional = appData.adicional.filter(item => {
-                    const itemId = String(item.id);
-                    return !empresasEliminadas.adicional.includes(itemId) && !empresasEliminadas.adicional.includes(item.id);
-                });
+                console.log('🗑️ Filtrado final - Eliminando', empresasEliminadas.adicional.length, 'empresas adicionales eliminadas');
+                const antes = appData.adicional.length;
+                appData.adicional = appData.adicional.filter(item => !fueEliminada(item.id));
+                console.log('🗑️ Adicional antes:', antes, 'después:', appData.adicional.length);
             }
             
             console.log('✅ Datos procesados - Reuniones:', appData.reuniones.length, 'Adicional:', appData.adicional.length);
@@ -3048,6 +3074,25 @@ Sistema de Seguimiento Automechanika`;
                 
                 console.log('✅ Datos exportados correctamente');
                 
+                // Limpiar lista de empresas eliminadas ya que están eliminadas del JSON exportado
+                // IMPORTANTE: El usuario debe reemplazar datos.json con el archivo exportado para que sea permanente
+                let empresasEliminadasCount = 0;
+                if (empresasEliminadas.reuniones && empresasEliminadas.reuniones.length > 0) {
+                    empresasEliminadasCount += empresasEliminadas.reuniones.length;
+                    console.log('🧹 Limpiando', empresasEliminadas.reuniones.length, 'reuniones eliminadas de la lista');
+                    empresasEliminadas.reuniones = [];
+                }
+                if (empresasEliminadas.adicional && empresasEliminadas.adicional.length > 0) {
+                    empresasEliminadasCount += empresasEliminadas.adicional.length;
+                    console.log('🧹 Limpiando', empresasEliminadas.adicional.length, 'empresas adicionales eliminadas de la lista');
+                    empresasEliminadas.adicional = [];
+                }
+                
+                if (empresasEliminadasCount > 0) {
+                    localStorage.setItem('empresas_eliminadas_automechanika', JSON.stringify(empresasEliminadas));
+                    console.log('✅ Lista de empresas eliminadas limpiada. Total eliminadas:', empresasEliminadasCount);
+                }
+                
                 // Restaurar botón (en un try-catch separado para no afectar el éxito)
                 try {
                     if (button) {
@@ -3063,7 +3108,7 @@ Sistema de Seguimiento Automechanika`;
                 
                 // Mostrar instrucciones (en un try-catch separado)
                 try {
-                    alert('✅ Archivo datos.json descargado\n\n📤 AHORA:\n\n1. Ve a GitHub\n2. Sube este archivo (reemplaza el anterior)\n3. Commit: "Datos actualizados"\n4. Comparte el enlace con tu equipo\n\n¡Todos verán tu información actualizada!');
+                    alert('✅ Archivo datos.json descargado\n\n📤 IMPORTANTE:\n\n1. Reemplaza el archivo datos.json en la raíz del proyecto con este archivo descargado\n2. Las empresas eliminadas ya NO aparecerán en el JSON\n3. La lista de eliminadas se ha limpiado\n\n⚠️ Si no reemplazas el archivo, las empresas eliminadas volverán a aparecer al recargar.');
                 } catch (alertError) {
                     console.warn('⚠️ Error mostrando alert (no crítico):', alertError);
                 }
