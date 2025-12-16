@@ -1,0 +1,3039 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Seguimiento Automechanika v2.0 - Lizarte</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 15px;
+            color: #2d3748;
+        }
+        
+        .header {
+            background: white;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .logo {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 12px;
+            background: linear-gradient(135deg, #c026d3 0%, #9333ea 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+        }
+        
+        h1 {
+            font-size: 20px;
+            color: #2d3748;
+            margin-bottom: 5px;
+        }
+        
+        .subtitle {
+            color: #718096;
+            font-size: 13px;
+        }
+        
+        .version-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            margin-top: 8px;
+            font-weight: 600;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .stat-label {
+            font-size: 10px;
+            color: #718096;
+            margin-top: 5px;
+            text-transform: uppercase;
+        }
+        
+        .tabs {
+            background: white;
+            border-radius: 12px;
+            padding: 5px;
+            display: flex;
+            gap: 5px;
+            margin-bottom: 20px;
+            overflow-x: auto;
+        }
+        
+        .tab {
+            flex: 1;
+            min-width: 120px;
+            padding: 10px;
+            border: none;
+            background: transparent;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+        
+        .tab.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .filters {
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .filter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+        }
+        
+        .filter-item label {
+            display: block;
+            font-size: 11px;
+            font-weight: 600;
+            color: #4a5568;
+            margin-bottom: 5px;
+        }
+        
+        .filter-item input,
+        .filter-item select {
+            width: 100%;
+            padding: 8px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 13px;
+        }
+        
+        .content-section {
+            display: none;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        .items-container {
+            display: grid;
+            gap: 15px;
+        }
+        
+        .item-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .item-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 15px;
+            color: white;
+        }
+        
+        .item-company {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .item-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 12px;
+            opacity: 0.95;
+        }
+        
+        .item-body {
+            padding: 15px;
+        }
+        
+        .fotos-section {
+            margin-bottom: 15px;
+        }
+        
+        .fotos-section-title {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #2d3748;
+        }
+        
+        .fotos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+        
+        .foto-item {
+            position: relative;
+        }
+        
+        .foto-thumb {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        
+        .foto-delete {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            background: #ef4444;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .add-foto-btn {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 12px;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+        
+        .seguimiento-box {
+            background: #f7fafc;
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 15px;
+        }
+        
+        .seguimiento-title {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #2d3748;
+        }
+        
+        .form-group {
+            margin-bottom: 10px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-size: 11px;
+            font-weight: 600;
+            color: #64748b;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 6px 10px;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 13px;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #a855f7;
+            box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.1);
+        }
+        
+        .form-group textarea {
+            min-height: 40px;
+            resize: vertical;
+            overflow-y: auto;
+            max-height: 400px;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 8px;
+            align-items: end;
+        }
+        
+        .btn-notify {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 8px;
+            font-size: 12px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        
+        .estado-selector {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        
+        .estado-option {
+            position: relative;
+        }
+        
+        .estado-option input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+        }
+        
+        .estado-option label {
+            display: block;
+            padding: 10px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .estado-option input:checked + label {
+            border-color: #667eea;
+            background: #f0f4ff;
+            color: #667eea;
+        }
+        
+        .estado-pendiente label { color: #6b7280; }
+        .estado-contactado label { color: #f59e0b; }
+        .estado-proceso label { color: #3b82f6; }
+        .estado-finalizado label { color: #10b981; }
+        
+        .estado-pendiente input:checked + label { border-color: #6b7280; background: #f3f4f6; color: #6b7280; }
+        .estado-contactado input:checked + label { border-color: #f59e0b; background: #fffbeb; color: #f59e0b; }
+        .estado-proceso input:checked + label { border-color: #3b82f6; background: #eff6ff; color: #3b82f6; }
+        .estado-finalizado input:checked + label { border-color: #10b981; background: #f0fdf4; color: #10b981; }
+        
+        .acciones-list {
+            margin-bottom: 12px;
+        }
+        
+        .accion-item {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 8px;
+            margin-bottom: 8px;
+            align-items: start;
+        }
+        
+        .accion-item textarea {
+            min-height: 40px;
+        }
+        
+        .btn-delete-accion {
+            background: #ef4444;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        
+        .btn-add-accion {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 12px;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        .priority-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 10px;
+            font-weight: 600;
+        }
+        
+        /* Prioridad 0: MUY IMPORTANTE - Rosa magenta */
+        .priority-0 {
+            background: #fce7f3;
+            color: #be185d;
+        }
+        
+        /* Prioridad 1: ALTA - Verde */
+        .priority-1 {
+            background: #dcfce7;
+            color: #166534;
+        }
+        
+        /* Prioridad 2: MEDIA - Amarillo */
+        .priority-2 {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        /* Prioridad 3: BAJA - Naranja */
+        .priority-3 {
+            background: #ffedd5;
+            color: #c2410c;
+        }
+        
+        /* Estilos antiguos por compatibilidad */
+        .priority-critica {
+            background: #fce7f3;
+            color: #be185d;
+        }
+        
+        .priority-alta {
+            background: #dcfce7;
+            color: #166534;
+        }
+        
+        .priority-media {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .priority-baja {
+            background: #ffedd5;
+            color: #c2410c;
+        }
+        
+        .depto-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+        
+        .depto-innovacion {
+            background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+            color: white;
+            box-shadow: 0 2px 8px rgba(236, 72, 153, 0.3);
+        }
+        
+        .depto-lizarte {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+        }
+        
+        .config-section {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+        
+        .config-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #2d3748;
+        }
+        
+        .config-group {
+            margin-bottom: 20px;
+        }
+        
+        .config-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #4a5568;
+            margin-bottom: 8px;
+        }
+        
+        .config-group input,
+        .config-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+        
+        .config-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .btn-save-config {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        .btn-export {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal.show {
+            display: flex;
+        }
+        
+        /* Botón flotante de exportación */
+        .btn-float-export {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+        
+        .btn-float-export:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(16, 185, 129, 0.6);
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+        }
+        
+        .btn-float-export:active {
+            transform: translateY(0);
+        }
+        
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 35px;
+            cursor: pointer;
+            background: rgba(0,0,0,0.5);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .save-indicator {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #10b981;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 900;
+        }
+        
+        .save-indicator.show {
+            opacity: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .filter-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .fotos-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .estado-selector {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* ========== SPLASH SCREEN STYLES ========== */
+        
+        #splashScreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 50%, #16213e 100%);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            animation: splashFadeIn 0.5s ease-out;
+        }
+        
+        #splashScreen.fade-out {
+            animation: splashFadeOut 1s ease-out forwards;
+        }
+        
+        .splash-bg-map {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120%;
+            height: 120%;
+            opacity: 0.15;
+            filter: blur(1px);
+        }
+        
+        .splash-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: white;
+            border-radius: 50%;
+            animation: particleFloat 8s infinite;
+            opacity: 0;
+        }
+        
+        .splash-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            padding: 40px;
+        }
+        
+        .splash-route {
+            margin-bottom: 60px;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.5s forwards;
+        }
+        
+        .route-point {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .route-line {
+            width: 2px;
+            height: 60px;
+            background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+            margin: 10px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .route-line::after {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, white, transparent);
+            animation: routeFlow 2s ease-out 0.8s forwards;
+        }
+        
+        .plane-icon {
+            font-size: 32px;
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%) rotate(180deg);
+            animation: planeMove 2s ease-out 0.8s forwards;
+        }
+        
+        .splash-stats {
+            margin: 50px 0;
+            opacity: 0;
+            animation: fadeInScale 0.8s ease-out 3s forwards;
+        }
+        
+        .stat-item {
+            margin: 25px 0;
+            padding: 20px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 15px;
+            border: 2px solid rgba(59, 130, 246, 0.3);
+            transition: all 0.3s;
+        }
+        
+        .stat-item:hover {
+            border-color: rgba(59, 130, 246, 0.6);
+            transform: scale(1.02);
+        }
+        
+        .stat-number {
+            font-size: 48px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+            text-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+            margin-right: 15px;
+        }
+        
+        .stat-number.glow {
+            animation: numberGlow 0.5s ease-out;
+        }
+        
+        .stat-label {
+            font-size: 16px;
+            color: #cbd5e1;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .splash-message {
+            margin: 50px 0;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 6s forwards;
+        }
+        
+        .splash-title {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #60a5fa, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 40px rgba(96, 165, 250, 0.3);
+        }
+        
+        .splash-subtitle {
+            font-size: 24px;
+            color: #cbd5e1;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .splash-date {
+            font-size: 18px;
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+        
+        .splash-divider {
+            width: 300px;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #3b82f6, transparent);
+            margin: 20px auto;
+        }
+        
+        .splash-credit {
+            font-size: 14px;
+            color: #64748b;
+            margin-top: 20px;
+        }
+        
+        .splash-button {
+            opacity: 0;
+            animation: fadeInScale 0.8s ease-out 9s forwards;
+        }
+        
+        .btn-access {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            color: white;
+            border: none;
+            padding: 18px 50px;
+            font-size: 18px;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 40px rgba(59, 130, 246, 0.4);
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-access::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .btn-access:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .btn-access:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 60px rgba(59, 130, 246, 0.6);
+        }
+        
+        .btn-access:active {
+            transform: scale(0.98);
+        }
+        
+        .splash-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+        
+        .splash-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: rotate(90deg);
+        }
+        
+        /* ========== ANIMATIONS ========== */
+        
+        @keyframes splashFadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes splashFadeOut {
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes routeFlow {
+            to {
+                top: 100%;
+            }
+        }
+        
+        @keyframes planeMove {
+            to {
+                top: 100%;
+            }
+        }
+        
+        @keyframes particleFloat {
+            0% {
+                opacity: 0;
+                transform: translateY(100vh) translateX(0);
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100px) translateX(50px);
+            }
+        }
+        
+        @keyframes numberGlow {
+            0%, 100% {
+                text-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+            }
+            50% {
+                text-shadow: 0 0 60px rgba(59, 130, 246, 1), 0 0 90px rgba(139, 92, 246, 0.8);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ========== SPLASH SCREEN ========== -->
+    <div id="splashScreen" style="display: none;">
+        <!-- Botón cerrar -->
+        <div class="splash-close" onclick="closeSplash()">✕</div>
+        
+        <!-- Mapa de fondo -->
+        <div class="splash-bg-map">
+            <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                <!-- Mapa simplificado de China con líneas -->
+                <path d="M 400 100 L 600 150 L 650 300 L 600 450 L 400 500 L 200 450 L 150 300 L 200 150 Z" 
+                      fill="none" 
+                      stroke="url(#mapGradient)" 
+                      stroke-width="2" 
+                      opacity="0.6"/>
+                <!-- Cuadrícula -->
+                <line x1="0" y1="150" x2="800" y2="150" stroke="rgba(59, 130, 246, 0.2)" stroke-width="1"/>
+                <line x1="0" y1="300" x2="800" y2="300" stroke="rgba(59, 130, 246, 0.2)" stroke-width="1"/>
+                <line x1="0" y1="450" x2="800" y2="450" stroke="rgba(59, 130, 246, 0.2)" stroke-width="1"/>
+                <line x1="200" y1="0" x2="200" y2="600" stroke="rgba(59, 130, 246, 0.2)" stroke-width="1"/>
+                <line x1="400" y1="0" x2="400" y2="600" stroke="rgba(59, 130, 246, 0.2)" stroke-width="1"/>
+                <line x1="600" y1="0" x2="600" y2="600" stroke="rgba(59, 130, 246, 0.2)" stroke-width="1"/>
+                <!-- Definiciones de gradientes -->
+                <defs>
+                    <linearGradient id="mapGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+                        <stop offset="50%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+        
+        <!-- Partículas -->
+        <div class="splash-particles" id="particlesContainer"></div>
+        
+        <!-- Contenido principal -->
+        <div class="splash-content">
+            <!-- FASE 1: Ruta animada (0-3 seg) -->
+            <div class="splash-route" id="splashRoute">
+                <div class="route-point">📍 PAMPLONA, ESPAÑA</div>
+                <div class="route-line" style="position: relative;">
+                    <div class="plane-icon">✈️</div>
+                </div>
+                <div class="route-point">📍 SHANGHAI, CHINA</div>
+            </div>
+            
+            <!-- FASE 2: Estadísticas (3-6 seg) -->
+            <div class="splash-stats" id="splashStats">
+                <div class="stat-item">
+                    <span class="stat-number" id="stat1">0</span>
+                    <span class="stat-label">🏢 Empresas Priorizadas Contactadas</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="stat2">0</span>
+                    <span class="stat-label">🤝 Reuniones Estratégicas</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="stat3">0</span>
+                    <span class="stat-label">📷 Registros Visuales</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="stat4">0</span>
+                    <span class="stat-label">⭐ Oportunidades Innovación</span>
+                </div>
+            </div>
+            
+            <!-- FASE 3: Mensaje (6-9 seg) -->
+            <div class="splash-message" id="splashMessage">
+                <div class="splash-title">MISIÓN COMPLETADA</div>
+                <div class="splash-title" style="font-size: 36px; margin-top: 10px;">KRUM KOVACHEV</div>
+                <div class="splash-subtitle">AUTOMECHANIKA SHANGHAI 2025</div>
+                <div class="splash-date">19 Nov - 6 Dic</div>
+                <div class="splash-divider"></div>
+                <div class="splash-credit">Lizarte • Sistema de Gestión</div>
+            </div>
+            
+            <!-- FASE 4: Botón (9-12 seg) -->
+            <div class="splash-button">
+                <button class="btn-access" onclick="closeSplash()">
+                    <span style="position: relative; z-index: 1;">🚀 ACCEDER AL SISTEMA</span>
+                </button>
+                <div class="splash-credit" style="margin-top: 20px;">V12 by Krum Kovachev</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Botón flotante de exportación -->
+    <button class="btn-float-export" onclick="exportarDatosActualizados(event)" title="Exportar todos los datos actualizados">
+        📤 EXPORTAR
+    </button>
+    
+    <!-- Modal para seleccionar dónde añadir empresa -->
+    <div id="addEmpresaModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 10000; justify-content: center; align-items: center;">
+        <div style="background: white; border-radius: 16px; padding: 30px; width: 90%; max-width: 400px; box-shadow: 0 10px 40px rgba(0,0,0,0.3);">
+            <h2 style="margin: 0 0 20px 0; color: #1e293b; font-size: 20px;">¿Dónde añadir la empresa?</h2>
+            <div style="display: grid; gap: 12px;">
+                <button onclick="addNewReunion();" style="background: linear-gradient(135deg, #a855f7 0%, #9333ea 100%); color: white; border: none; padding: 16px; border-radius: 10px; font-weight: 600; cursor: pointer; font-size: 15px; box-shadow: 0 2px 8px rgba(168, 85, 247, 0.3);">
+                    🤝 Reuniones
+                </button>
+                <button onclick="addNewAdicional();" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; border: none; padding: 16px; border-radius: 10px; font-weight: 600; cursor: pointer; font-size: 15px; box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);">
+                    📋 Info Adicional
+                </button>
+                <button onclick="hideAddEmpresaModal();" style="background: #e5e7eb; color: #64748b; border: none; padding: 16px; border-radius: 10px; font-weight: 600; cursor: pointer; font-size: 15px;">
+                    Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="header">
+        <div class="logo">🚗</div>
+        <h1>Seguimiento Automechanika Shanghai 2025</h1>
+        <div class="subtitle">Lizarte - Sistema de Gestión de Contactos</div>
+        <div class="version-badge">V12 by Krum Kovachev</div>
+    </div>
+    
+    <div class="stats">
+        <div class="stat-card">
+            <div class="stat-value" id="statTotal">0</div>
+            <div class="stat-label">Total</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="statPendientes">0</div>
+            <div class="stat-label">Pendientes</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="statContactados">0</div>
+            <div class="stat-label">Contactados</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="statProceso">0</div>
+            <div class="stat-label">En Proceso</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="statFinalizados">0</div>
+            <div class="stat-label">Finalizados</div>
+        </div>
+    </div>
+    
+    <!-- Botón único para añadir empresa -->
+    <div style="text-align: right; margin: 15px 0;">
+        <button onclick="showAddEmpresaModal()" style="background: linear-gradient(135deg, #a855f7 0%, #9333ea 100%); color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; cursor: pointer; box-shadow: 0 2px 8px rgba(168, 85, 247, 0.3); font-size: 14px;">
+            ➕ Añadir Nueva Empresa
+        </button>
+    </div>
+    
+    <div class="tabs">
+        <button class="tab active" onclick="switchTab('reuniones')">🤝 Reuniones (25)</button>
+        <button class="tab" onclick="switchTab('adicional')">📋 Info Adicional (11)</button>
+        <button class="tab" onclick="switchTab('config')">⚙️ Configuración</button>
+    </div>
+    
+    <div class="filters">
+        <div class="filter-grid">
+            <div class="filter-item">
+                <label>🔍 Buscar</label>
+                <input type="text" id="searchInput" placeholder="Empresa..." oninput="applyFilters()">
+            </div>
+            <div class="filter-item">
+                <label>🏢 Departamento</label>
+                <select id="filterDepartamento" onchange="applyFilters()">
+                    <option value="">Todos</option>
+                    <option value="Lizarte">🔵 Lizarte</option>
+                    <option value="Innovación">⭐ Innovación</option>
+                </select>
+            </div>
+            <div class="filter-item">
+                <label>👤 Responsable</label>
+                <select id="filterResponsable" onchange="applyFilters()">
+                    <option value="">Todos</option>
+                </select>
+            </div>
+            <div class="filter-item">
+                <label>📊 Estado</label>
+                <select id="filterEstado" onchange="applyFilters()">
+                    <option value="">Todos</option>
+                    <option value="pendiente">Pendiente</option>
+                    <option value="contactado">Contactado</option>
+                    <option value="proceso">En Proceso</option>
+                    <option value="finalizado">Finalizado</option>
+                </select>
+            </div>
+            <div class="filter-item">
+                <label>⭐ Prioridad</label>
+                <select id="filterPrioridad" onchange="applyFilters()">
+                    <option value="">Todas</option>
+                    <option value="0">🔴 0 - Muy Importante</option>
+                    <option value="1">🟢 1 - Alta</option>
+                    <option value="2">🟡 2 - Media</option>
+                    <option value="3">🟠 3 - Baja</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    <div id="reunionesSection" class="content-section active">
+        <div id="reunionesContainer" class="items-container"></div>
+    </div>
+    
+    <div id="adicionalSection" class="content-section">
+        <div id="adicionalContainer" class="items-container"></div>
+    </div>
+    
+    <div id="configSection" class="content-section">
+        <div class="config-section">
+            <div class="config-title">⚙️ Configuración General</div>
+            
+            <div class="config-group">
+                <label>Título Principal</label>
+                <input type="text" id="configTitulo" value="Seguimiento Automechanika Shanghai 2025">
+            </div>
+            
+            <div class="config-group">
+                <label>Subtítulo</label>
+                <input type="text" id="configSubtitulo" value="Lizarte - Sistema de Gestión de Contactos">
+            </div>
+            
+            <div class="config-group">
+                <label>Miembros del Equipo (separados por comas)</label>
+                <textarea id="configEquipo">Krum Kovachev, Equipo Técnico, Equipo Comercial, Dirección, Sin asignar</textarea>
+            </div>
+            
+            <div class="config-group">
+                <label>Notas Generales del Proyecto</label>
+                <textarea id="configNotas" placeholder="Añade notas generales sobre la feria, objetivos, conclusiones..."></textarea>
+            </div>
+            
+            <button class="btn-save-config" onclick="saveConfig()">💾 Guardar Configuración</button>
+        </div>
+    </div>
+    
+    <button class="btn-export" onclick="exportarInforme()">
+        📊 Exportar Informe Completo
+    </button>
+    
+    <div id="photoModal" class="modal" onclick="closeModal()">
+        <span class="modal-close">&times;</span>
+        <img id="modalImage" class="modal-content">
+    </div>
+    
+    <div id="saveIndicator" class="save-indicator">✓ Guardado</div>
+    
+    <input type="file" id="fileInput" accept="image/*" multiple style="display: none;" onchange="handleFileUpload(event)">
+    
+    <script>
+        let appData = null;
+        let equipoLizarte = [];
+        let currentUploadTarget = null;
+        let appConfig = {
+            titulo: 'Seguimiento Automechanika Shanghai 2025',
+            subtitulo: 'Lizarte - Sistema de Gestión de Contactos',
+            equipo: 'Krum Kovachev, Equipo Técnico, Equipo Comercial, Dirección, Sin asignar',
+            notas: ''
+        };
+        
+        async function loadData() {
+            const response = await fetch('datos.json');
+            appData = await response.json();
+            
+            // Inicializar campos si no existen en el JSON
+            appData.reuniones.forEach(item => {
+                if (!item.seguimiento) {
+                    item.seguimiento = {
+                        responsable: '',
+                        email: '',
+                        estado: 'pendiente',
+                        acciones: [],
+                        fecha_contacto: '',
+                        notas: ''
+                    };
+                }
+                if (!item.seguimiento.acciones) item.seguimiento.acciones = [];
+                if (!item.seguimiento.estado) item.seguimiento.estado = 'pendiente';
+                if (!item.fotos || !Array.isArray(item.fotos)) item.fotos = [];
+                if (!item.fotos_extra) item.fotos_extra = [];
+                if (!item.documentos) item.documentos = [];
+            });
+            
+            appData.adicional.forEach(item => {
+                if (!item.seguimiento) {
+                    item.seguimiento = {
+                        responsable: '',
+                        email: '',
+                        estado: 'pendiente',
+                        acciones: [],
+                        fecha_contacto: '',
+                        notas: ''
+                    };
+                }
+                if (!item.seguimiento.acciones) item.seguimiento.acciones = [];
+                if (!item.seguimiento.estado) item.seguimiento.estado = 'pendiente';
+                if (!item.fotos || !Array.isArray(item.fotos)) item.fotos = [];
+                if (!item.fotos_extra) item.fotos_extra = [];
+                if (!item.documentos) item.documentos = [];
+            });
+            
+            loadConfig();
+            // NO llamamos a loadSeguimiento() ni loadDocumentos() porque el JSON ya tiene todo
+            populateResponsableFilter();
+            renderAll();
+            updateStats();
+            setTimeout(() => addAutoResizeToAllTextareas(), 100);
+        }
+        
+        function convertAirtableToAppData(records) {
+            appData = { reuniones: [], adicional: [] };
+            
+            records.forEach(record => {
+                const fields = record.fields;
+                
+                // Guardar mapeo ID -> Airtable Record ID
+                if (fields.ID) {
+                    airtableRecords[fields.ID] = record.id;
+                }
+                
+                if (fields.Tipo === 'Reunión') {
+                    appData.reuniones.push({
+                        id: fields.ID || record.id,
+                        company: fields.Empresa || '',
+                        person: fields.Persona || '',
+                        product: fields.Producto || '',
+                        time: fields.Hora || '',
+                        stand: fields.Stand || '',
+                        comments: fields.Notas || '',
+                        departamento: fields.Departamento || 'Lizarte',
+                        fotos: [],
+                        fotos_extra: [],
+                        seguimiento: {
+                            responsable: fields.Responsable || '',
+                            email: fields.Email || '',
+                            estado: fields.Estado || 'pendiente',
+                            acciones: fields.Acciones ? fields.Acciones.split('\n').filter(a => a.trim()) : [],
+                            fechaSeguimiento: fields.Fecha_Seguimiento || ''
+                        }
+                    });
+                } else if (fields.Tipo === 'Info Adicional') {
+                    appData.adicional.push({
+                        id: fields.ID || record.id,
+                        empresa: fields.Empresa || '',
+                        producto: fields.Producto || '',
+                        prioridad: fields.Prioridad || 'media',
+                        notas: fields.Notas || '',
+                        oportunidad: fields.Oportunidad || '',
+                        departamento: fields.Departamento || 'Lizarte',
+                        fotos: [],
+                        fotos_extra: [],
+                        seguimiento: {
+                            responsable: fields.Responsable || '',
+                            email: fields.Email || '',
+                            estado: fields.Estado || 'pendiente',
+                            acciones: fields.Acciones ? fields.Acciones.split('\n').filter(a => a.trim()) : [],
+                            fechaSeguimiento: fields.Fecha_Seguimiento || ''
+                        }
+                    });
+                }
+            });
+            
+            // Guardar mapeo actualizado
+            localStorage.setItem('airtable_records_map', JSON.stringify(airtableRecords));
+        }
+        
+        
+        function loadConfig() {
+            const saved = localStorage.getItem('config_automechanika');
+            if (saved) {
+                appConfig = JSON.parse(saved);
+                document.getElementById('configTitulo').value = appConfig.titulo;
+                document.getElementById('configSubtitulo').value = appConfig.subtitulo;
+                document.getElementById('configEquipo').value = appConfig.equipo;
+                document.getElementById('configNotas').value = appConfig.notas || '';
+                
+                document.querySelector('h1').textContent = appConfig.titulo;
+                document.querySelector('.subtitle').textContent = appConfig.subtitulo;
+            }
+            
+            equipoLizarte = appConfig.equipo.split(',').map(e => e.trim());
+        }
+        
+        function saveConfig() {
+            appConfig.titulo = document.getElementById('configTitulo').value;
+            appConfig.subtitulo = document.getElementById('configSubtitulo').value;
+            appConfig.equipo = document.getElementById('configEquipo').value;
+            appConfig.notas = document.getElementById('configNotas').value;
+            
+            localStorage.setItem('config_automechanika', JSON.stringify(appConfig));
+            
+            document.querySelector('h1').textContent = appConfig.titulo;
+            document.querySelector('.subtitle').textContent = appConfig.subtitulo;
+            
+            equipoLizarte = appConfig.equipo.split(',').map(e => e.trim());
+            populateResponsableFilter();
+            renderAll();
+            
+            showSaveIndicator();
+            alert('✅ Configuración guardada');
+        }
+        
+        function loadSeguimiento() {
+            const saved = localStorage.getItem('seguimiento_v2_automechanika');
+            if (saved) {
+                const seguimientoData = JSON.parse(saved);
+                
+                appData.reuniones.forEach(item => {
+                    if (seguimientoData[item.id]) {
+                        item.seguimiento = seguimientoData[item.id];
+                        if (!item.seguimiento.acciones) item.seguimiento.acciones = [];
+                        if (!item.seguimiento.estado) item.seguimiento.estado = 'pendiente';
+                        if (!item.seguimiento.email) item.seguimiento.email = '';
+                        if (!item.fotos_extra) item.fotos_extra = [];
+                    }
+                });
+                
+                appData.adicional.forEach(item => {
+                    if (seguimientoData[item.id]) {
+                        item.seguimiento = seguimientoData[item.id];
+                        if (!item.seguimiento.acciones) item.seguimiento.acciones = [];
+                        if (!item.seguimiento.estado) item.seguimiento.estado = 'pendiente';
+                        if (!item.seguimiento.email) item.seguimiento.email = '';
+                    }
+                });
+            }
+            
+            // Cargar fotos borradas
+            const deletedPhotos = localStorage.getItem('deleted_photos_automechanika');
+            if (deletedPhotos) {
+                const deletedList = JSON.parse(deletedPhotos);
+                appData.reuniones.forEach(item => {
+                    const itemDeleted = deletedList[item.id];
+                    if (itemDeleted && itemDeleted.length > 0) {
+                        // Filtrar fotos borradas
+                        if (!item.fotos || !Array.isArray(item.fotos)) item.fotos = [];
+                        item.fotos = item.fotos.filter((foto, idx) => !itemDeleted.includes(idx));
+                    }
+                });
+            }
+            
+            // Cargar fotos extra
+            const fotosExtra = localStorage.getItem('fotos_extra_automechanika');
+            if (fotosExtra) {
+                const fotosExtraData = JSON.parse(fotosExtra);
+                appData.reuniones.forEach(item => {
+                    if (fotosExtraData[item.id]) {
+                        item.fotos_extra = fotosExtraData[item.id];
+                    }
+                });
+            }
+            
+            // Cargar textos modificados
+            const textosModificados = localStorage.getItem('textos_modificados_automechanika');
+            if (textosModificados) {
+                const textosData = JSON.parse(textosModificados);
+                appData.reuniones.forEach(item => {
+                    if (textosData[item.id]) {
+                        Object.keys(textosData[item.id]).forEach(field => {
+                            item[field] = textosData[item.id][field];
+                        });
+                    }
+                });
+                appData.adicional.forEach(item => {
+                    if (textosData[item.id]) {
+                        Object.keys(textosData[item.id]).forEach(field => {
+                            item[field] = textosData[item.id][field];
+                        });
+                    }
+                });
+            }
+            
+            // Inicializar campos nuevos
+            appData.reuniones.forEach(item => {
+                if (!item.seguimiento.acciones) item.seguimiento.acciones = [];
+                if (!item.seguimiento.estado) item.seguimiento.estado = 'pendiente';
+                if (!item.seguimiento.email) item.seguimiento.email = '';
+                if (!item.fotos_extra) item.fotos_extra = [];
+            });
+            
+            appData.adicional.forEach(item => {
+                if (!item.seguimiento.acciones) item.seguimiento.acciones = [];
+                if (!item.seguimiento.estado) item.seguimiento.estado = 'pendiente';
+                if (!item.seguimiento.email) item.seguimiento.email = '';
+                if (!item.fotos) item.fotos = [];
+                if (!item.fotos_extra) item.fotos_extra = [];
+            });
+        }
+        
+        function saveSeguimiento() {
+            const seguimientoData = {};
+            
+            appData.reuniones.forEach(item => {
+                seguimientoData[item.id] = item.seguimiento;
+            });
+            
+            appData.adicional.forEach(item => {
+                seguimientoData[item.id] = item.seguimiento;
+            });
+            
+            localStorage.setItem('seguimiento_v2_automechanika', JSON.stringify(seguimientoData));
+            
+            // Guardar fotos extra
+            const fotosExtra = {};
+            appData.reuniones.forEach(item => {
+                if (item.fotos_extra && item.fotos_extra.length > 0) {
+                    fotosExtra[item.id] = item.fotos_extra;
+                }
+            });
+            localStorage.setItem('fotos_extra_automechanika', JSON.stringify(fotosExtra));
+            
+            showSaveIndicator();
+            updateStats();
+        }
+        
+        function showSaveIndicator() {
+            const indicator = document.getElementById('saveIndicator');
+            indicator.classList.add('show');
+            setTimeout(() => indicator.classList.remove('show'), 2000);
+        }
+        
+        function updateStats() {
+            const allItems = [...appData.reuniones, ...appData.adicional];
+            const total = allItems.length;
+            const pendientes = allItems.filter(i => i.seguimiento.estado === 'pendiente').length;
+            const contactados = allItems.filter(i => i.seguimiento.estado === 'contactado').length;
+            const proceso = allItems.filter(i => i.seguimiento.estado === 'proceso').length;
+            const finalizados = allItems.filter(i => i.seguimiento.estado === 'finalizado').length;
+            
+            document.getElementById('statTotal').textContent = total;
+            document.getElementById('statPendientes').textContent = pendientes;
+            document.getElementById('statContactados').textContent = contactados;
+            document.getElementById('statProceso').textContent = proceso;
+            document.getElementById('statFinalizados').textContent = finalizados;
+        }
+        
+        function populateResponsableFilter() {
+            const select = document.getElementById('filterResponsable');
+            select.innerHTML = '<option value="">Todos</option>';
+            equipoLizarte.forEach(nombre => {
+                const option = document.createElement('option');
+                option.value = nombre;
+                option.textContent = nombre;
+                select.appendChild(option);
+            });
+        }
+        
+        function switchTab(tab) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+            
+            // Activar pestaña por nombre
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(t => {
+                if (t.textContent.toLowerCase().includes(tab)) {
+                    t.classList.add('active');
+                }
+            });
+            
+            document.getElementById(tab + 'Section').classList.add('active');
+        }
+        
+        function getPrioridadTexto(prioridad) {
+            if (prioridad === 0) return 'MUY IMPORTANTE';
+            if (prioridad === 1) return 'ALTA';
+            if (prioridad === 2) return 'MEDIA';
+            if (prioridad === 3) return 'BAJA';
+            if (typeof prioridad === 'string') return prioridad.toUpperCase();
+            return 'N/A';
+        }
+        
+        
+        function saveData() {
+            // Guardar los datos de las nuevas empresas en localStorage
+            const textosData = JSON.parse(localStorage.getItem('textos_modificados_automechanika') || '{}');
+            
+            // Actualizar textos modificados con appData actual (ESTRUCTURA COMPLETA)
+            appData.reuniones.forEach(item => {
+                if (!textosData[item.id]) {
+                    textosData[item.id] = {};
+                }
+                // Guardar TODA la estructura completa del item
+                textosData[item.id] = {
+                    company: item.company || '',
+                    person: item.person || '',
+                    product: item.product || '',
+                    time: item.time || '',
+                    stand: item.stand || '',
+                    comments: item.comments || '',
+                    departamento: item.departamento || 'Lizarte',
+                    prioridad: item.prioridad !== undefined ? item.prioridad : 1,
+                    fotos: item.fotos || [],
+                    fotos_extra: item.fotos_extra || [],
+                    seguimiento: item.seguimiento || {
+                        responsable: "",
+                        contactado: false,
+                        respuestaRecibida: false,
+                        proximaAccion: "",
+                        fechaSeguimiento: "",
+                        acciones: [],
+                        estado: "pendiente",
+                        email: ""
+                    }
+                };
+            });
+            
+            appData.adicional.forEach(item => {
+                if (!textosData[item.id]) {
+                    textosData[item.id] = {};
+                }
+                // Guardar TODA la estructura completa del item
+                textosData[item.id] = {
+                    empresa: item.empresa || '',
+                    producto: item.producto || '',
+                    notas: item.notas || '',
+                    oportunidad: item.oportunidad || '',
+                    departamento: item.departamento || 'Lizarte',
+                    prioridad: item.prioridad !== undefined ? item.prioridad : 1,
+                    fotos: item.fotos || [],
+                    seguimiento: item.seguimiento || {
+                        responsable: "",
+                        contactado: false,
+                        respuestaRecibida: false,
+                        proximaAccion: "",
+                        fechaSeguimiento: "",
+                        acciones: [],
+                        estado: "pendiente"
+                    }
+                };
+            });
+            
+            localStorage.setItem('textos_modificados_automechanika', JSON.stringify(textosData));
+            console.log('💾 Datos guardados en localStorage (estructura completa con fotos)');
+        }
+        
+        function showAddEmpresaModal() {
+            document.getElementById('addEmpresaModal').style.display = 'flex';
+        }
+        
+        function hideAddEmpresaModal() {
+            document.getElementById('addEmpresaModal').style.display = 'none';
+        }
+        
+        function addNewReunion() {
+            try {
+                console.log('📝 Añadiendo nueva reunión...');
+                
+                // Cerrar modal primero
+                hideAddEmpresaModal();
+                
+                const newReunion = {
+                    company: "Nueva Empresa",
+                    person: "",
+                    product: "",
+                    time: "",
+                    stand: "",
+                    comments: "",
+                    id: Date.now(),
+                    fotos: [],
+                    seguimiento: {
+                        responsable: "",
+                        contactado: false,
+                        respuestaRecibida: false,
+                        proximaAccion: "",
+                        fechaSeguimiento: "",
+                        acciones: [],
+                        estado: "pendiente",
+                        email: ""
+                    },
+                    departamento: "Lizarte",
+                    prioridad: 1
+                };
+                
+                appData.reuniones.push(newReunion);
+                saveData();
+                
+                // Cambiar a pestaña reuniones
+                switchTab('reuniones');
+                
+                renderAll();
+                updateStats();
+                
+                setTimeout(() => {
+                    addAutoResizeToAllTextareas();
+                    // Scroll al final donde está la nueva empresa
+                    const container = document.getElementById('reunionesContainer');
+                    if (container && container.lastChild) {
+                        container.lastChild.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }, 100);
+                
+                console.log('✅ Reunión añadida');
+            } catch (error) {
+                console.error('❌ Error añadiendo reunión:', error);
+                alert('Error al añadir empresa. Por favor, revisa la consola (F12).');
+            }
+        }
+        
+        function addNewAdicional() {
+            try {
+                console.log('📝 Añadiendo nueva empresa en adicional...');
+                
+                // Cerrar modal primero
+                hideAddEmpresaModal();
+                
+                const newAdicional = {
+                    id: "add_" + Date.now(),
+                    empresa: "Nueva Empresa",
+                    producto: "",
+                    notas: "",
+                    oportunidad: "",
+                    prioridad: 1,
+                    seguimiento: {
+                        responsable: "",
+                        contactado: false,
+                        respuestaRecibida: false,
+                        proximaAccion: "",
+                        fechaSeguimiento: "",
+                        acciones: [],
+                        estado: "pendiente"
+                    },
+                    departamento: "Lizarte",
+                    fotos: []
+                };
+                
+                appData.adicional.push(newAdicional);
+                saveData();
+                
+                // Cambiar a pestaña adicional
+                switchTab('adicional');
+                
+                renderAll();
+                updateStats();
+                
+                setTimeout(() => {
+                    addAutoResizeToAllTextareas();
+                    // Scroll al final donde está la nueva empresa
+                    const container = document.getElementById('adicionalContainer');
+                    if (container && container.lastChild) {
+                        container.lastChild.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }, 100);
+                
+                console.log('✅ Empresa adicional añadida');
+            } catch (error) {
+                console.error('❌ Error añadiendo empresa adicional:', error);
+                alert('Error al añadir empresa. Por favor, revisa la consola (F12).');
+            }
+        }
+        
+        function deleteReunion(index) {
+            if (confirm('¿Estás seguro de que quieres eliminar esta empresa?')) {
+                appData.reuniones.splice(index, 1);
+                saveData();
+                renderAll();
+                updateStats();
+            }
+        }
+        
+        function deleteAdicional(index) {
+            if (confirm('¿Estás seguro de que quieres eliminar esta empresa?')) {
+                appData.adicional.splice(index, 1);
+                saveData();
+                renderAll();
+                updateStats();
+            }
+
+        function addFotos(type, index, files) {
+            const item = appData[type][index];
+            if (!item.fotos || !Array.isArray(item.fotos)) item.fotos = [];
+            
+            Array.from(files).forEach(file => {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const fotoName = `fotos/${type}_${item.company || item.empresa}_foto${item.fotos.length + 1}.jpg`;
+                    item.fotos.push(fotoName);
+                    saveData();
+                    renderAll();
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+        
+        function deleteFoto(type, index, fotoIndex) {
+            if (confirm('¿Eliminar esta foto?')) {
+                appData[type][index].fotos.splice(fotoIndex, 1);
+                saveData();
+                renderAll();
+            }
+        }
+
+        }
+
+        function renderAll() {
+            renderReuniones();
+            renderAdicional();
+            
+            // Aplicar auto-resize a todos los textareas después de renderizar
+            setTimeout(() => {
+                addAutoResizeToAllTextareas();
+            }, 50);
+        }
+        
+        function applyFilters() {
+            renderAll();
+        }
+        
+        function applyFiltersToData(items) {
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            const departamento = document.getElementById('filterDepartamento').value;
+            const responsable = document.getElementById('filterResponsable').value;
+            const estado = document.getElementById('filterEstado').value;
+            const prioridad = document.getElementById('filterPrioridad').value;
+            
+            return items.filter(item => {
+                const matchSearch = !search || 
+                    item.company?.toLowerCase().includes(search) ||
+                    item.empresa?.toLowerCase().includes(search) ||
+                    item.product?.toLowerCase().includes(search) ||
+                    item.producto?.toLowerCase().includes(search);
+                
+                const matchDepartamento = !departamento || (item.departamento || 'Lizarte') === departamento;
+                const matchResponsable = !responsable || item.seguimiento.responsable === responsable;
+                const matchEstado = !estado || item.seguimiento.estado === estado;
+                const matchPrioridad = !prioridad || item.prioridad === parseInt(prioridad);
+                
+                return matchSearch && matchDepartamento && matchResponsable && matchEstado && matchPrioridad;
+            });
+        }
+        
+        function renderReuniones() {
+            const container = document.getElementById('reunionesContainer');
+            const filtered = applyFiltersToData(appData.reuniones);
+            
+            container.innerHTML = filtered.map((item, idx) => {
+                const realIdx = appData.reuniones.indexOf(item);
+                const allFotos = [...(Array.isArray(item.fotos) ? item.fotos : []), ...(item.fotos_extra || [])];
+                
+                return `
+                <div class="item-card">
+                    <div class="item-header" style="position: relative;">
+                        <div class="item-company" id="company-title-reuniones-${realIdx}">
+                            ${item.company}
+                            <span class="depto-badge depto-${item.departamento?.toLowerCase() || 'lizarte'}">${item.departamento || 'Lizarte'}</span>
+                        </div>
+                        <div style="position: absolute; top: 10px; right: 10px; display: flex; gap: 6px; align-items: center;">
+                            <div style="display: flex; gap: 4px;">
+                                <button onclick="updateTexto('reuniones', ${realIdx}, 'prioridad', 0); renderAll();" title="Muy Importante"
+                                    style="width: 32px; height: 32px; border-radius: 50%; border: 3px solid ${item.prioridad === 0 ? '#be185d' : '#e2e8f0'}; background: ${item.prioridad === 0 ? '#fce7f3' : 'white'}; color: ${item.prioridad === 0 ? '#be185d' : '#94a3b8'}; cursor: pointer; padding: 0; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center;">
+                                    0
+                                </button>
+                                <button onclick="updateTexto('reuniones', ${realIdx}, 'prioridad', 1); renderAll();" title="Alta"
+                                    style="width: 32px; height: 32px; border-radius: 50%; border: 3px solid ${item.prioridad === 1 ? '#166534' : '#e2e8f0'}; background: ${item.prioridad === 1 ? '#dcfce7' : 'white'}; color: ${item.prioridad === 1 ? '#166534' : '#94a3b8'}; cursor: pointer; padding: 0; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center;">
+                                    1
+                                </button>
+                                <button onclick="updateTexto('reuniones', ${realIdx}, 'prioridad', 2); renderAll();" title="Media"
+                                    style="width: 32px; height: 32px; border-radius: 50%; border: 3px solid ${item.prioridad === 2 ? '#92400e' : '#e2e8f0'}; background: ${item.prioridad === 2 ? '#fef3c7' : 'white'}; color: ${item.prioridad === 2 ? '#92400e' : '#94a3b8'}; cursor: pointer; padding: 0; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center;">
+                                    2
+                                </button>
+                                <button onclick="updateTexto('reuniones', ${realIdx}, 'prioridad', 3); renderAll();" title="Baja"
+                                    style="width: 32px; height: 32px; border-radius: 50%; border: 3px solid ${item.prioridad === 3 ? '#c2410c' : '#e2e8f0'}; background: ${item.prioridad === 3 ? '#ffedd5' : 'white'}; color: ${item.prioridad === 3 ? '#c2410c' : '#94a3b8'}; cursor: pointer; padding: 0; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center;">
+                                    3
+                                </button>
+                            </div>
+                            <button onclick="deleteReunion(${realIdx})" style="background: #ef4444; color: white; border: none; padding: 4px 12px; border-radius: 6px; font-size: 11px; font-weight: 600; cursor: pointer;">
+                                🗑️
+                            </button>
+                        </div>
+                        <div class="item-meta" id="meta-reuniones-${realIdx}">
+                            <span>👤 ${item.person}</span>
+                            <span>📦 ${item.product}</span>
+                        </div>
+                    </div>
+                    <div class="item-body">
+                        <div class="form-group">
+                            <label>🏢 Datos de la Empresa</label>
+                            <div style="display: grid; gap: 8px;">
+                                <input type="text" value="${item.company}" 
+                                    onchange="updateTextoConTitulo('reuniones', ${realIdx}, 'company', this.value)"
+                                    placeholder="Nombre empresa" style="font-weight: 600;">
+                                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px;">
+                                    <input type="text" value="${item.person}" 
+                                        onchange="updateTexto('reuniones', ${realIdx}, 'person', this.value)"
+                                        placeholder="Persona contacto">
+                                    <input type="text" value="${item.product}" 
+                                        onchange="updateTextoConTitulo('reuniones', ${realIdx}, 'product', this.value)"
+                                        placeholder="Producto">
+                                    <select onchange="updateTexto('reuniones', ${realIdx}, 'departamento', this.value)" style="padding: 8px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 13px;">
+                                        <option value="Lizarte" ${(item.departamento || 'Lizarte') === 'Lizarte' ? 'selected' : ''}>🔵 Lizarte</option>
+                                        <option value="Innovación" ${item.departamento === 'Innovación' ? 'selected' : ''}>⭐ Innovación</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>📝 Notas / Comentarios</label>
+                            <textarea 
+                                onchange="updateTexto('reuniones', ${realIdx}, 'comments', this.value)"
+                                placeholder="Añade notas o comentarios sobre esta reunión..."
+                                style="min-height: 80px;">${item.comments || ''}</textarea>
+                        </div>
+                        
+                        <div class="fotos-section">
+                            <div class="fotos-section-title">📷 Fotos (${allFotos.length})</div>
+                            <input type="file" accept="image/*" multiple onchange="addFotos('reuniones', ${realIdx}, this.files)" style="display: block; font-size: 11px; padding: 4px 8px; border: 1.5px solid #e2e8f0; border-radius: 6px; width: auto; margin-top: 8px; margin-bottom: 8px;">
+                            ${allFotos.length > 0 ? `
+                                <div class="fotos-grid">
+                                    ${allFotos.map((foto, fIdx) => `
+                                        <div class="foto-item">
+                                            <img src="${foto}" class="foto-thumb" onclick="openModal('${foto}')" alt="Foto">
+                                            <button class="foto-delete" onclick="deleteFoto('reuniones', ${realIdx}, ${fIdx})">×</button>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            ` : '<p style="font-size: 12px; color: #9ca3af;">Sin fotos</p>'}
+                        </div>
+                        
+                        ${renderSeguimiento('reuniones', realIdx, item)}
+                    </div>
+                </div>
+            `}).join('');
+        }
+        
+        function renderAdicional() {
+            const container = document.getElementById('adicionalContainer');
+            const filtered = applyFiltersToData(appData.adicional);
+            
+            container.innerHTML = filtered.map((item, idx) => {
+                const realIdx = appData.adicional.indexOf(item);
+                const allFotos = [...(item.fotos || []), ...(item.fotos_extra || [])];
+                
+                return `
+                <div class="item-card">
+                    <div class="item-header" style="position: relative;">
+                        <div class="item-company" id="company-title-adicional-${realIdx}">
+                            ${item.empresa}
+                            <span class="depto-badge depto-${item.departamento?.toLowerCase() || 'lizarte'}">${item.departamento || 'Lizarte'}</span>
+                        </div>
+                        <div style="position: absolute; top: 10px; right: 10px; display: flex; gap: 6px; align-items: center;">
+                            <div style="display: flex; gap: 4px;">
+                                <button onclick="updateTexto('adicional', ${realIdx}, 'prioridad', 0); renderAll();" title="Muy Importante"
+                                    style="width: 32px; height: 32px; border-radius: 50%; border: 3px solid ${item.prioridad === 0 ? '#be185d' : '#e2e8f0'}; background: ${item.prioridad === 0 ? '#fce7f3' : 'white'}; color: ${item.prioridad === 0 ? '#be185d' : '#94a3b8'}; cursor: pointer; padding: 0; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center;">
+                                    0
+                                </button>
+                                <button onclick="updateTexto('adicional', ${realIdx}, 'prioridad', 1); renderAll();" title="Alta"
+                                    style="width: 32px; height: 32px; border-radius: 50%; border: 3px solid ${item.prioridad === 1 ? '#166534' : '#e2e8f0'}; background: ${item.prioridad === 1 ? '#dcfce7' : 'white'}; color: ${item.prioridad === 1 ? '#166534' : '#94a3b8'}; cursor: pointer; padding: 0; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center;">
+                                    1
+                                </button>
+                                <button onclick="updateTexto('adicional', ${realIdx}, 'prioridad', 2); renderAll();" title="Media"
+                                    style="width: 32px; height: 32px; border-radius: 50%; border: 3px solid ${item.prioridad === 2 ? '#92400e' : '#e2e8f0'}; background: ${item.prioridad === 2 ? '#fef3c7' : 'white'}; color: ${item.prioridad === 2 ? '#92400e' : '#94a3b8'}; cursor: pointer; padding: 0; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center;">
+                                    2
+                                </button>
+                                <button onclick="updateTexto('adicional', ${realIdx}, 'prioridad', 3); renderAll();" title="Baja"
+                                    style="width: 32px; height: 32px; border-radius: 50%; border: 3px solid ${item.prioridad === 3 ? '#c2410c' : '#e2e8f0'}; background: ${item.prioridad === 3 ? '#ffedd5' : 'white'}; color: ${item.prioridad === 3 ? '#c2410c' : '#94a3b8'}; cursor: pointer; padding: 0; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center;">
+                                    3
+                                </button>
+                            </div>
+                            <button onclick="deleteAdicional(${realIdx})" style="background: #ef4444; color: white; border: none; padding: 4px 12px; border-radius: 6px; font-size: 11px; font-weight: 600; cursor: pointer;">
+                                🗑️
+                            </button>
+                        </div>
+                        <div class="item-meta" id="meta-adicional-${realIdx}">
+                            <span>📦 ${item.producto}</span>
+                        </div>
+                    </div>
+                    <div class="item-body">
+                        <div class="form-group">
+                            <label>🏢 Información Básica</label>
+                            <div style="display: grid; gap: 8px;">
+                                <input type="text" value="${item.empresa}" 
+                                    onchange="updateTextoConTitulo('adicional', ${realIdx}, 'company', this.value)"
+                                    placeholder="Nombre empresa" style="font-weight: 600;">
+                                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 8px;">
+                                    <input type="text" value="${item.producto}" 
+                                        onchange="updateTextoConTitulo('adicional', ${realIdx}, 'producto', this.value)"
+                                        placeholder="Producto / Servicio">
+                                    <select onchange="updateTexto('adicional', ${realIdx}, 'departamento', this.value)" style="padding: 8px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 13px;">
+                                        <option value="Lizarte" ${(item.departamento || 'Lizarte') === 'Lizarte' ? 'selected' : ''}>🔵 Lizarte</option>
+                                        <option value="Innovación" ${item.departamento === 'Innovación' ? 'selected' : ''}>⭐ Innovación</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>📝 Notas</label>
+                            <textarea 
+                                onchange="updateTexto('adicional', ${realIdx}, 'notas', this.value)"
+                                placeholder="Añade notas sobre esta empresa..."
+                                style="min-height: 60px;">${item.notas || ''}</textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>💡 Oportunidad</label>
+                            <textarea 
+                                onchange="updateTexto('adicional', ${realIdx}, 'oportunidad', this.value)"
+                                placeholder="Describe la oportunidad de negocio..."
+                                style="min-height: 60px;">${item.oportunidad || ''}</textarea>
+                        </div>
+                        
+                        ${allFotos.length > 0 ? `
+                            <div class="fotos-section">
+                                <div class="fotos-section-title">📷 Fotos (${allFotos.length})</div>
+                                <input type="file" accept="image/*" multiple onchange="addFotos('adicional', ${realIdx}, this.files)" 
+                                    style="display: block; font-size: 11px; padding: 4px 8px; border: 1.5px solid #e2e8f0; border-radius: 6px; width: auto; margin-top: 8px; margin-bottom: 8px;">
+                                <div class="fotos-grid">
+                                    ${allFotos.map((foto, fIdx) => `
+                                        <div class="foto-item">
+                                            <img src="${foto}" class="foto-thumb" onclick="openModal('${foto}')" alt="Foto">
+                                            <button class="foto-delete" onclick="deleteFoto('adicional', ${realIdx}, ${fIdx})">×</button>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        ` : `
+                            <div class="fotos-section">
+                                <div class="fotos-section-title">📷 Fotos (0)</div>
+                                <input type="file" accept="image/*" multiple onchange="addFotos('adicional', ${realIdx}, this.files)" 
+                                    style="display: block; font-size: 11px; padding: 4px 8px; border: 1.5px solid #e2e8f0; border-radius: 6px; width: auto; margin-top: 8px; margin-bottom: 8px;">
+                                <p style="font-size: 12px; color: #9ca3af; margin-bottom: 8px;">Sin fotos</p>
+                            </div>
+                        `}
+                        
+                        ${renderSeguimiento('adicional', realIdx, item)}
+                    </div>
+                </div>
+            `}).join('');
+        }
+        
+        function renderSeguimiento(type, index, item) {
+            const seg = item.seguimiento;
+            const id = item.id || index;
+            
+            return `
+                <div class="seguimiento-box">
+                    <div class="seguimiento-title">📋 Seguimiento</div>
+                    
+                    <div class="form-group">
+                        <label>Estado</label>
+                        <div class="estado-selector">
+                            <div class="estado-option estado-pendiente">
+                                <input type="radio" id="estado_${type}_${id}_pendiente" name="estado_${type}_${id}" value="pendiente" 
+                                    ${seg.estado === 'pendiente' ? 'checked' : ''}
+                                    onchange="updateEstado('${type}', ${index}, 'pendiente')">
+                                <label for="estado_${type}_${id}_pendiente">⚪ Pendiente</label>
+                            </div>
+                            <div class="estado-option estado-contactado">
+                                <input type="radio" id="estado_${type}_${id}_contactado" name="estado_${type}_${id}" value="contactado"
+                                    ${seg.estado === 'contactado' ? 'checked' : ''}
+                                    onchange="updateEstado('${type}', ${index}, 'contactado')">
+                                <label for="estado_${type}_${id}_contactado">🟡 Contactado</label>
+                            </div>
+                            <div class="estado-option estado-proceso">
+                                <input type="radio" id="estado_${type}_${id}_proceso" name="estado_${type}_${id}" value="proceso"
+                                    ${seg.estado === 'proceso' ? 'checked' : ''}
+                                    onchange="updateEstado('${type}', ${index}, 'proceso')">
+                                <label for="estado_${type}_${id}_proceso">🔵 En Proceso</label>
+                            </div>
+                            <div class="estado-option estado-finalizado">
+                                <input type="radio" id="estado_${type}_${id}_finalizado" name="estado_${type}_${id}" value="finalizado"
+                                    ${seg.estado === 'finalizado' ? 'checked' : ''}
+                                    onchange="updateEstado('${type}', ${index}, 'finalizado')">
+                                <label for="estado_${type}_${id}_finalizado">🟢 Finalizado</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group" style="margin: 0;">
+                            <label>Responsable</label>
+                            <select onchange="updateSeguimiento('${type}', ${index}, 'responsable', this.value)">
+                                <option value="">Sin asignar</option>
+                                ${equipoLizarte.map(nombre => `
+                                    <option value="${nombre}" ${seg.responsable === nombre ? 'selected' : ''}>${nombre}</option>
+                                `).join('')}
+                            </select>
+                        </div>
+                        <div class="form-group" style="margin: 0;">
+                            <label>Email</label>
+                            <input type="email" value="${seg.email || ''}" 
+                                onchange="updateSeguimiento('${type}', ${index}, 'email', this.value)"
+                                placeholder="email@ejemplo.com">
+                        </div>
+                    </div>
+                    
+                    ${seg.email ? `
+                        <button class="btn-notify" onclick="sendNotification('${type}', ${index})">
+                            📧 Enviar Notificación
+                        </button>
+                    ` : ''}
+                    
+                    <div class="form-group">
+                        <label>Próximas Acciones</label>
+                        <div class="acciones-list">
+                            ${seg.acciones && seg.acciones.length > 0 ? seg.acciones.map((accion, aIdx) => `
+                                <div class="accion-item">
+                                    <textarea onchange="updateAccion('${type}', ${index}, ${aIdx}, this.value)"
+                                        placeholder="Descripción de la acción...">${accion}</textarea>
+                                    <button class="btn-delete-accion" onclick="deleteAccion('${type}', ${index}, ${aIdx})">🗑️</button>
+                                </div>
+                            `).join('') : '<p style="font-size: 12px; color: #9ca3af; margin-bottom: 8px;">Sin acciones definidas</p>'}
+                        </div>
+                        <button class="btn-add-accion" onclick="addAccion('${type}', ${index})">➕ Añadir Acción</button>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function renderDocumentacion(type, index, item) {
+            const docs = item.documentos || [];
+            
+            return `
+                <div class="seguimiento-section" style="margin-top: 15px;">
+                    <div class="seguimiento-title">📎 Documentación</div>
+                    
+                    <div class="form-group">
+                        ${docs.length > 0 ? `
+                            <div style="display: grid; gap: 8px; margin-bottom: 12px;">
+                                ${docs.map((doc, dIdx) => `
+                                    <div style="display: flex; align-items: center; gap: 8px; padding: 10px; background: #f9fafb; border-radius: 8px; border: 1px solid #e5e7eb;">
+                                        <span style="flex: 1;">
+                                            ${doc.tipo === 'link' ? '🔗' : '📄'} 
+                                            ${doc.tipo === 'link' ? 
+                                                `<a href="${doc.url}" target="_blank" style="color: #3b82f6; text-decoration: underline;">${doc.nombre}</a>` : 
+                                                `<span>${doc.nombre}</span>`
+                                            }
+                                        </span>
+                                        <button class="btn-delete-accion" onclick="deleteDocumento('${type}', ${index}, ${dIdx})" style="padding: 4px 8px;">🗑️</button>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        ` : '<p style="font-size: 12px; color: #9ca3af; margin-bottom: 12px;">Sin documentos adjuntos</p>'}
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                            <button class="btn-add-accion" onclick="addDocumentoLink('${type}', ${index})">🔗 Añadir Link Email</button>
+                            <button class="btn-add-accion" onclick="addDocumentoArchivo('${type}', ${index})">📄 Subir Catálogo</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function updateSeguimiento(type, index, field, value) {
+            if (type === 'reuniones') {
+                appData.reuniones[index].seguimiento[field] = value;
+            } else {
+                appData.adicional[index].seguimiento[field] = value;
+            }
+            saveSeguimiento();
+        }
+        
+        function updateTexto(type, index, field, value) {
+            if (type === 'reuniones') {
+                appData.reuniones[index][field] = value;
+            } else {
+                appData.adicional[index][field] = value;
+            }
+            
+            // Guardar textos modificados en localStorage
+            const textosData = JSON.parse(localStorage.getItem('textos_modificados_automechanika') || '{}');
+            const itemId = type === 'reuniones' ? appData.reuniones[index].id : appData.adicional[index].id;
+            
+            if (!textosData[itemId]) textosData[itemId] = {};
+            textosData[itemId][field] = value;
+            
+            localStorage.setItem('textos_modificados_automechanika', JSON.stringify(textosData));
+            showSaveIndicator();
+        }
+        
+        function updateTextoConTitulo(type, index, field, value) {
+            // Mapear campo si es necesario (adicional usa 'empresa' en lugar de 'company')
+            let actualField = field;
+            if (type === 'adicional' && field === 'company') {
+                actualField = 'empresa';
+            }
+            
+            // Actualizar datos
+            updateTexto(type, index, actualField, value);
+            
+            // Actualizar título en tiempo real
+            if (field === 'company' && type === 'reuniones') {
+                const titleElement = document.getElementById(`company-title-reuniones-${index}`);
+                if (titleElement) {
+                    const item = appData.reuniones[index];
+                    const badge = titleElement.querySelector('.depto-badge');
+                    const badgeHTML = badge ? badge.outerHTML : '';
+                    titleElement.innerHTML = `${value || item.company} ${badgeHTML}`;
+                }
+            } else if (field === 'company' && type === 'adicional') {
+                const titleElement = document.getElementById(`company-title-adicional-${index}`);
+                if (titleElement) {
+                    const item = appData.adicional[index];
+                    const badge = titleElement.querySelector('.depto-badge');
+                    const badgeHTML = badge ? badge.outerHTML : '';
+                    titleElement.innerHTML = `${value || item.empresa} ${badgeHTML}`;
+                }
+            }
+            
+            // Actualizar metadata (persona y producto)
+            if ((field === 'person' || field === 'product') && type === 'reuniones') {
+                const metaElement = document.getElementById(`meta-reuniones-${index}`);
+                if (metaElement) {
+                    const item = appData.reuniones[index];
+                    metaElement.innerHTML = `
+                        <span>👤 ${item.person}</span>
+                        <span>📦 ${item.product}</span>
+                    `;
+                }
+            } else if (field === 'producto' && type === 'adicional') {
+                const metaElement = document.getElementById(`meta-adicional-${index}`);
+                if (metaElement) {
+                    const item = appData.adicional[index];
+                    metaElement.innerHTML = `
+                        <span>📦 ${item.producto}</span>
+                        <span class="priority-badge priority-${item.prioridad}">${getPrioridadTexto(item.prioridad)}</span>
+                    `;
+                }
+            }
+        }
+        
+        function updateEstado(type, index, estado) {
+            updateSeguimiento(type, index, 'estado', estado);
+            renderAll();
+        }
+        
+        function addAccion(type, index) {
+            const item = type === 'reuniones' ? appData.reuniones[index] : appData.adicional[index];
+            if (!item.seguimiento.acciones) item.seguimiento.acciones = [];
+            item.seguimiento.acciones.push('');
+            saveSeguimiento();
+            renderAll();
+        }
+        
+        function updateAccion(type, index, accionIdx, value) {
+            const item = type === 'reuniones' ? appData.reuniones[index] : appData.adicional[index];
+            item.seguimiento.acciones[accionIdx] = value;
+            saveSeguimiento();
+        }
+        
+        function deleteAccion(type, index, accionIdx) {
+            if (!confirm('¿Eliminar esta acción?')) return;
+            const item = type === 'reuniones' ? appData.reuniones[index] : appData.adicional[index];
+            item.seguimiento.acciones.splice(accionIdx, 1);
+            saveSeguimiento();
+            renderAll();
+        }
+        
+        function addFoto(type, index) {
+            currentUploadTarget = { type, index };
+            document.getElementById('fileInput').click();
+        }
+        
+        function handleFileUpload(event) {
+            const files = event.target.files;
+            if (!files.length || !currentUploadTarget) return;
+            
+            const { type, index } = currentUploadTarget;
+            const item = type === 'reuniones' ? appData.reuniones[index] : appData.adicional[index];
+            
+            if (!item.fotos_extra) item.fotos_extra = [];
+            
+            Array.from(files).forEach(file => {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    item.fotos_extra.push(e.target.result);
+                    saveSeguimiento();
+                    renderAll();
+                };
+                reader.readAsDataURL(file);
+            });
+            
+            event.target.value = '';
+        }
+        
+        function deleteFoto(type, index, fotoIdx) {
+            if (!confirm('¿Eliminar esta foto? (Podrás recuperarla desde la papelera)')) return;
+            
+            const item = type === 'reuniones' ? appData.reuniones[index] : appData.adicional[index];
+            const allFotos = [...(Array.isArray(item.fotos) ? item.fotos : []), ...(item.fotos_extra || [])];
+            const fotoUrl = allFotos[fotoIdx];
+            
+            // Guardar en papelera
+            const papelera = JSON.parse(localStorage.getItem('papelera_fotos_automechanika') || '{}');
+            if (!papelera[item.id]) papelera[item.id] = [];
+            
+            papelera[item.id].push({
+                url: fotoUrl,
+                fecha: new Date().toISOString(),
+                tipo: fotoIdx < item.fotos.length ? 'original' : 'extra',
+                indice: fotoIdx
+            });
+            
+            localStorage.setItem('papelera_fotos_automechanika', JSON.stringify(papelera));
+            
+            // Eliminar del array correspondiente
+            if (!item.fotos || !Array.isArray(item.fotos)) item.fotos = [];
+            if (!item.fotos_extra || !Array.isArray(item.fotos_extra)) item.fotos_extra = [];
+            
+            if (fotoIdx < item.fotos.length) {
+                item.fotos.splice(fotoIdx, 1);
+            } else {
+                const extraIdx = fotoIdx - item.fotos.length;
+                item.fotos_extra.splice(extraIdx, 1);
+            }
+            
+            saveSeguimiento();
+            renderAll();
+        }
+        
+        function verPapelera(type, index) {
+            const item = type === 'reuniones' ? appData.reuniones[index] : appData.adicional[index];
+            const papelera = JSON.parse(localStorage.getItem('papelera_fotos_automechanika') || '{}');
+            const fotosBorradas = papelera[item.id] || [];
+            
+            if (fotosBorradas.length === 0) {
+                alert('No hay fotos borradas para recuperar');
+                return;
+            }
+            
+            const html = `
+                <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 20px;" id="papeleraModal" onclick="cerrarPapelera(event)">
+                    <div style="background: white; border-radius: 16px; padding: 20px; max-width: 600px; max-height: 80vh; overflow-y: auto;" onclick="event.stopPropagation()">
+                        <h3 style="margin-bottom: 15px;">♻️ Papelera de Fotos</h3>
+                        <p style="font-size: 13px; color: #6b7280; margin-bottom: 15px;">Haz clic en una foto para recuperarla</p>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 10px;">
+                            ${fotosBorradas.map((foto, idx) => `
+                                <div style="position: relative; cursor: pointer;" onclick="recuperarFoto('${type}', ${index}, ${idx})">
+                                    <img src="${foto.url}" style="width: 100%; height: 100px; object-fit: cover; border-radius: 8px; border: 2px solid #e5e7eb;">
+                                    <div style="position: absolute; bottom: 4px; right: 4px; background: #10b981; color: white; padding: 4px 8px; border-radius: 4px; font-size: 10px;">Recuperar</div>
+                                </div>
+                            `).join('')}
+                        </div>
+                        <button onclick="cerrarPapelera()" style="margin-top: 15px; width: 100%; padding: 10px; background: #6b7280; color: white; border: none; border-radius: 8px; cursor: pointer;">Cerrar</button>
+                    </div>
+                </div>
+            `;
+            
+            document.body.insertAdjacentHTML('beforeend', html);
+        }
+        
+        function recuperarFoto(type, index, papeleraIdx) {
+            const item = type === 'reuniones' ? appData.reuniones[index] : appData.adicional[index];
+            const papelera = JSON.parse(localStorage.getItem('papelera_fotos_automechanika') || '{}');
+            const fotosBorradas = papelera[item.id] || [];
+            
+            if (fotosBorradas[papeleraIdx]) {
+                const foto = fotosBorradas[papeleraIdx];
+                
+                // Restaurar foto
+                if (!item.fotos_extra) item.fotos_extra = [];
+                item.fotos_extra.push(foto.url);
+                
+                // Eliminar de papelera
+                fotosBorradas.splice(papeleraIdx, 1);
+                papelera[item.id] = fotosBorradas;
+                localStorage.setItem('papelera_fotos_automechanika', JSON.stringify(papelera));
+                
+                saveSeguimiento();
+                cerrarPapelera();
+                renderAll();
+                
+                alert('✅ Foto recuperada');
+            }
+        }
+        
+        function cerrarPapelera(event) {
+            if (event && event.target.id !== 'papeleraModal') return;
+            const modal = document.getElementById('papeleraModal');
+            if (modal) modal.remove();
+        }
+        
+        // ========== FUNCIONES DOCUMENTACIÓN ==========
+        
+        function addDocumentoLink(type, index) {
+            const nombre = prompt('Título del documento/email:');
+            if (!nombre) return;
+            
+            const url = prompt('URL o link del email:');
+            if (!url) return;
+            
+            const item = type === 'reuniones' ? appData.reuniones[index] : appData.adicional[index];
+            if (!item.documentos) item.documentos = [];
+            
+            item.documentos.push({
+                tipo: 'link',
+                nombre: nombre,
+                url: url,
+                fecha: new Date().toISOString()
+            });
+            
+            saveDocumentos();
+            renderAll();
+        }
+        
+        function addDocumentoArchivo(type, index) {
+            currentUploadTarget = { type, index, isDoc: true };
+            
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = '.pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png';
+            input.multiple = false;
+            
+            input.onchange = (e) => {
+                const file = e.target.files[0];
+                if (!file) return;
+                
+                // Validar tamaño (max 5MB)
+                if (file.size > 5 * 1024 * 1024) {
+                    alert('El archivo es demasiado grande. Máximo 5MB.');
+                    return;
+                }
+                
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    const item = type === 'reuniones' ? appData.reuniones[index] : appData.adicional[index];
+                    if (!item.documentos) item.documentos = [];
+                    
+                    item.documentos.push({
+                        tipo: 'archivo',
+                        nombre: file.name,
+                        data: event.target.result,
+                        tamano: file.size,
+                        fecha: new Date().toISOString()
+                    });
+                    
+                    saveDocumentos();
+                    renderAll();
+                };
+                
+                reader.readAsDataURL(file);
+            };
+            
+            input.click();
+        }
+        
+        function deleteDocumento(type, index, docIdx) {
+            if (!confirm('¿Eliminar este documento?')) return;
+            
+            const item = type === 'reuniones' ? appData.reuniones[index] : appData.adicional[index];
+            if (item.documentos) {
+                item.documentos.splice(docIdx, 1);
+            }
+            
+            saveDocumentos();
+            renderAll();
+        }
+        
+        function saveDocumentos() {
+            const docsData = {};
+            
+            appData.reuniones.forEach(item => {
+                if (item.documentos && item.documentos.length > 0) {
+                    docsData[item.id] = item.documentos;
+                }
+            });
+            
+            appData.adicional.forEach(item => {
+                if (item.documentos && item.documentos.length > 0) {
+                    docsData[item.id] = item.documentos;
+                }
+            });
+            
+            localStorage.setItem('documentos_automechanika', JSON.stringify(docsData));
+            showSaveIndicator();
+        }
+        
+        function loadDocumentos() {
+            const docsData = JSON.parse(localStorage.getItem('documentos_automechanika') || '{}');
+            
+            appData.reuniones.forEach(item => {
+                if (docsData[item.id]) {
+                    item.documentos = docsData[item.id];
+                }
+            });
+            
+            appData.adicional.forEach(item => {
+                if (docsData[item.id]) {
+                    item.documentos = docsData[item.id];
+                }
+            });
+        }
+        
+        function sendNotification(type, index) {
+            const item = type === 'reuniones' ? appData.reuniones[index] : appData.adicional[index];
+            const seg = item.seguimiento;
+            const empresa = item.company || item.empresa;
+            
+            if (!seg.email) {
+                alert('No hay email configurado');
+                return;
+            }
+            
+            const subject = `Acción pendiente - ${empresa}`;
+            const body = `Hola ${seg.responsable || ''},
+
+Tienes una acción pendiente de seguimiento:
+
+Empresa: ${empresa}
+Estado: ${seg.estado.toUpperCase()}
+${seg.fechaSeguimiento ? `Fecha seguimiento: ${seg.fechaSeguimiento}` : ''}
+
+${seg.acciones && seg.acciones.length > 0 ? `Acciones pendientes:
+${seg.acciones.map((a, i) => `${i + 1}. ${a}`).join('\n')}` : ''}
+
+Puedes ver más detalles en:
+https://krumkk.github.io/seguimiento-automechanika-2025/
+
+Saludos,
+Sistema de Seguimiento Automechanika`;
+            
+            const mailto = `mailto:${seg.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailto;
+        }
+        
+        function openModal(src) {
+            document.getElementById('modalImage').src = src;
+            document.getElementById('photoModal').classList.add('show');
+        }
+        
+        function closeModal() {
+            document.getElementById('photoModal').classList.remove('show');
+        }
+        
+        async function exportarDatosActualizados(evt) {
+            let button = null;
+            let originalText = '📤 EXPORTAR';
+            
+            try {
+                button = evt && evt.target ? evt.target : document.querySelector('.btn-float-export');
+                if (button) {
+                    originalText = button.innerHTML;
+                    button.innerHTML = '⏳ Exportando...';
+                    button.disabled = true;
+                }
+                
+                console.log('📤 Iniciando exportación de datos actualizados...');
+                
+                // Cargar datos base
+                console.log('📥 Cargando datos.json...');
+                const response = await fetch('datos.json');
+                if (!response.ok) {
+                    throw new Error('No se pudo cargar datos.json');
+                }
+                const datosBase = await response.json();
+                console.log('✅ datos.json cargado:', datosBase);
+                
+                // Aplicar textos modificados Y añadir empresas nuevas
+                console.log('📝 Aplicando textos modificados...');
+                const textosModificados = JSON.parse(localStorage.getItem('textos_modificados_automechanika') || '{}');
+                
+                // Actualizar empresas existentes en reuniones
+                datosBase.reuniones.forEach(item => {
+                    if (textosModificados[item.id]) {
+                        Object.assign(item, textosModificados[item.id]);
+                    }
+                });
+                
+                // Añadir NUEVAS empresas en reuniones que no están en datosBase
+                Object.keys(textosModificados).forEach(id => {
+                    const existeEnReuniones = datosBase.reuniones.find(item => item.id == id);
+                    const existeEnAdicional = datosBase.adicional.find(item => item.id == id);
+                    
+                    if (!existeEnReuniones && !existeEnAdicional) {
+                        const nuevaEmpresa = textosModificados[id];
+                        // Si tiene campo 'company', es de reuniones
+                        if (nuevaEmpresa.company !== undefined) {
+                            console.log('➕ Añadiendo nueva reunión:', nuevaEmpresa.company);
+                            datosBase.reuniones.push({
+                                id: id,
+                                ...nuevaEmpresa
+                            });
+                        }
+                        // Si tiene campo 'empresa', es de adicional
+                        else if (nuevaEmpresa.empresa !== undefined) {
+                            console.log('➕ Añadiendo nueva empresa adicional:', nuevaEmpresa.empresa);
+                            datosBase.adicional.push({
+                                id: id,
+                                ...nuevaEmpresa
+                            });
+                        }
+                    }
+                });
+                
+                // Actualizar empresas existentes en adicional
+                datosBase.adicional.forEach(item => {
+                    if (textosModificados[item.id]) {
+                        Object.assign(item, textosModificados[item.id]);
+                    }
+                });
+                
+                // Aplicar seguimiento
+                console.log('📊 Aplicando seguimiento...');
+                const seguimientoData = JSON.parse(localStorage.getItem('seguimiento_v2_automechanika') || '{}');
+                
+                datosBase.reuniones.forEach(item => {
+                    if (seguimientoData[item.id]) {
+                        item.seguimiento = seguimientoData[item.id];
+                    }
+                });
+                
+                datosBase.adicional.forEach(item => {
+                    if (seguimientoData[item.id]) {
+                        item.seguimiento = seguimientoData[item.id];
+                    }
+                });
+                
+                // Aplicar fotos borradas (eliminarlas del JSON)
+                console.log('🗑️ Aplicando fotos borradas...');
+                const deletedPhotosData = JSON.parse(localStorage.getItem('deleted_photos_automechanika') || '{}');
+                
+                datosBase.reuniones.forEach(item => {
+                    if (deletedPhotosData[item.id] && deletedPhotosData[item.id].length > 0) {
+                        const deletedIndices = deletedPhotosData[item.id];
+                        if (!item.fotos || !Array.isArray(item.fotos)) item.fotos = [];
+                        item.fotos = item.fotos.filter((foto, idx) => !deletedIndices.includes(idx));
+                    }
+                });
+                
+                datosBase.adicional.forEach(item => {
+                    if (deletedPhotosData[item.id] && deletedPhotosData[item.id].length > 0) {
+                        const deletedIndices = deletedPhotosData[item.id];
+                        if (!item.fotos || !Array.isArray(item.fotos)) item.fotos = [];
+                        item.fotos = item.fotos.filter((foto, idx) => !deletedIndices.includes(idx));
+                    }
+                });
+                
+                // Generar JSON
+                console.log('📦 Generando archivo JSON...');
+                const jsonString = JSON.stringify(datosBase, null, 2);
+                const blob = new Blob([jsonString], { type: 'application/json' });
+                
+                // Descargar
+                console.log('💾 Descargando archivo...');
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'datos.json';
+                a.style.display = 'none';
+                document.body.appendChild(a);
+                a.click();
+                
+                // Limpiar
+                setTimeout(() => {
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                }, 100);
+                
+                console.log('✅ Datos exportados correctamente');
+                
+                // Restaurar botón (en un try-catch separado para no afectar el éxito)
+                try {
+                    if (button) {
+                        button.innerHTML = '✅ ¡Exportado!';
+                        setTimeout(() => {
+                            button.innerHTML = originalText;
+                            button.disabled = false;
+                        }, 2000);
+                    }
+                } catch (btnError) {
+                    console.warn('⚠️ Error restaurando botón (no crítico):', btnError);
+                }
+                
+                // Mostrar instrucciones (en un try-catch separado)
+                try {
+                    alert('✅ Archivo datos.json descargado\n\n📤 AHORA:\n\n1. Ve a GitHub\n2. Sube este archivo (reemplaza el anterior)\n3. Commit: "Datos actualizados"\n4. Comparte el enlace con tu equipo\n\n¡Todos verán tu información actualizada!');
+                } catch (alertError) {
+                    console.warn('⚠️ Error mostrando alert (no crítico):', alertError);
+                }
+                
+            } catch (error) {
+                console.error('❌ Error exportando datos:', error);
+                console.error('Stack trace:', error.stack);
+                
+                // Intentar restaurar botón incluso si hay error
+                try {
+                    if (button) {
+                        button.innerHTML = '❌ Error';
+                        setTimeout(() => {
+                            button.innerHTML = originalText;
+                            button.disabled = false;
+                        }, 2000);
+                    }
+                } catch (btnError) {
+                    console.warn('⚠️ Error restaurando botón después de error:', btnError);
+                }
+                
+                alert('❌ Error al exportar datos.\n\nError: ' + error.message + '\n\nRevisa la consola (F12) para más detalles.');
+            }
+        }
+        
+        function exportarInforme() {
+            let content = `${appConfig.titulo}\n`;
+            content += `${appConfig.subtitulo}\n`;
+            content += `Fecha: ${new Date().toLocaleDateString('es-ES')}\n\n`;
+            content += '='.repeat(60) + '\n\n';
+            
+            if (appConfig.notas) {
+                content += `NOTAS GENERALES:\n${appConfig.notas}\n\n`;
+                content += '='.repeat(60) + '\n\n';
+            }
+            
+            const allItems = [...appData.reuniones, ...appData.adicional];
+            const pendientes = allItems.filter(i => i.seguimiento.estado === 'pendiente').length;
+            const contactados = allItems.filter(i => i.seguimiento.estado === 'contactado').length;
+            const proceso = allItems.filter(i => i.seguimiento.estado === 'proceso').length;
+            const finalizados = allItems.filter(i => i.seguimiento.estado === 'finalizado').length;
+            
+            content += 'RESUMEN EJECUTIVO\n\n';
+            content += `Total de contactos: ${allItems.length}\n`;
+            content += `Pendientes: ${pendientes}\n`;
+            content += `Contactados: ${contactados}\n`;
+            content += `En proceso: ${proceso}\n`;
+            content += `Finalizados: ${finalizados}\n\n`;
+            content += '='.repeat(60) + '\n\n';
+            
+            content += `REUNIONES PROGRAMADAS (${appData.reuniones.length})\n\n`;
+            appData.reuniones.sort((a, b) => {
+                const timeA = a.time || '';
+                const timeB = b.time || '';
+                return timeA.localeCompare(timeB);
+            }).forEach(item => {
+                content += `${item.company}\n${'─'.repeat(item.company.length)}\n`;
+                content += `Persona: ${item.person}\n`;
+                content += `Producto: ${item.product}\n`;
+                content += `Hora: ${item.time}\n`;
+                if (item.stand) content += `Stand: ${item.stand}\n`;
+                if (item.comments) content += `Notas: ${item.comments}\n`;
+                
+                const allFotos = [...(Array.isArray(item.fotos) ? item.fotos : []), ...(item.fotos_extra || [])];
+                if (allFotos.length) content += `Fotos: ${allFotos.length}\n`;
+                
+                const seg = item.seguimiento;
+                content += `\nSEGUIMIENTO:\n`;
+                content += `  Estado: ${seg.estado.toUpperCase()}\n`;
+                if (seg.responsable) content += `  Responsable: ${seg.responsable}\n`;
+                if (seg.email) content += `  Email: ${seg.email}\n`;
+                if (seg.acciones && seg.acciones.length > 0) {
+                    content += `  Acciones pendientes:\n`;
+                    seg.acciones.forEach((a, i) => {
+                        if (a) content += `    ${i + 1}. ${a}\n`;
+                    });
+                }
+                if (seg.fechaSeguimiento) content += `  Fecha seguimiento: ${seg.fechaSeguimiento}\n`;
+                content += '\n';
+            });
+            
+            content += '='.repeat(60) + '\n\n';
+            content += `INFORMACIÓN ADICIONAL (${appData.adicional.length})\n\n`;
+            
+            appData.adicional.forEach(item => {
+                content += `${item.empresa}\n${'─'.repeat(item.empresa.length)}\n`;
+                content += `Producto: ${item.producto}\n`;
+                content += `Prioridad: ${getPrioridadTexto(item.prioridad)}\n`;
+                if (item.notas) content += `Notas: ${item.notas}\n`;
+                if (item.oportunidad) content += `Oportunidad: ${item.oportunidad}\n`;
+                
+                const seg = item.seguimiento;
+                content += `\nSEGUIMIENTO:\n`;
+                content += `  Estado: ${seg.estado.toUpperCase()}\n`;
+                if (seg.responsable) content += `  Responsable: ${seg.responsable}\n`;
+                if (seg.email) content += `  Email: ${seg.email}\n`;
+                if (seg.acciones && seg.acciones.length > 0) {
+                    content += `  Acciones pendientes:\n`;
+                    seg.acciones.forEach((a, i) => {
+                        if (a) content += `    ${i + 1}. ${a}\n`;
+                    });
+                }
+                if (seg.fechaSeguimiento) content += `  Fecha seguimiento: ${seg.fechaSeguimiento}\n`;
+                content += '\n';
+            });
+            
+            content += '='.repeat(60) + '\n';
+            content += `Fin del informe\n`;
+            content += `Generado: ${new Date().toLocaleString('es-ES')}\n`;
+            
+            const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+            const fileName = `informe_seguimiento_v2_${new Date().toISOString().split('T')[0]}.txt`;
+            
+            if (navigator.share) {
+                const file = new File([blob], fileName, { type: 'text/plain' });
+                navigator.share({
+                    files: [file],
+                    title: 'Informe Seguimiento Automechanika v2.0',
+                    text: 'Informe completo de seguimiento'
+                }).catch(err => {
+                    if (err.name !== 'AbortError') downloadFile(blob, fileName);
+                });
+            } else {
+                downloadFile(blob, fileName);
+            }
+        }
+        
+        function downloadFile(blob, fileName) {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = fileName;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+        
+        // ========== SPLASH SCREEN FUNCTIONS ==========
+        
+        function initSplashScreen() {
+            // Verificar si hay parámetro URL para DESACTIVAR splash
+            const urlParams = new URLSearchParams(window.location.search);
+            const skipSplash = urlParams.get('nosplash') === '1';
+            
+            console.log('🚀 Splash Screen Debug:', {
+                skipSplash: skipSplash,
+                willShow: !skipSplash
+            });
+            
+            if (!skipSplash) {
+                showSplash();
+            } else {
+                console.log('⏭️ Splash omitido por parámetro URL');
+            }
+        }
+        
+        async function showSplash() {
+            console.log('🎬 Mostrando splash screen...');
+            const splash = document.getElementById('splashScreen');
+            
+            if (!splash) {
+                console.error('❌ No se encontró el elemento splashScreen');
+                return;
+            }
+            
+            splash.style.display = 'flex';
+            
+            // Generar partículas
+            generateParticles();
+            
+            // Cargar datos del JSON para calcular estadísticas reales
+            try {
+                const response = await fetch('datos.json');
+                const datos = await response.json();
+                
+                // Aplicar textos modificados (como en loadData)
+                const textosModificados = JSON.parse(localStorage.getItem('textos_modificados_automechanika') || '{}');
+                datos.reuniones.forEach(item => {
+                    if (textosModificados[item.id]) {
+                        Object.assign(item, textosModificados[item.id]);
+                    }
+                });
+                datos.adicional.forEach(item => {
+                    if (textosModificados[item.id]) {
+                        Object.assign(item, textosModificados[item.id]);
+                    }
+                });
+                
+                // Aplicar seguimiento (para contar estados correctamente)
+                const seguimientoData = JSON.parse(localStorage.getItem('seguimiento_v2_automechanika') || '{}');
+                datos.reuniones.forEach(item => {
+                    if (seguimientoData[item.id]) {
+                        item.seguimiento = seguimientoData[item.id];
+                    }
+                });
+                datos.adicional.forEach(item => {
+                    if (seguimientoData[item.id]) {
+                        item.seguimiento = seguimientoData[item.id];
+                    }
+                });
+                
+                // Aplicar fotos borradas
+                const deletedPhotosData = JSON.parse(localStorage.getItem('deleted_photos_automechanika') || '{}');
+                datos.reuniones.forEach(item => {
+                    if (deletedPhotosData[item.id] && deletedPhotosData[item.id].length > 0) {
+                        const deletedIndices = deletedPhotosData[item.id];
+                        if (!item.fotos || !Array.isArray(item.fotos)) item.fotos = [];
+                        item.fotos = item.fotos.filter((foto, idx) => !deletedIndices.includes(idx));
+                    }
+                });
+                datos.adicional.forEach(item => {
+                    if (deletedPhotosData[item.id] && deletedPhotosData[item.id].length > 0) {
+                        const deletedIndices = deletedPhotosData[item.id];
+                        if (!item.fotos || !Array.isArray(item.fotos)) item.fotos = [];
+                        item.fotos = item.fotos.filter((foto, idx) => !deletedIndices.includes(idx));
+                    }
+                });
+                
+                // Calcular estadísticas reales (ahora con localStorage aplicado)
+                const numEmpresas = datos.reuniones.length + datos.adicional.length;
+                const numReuniones = datos.reuniones.length;
+                const numOportunidades = [...datos.reuniones, ...datos.adicional].filter(item => (item.departamento || 'Lizarte') === 'Innovación').length;
+                
+                // Contar fotos totales (después de filtrar borradas)
+                let numFotos = 0;
+                datos.reuniones.forEach(item => {
+                    numFotos += (item.fotos || []).length;
+                    numFotos += (item.fotos_extra || []).length;
+                });
+                datos.adicional.forEach(item => {
+                    numFotos += (item.fotos || []).length;
+                    numFotos += (item.fotos_extra || []).length;
+                });
+                
+                console.log('📊 Estadísticas calculadas:', {
+                    empresas: numEmpresas,
+                    reuniones: numReuniones,
+                    fotos: numFotos,
+                    oportunidades: numOportunidades
+                });
+                
+                // Iniciar animación de estadísticas con números reales después de 3 segundos
+                setTimeout(() => {
+                    animateStats(numEmpresas, numReuniones, numFotos, numOportunidades);
+                }, 3000);
+                
+            } catch (error) {
+                console.error('❌ Error cargando datos para splash:', error);
+                // Fallback a números por defecto si hay error
+                setTimeout(() => {
+                    animateStats(36, 25, 80, 14);
+                }, 3000);
+            }
+            
+            console.log('✨ Splash screen activado correctamente');
+        }
+        
+        function generateParticles() {
+            const container = document.getElementById('particlesContainer');
+            const particleCount = 60;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 8 + 's';
+                particle.style.animationDuration = (Math.random() * 4 + 6) + 's';
+                container.appendChild(particle);
+            }
+        }
+        
+        function animateStats(numEmpresas = 36, numReuniones = 25, numFotos = 80, numOportunidades = 14) {
+            const stats = [
+                { id: 'stat1', target: numEmpresas, duration: 1500 },
+                { id: 'stat2', target: numReuniones, duration: 1500 },
+                { id: 'stat3', target: numFotos, duration: 1500 },
+                { id: 'stat4', target: numOportunidades, duration: 1500 }
+            ];
+            
+            stats.forEach((stat, index) => {
+                setTimeout(() => {
+                    animateNumber(stat.id, stat.target, stat.duration);
+                }, index * 400);
+            });
+        }
+        
+        function animateNumber(elementId, target, duration) {
+            const element = document.getElementById(elementId);
+            const start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                    element.classList.add('glow');
+                    setTimeout(() => element.classList.remove('glow'), 500);
+                }
+                element.textContent = Math.floor(current);
+            }, 16);
+        }
+        
+        
+        function autoResizeTextarea(textarea) {
+            // Resetear altura para calcular correctamente
+            textarea.style.height = 'auto';
+            
+            // Calcular altura necesaria
+            const scrollHeight = textarea.scrollHeight;
+            const minHeight = 40; // min-height del CSS
+            const maxHeight = 400; // max-height del CSS
+            
+            // Aplicar altura calculada
+            if (scrollHeight > minHeight) {
+                textarea.style.height = Math.min(scrollHeight, maxHeight) + 'px';
+            } else {
+                textarea.style.height = minHeight + 'px';
+            }
+            
+            // Si el contenido excede max-height, mostrar scroll
+            if (scrollHeight > maxHeight) {
+                textarea.style.overflowY = 'auto';
+            } else {
+                textarea.style.overflowY = 'hidden';
+            }
+        }
+        
+        function addAutoResizeToAllTextareas() {
+            document.querySelectorAll('textarea').forEach(textarea => {
+                // Aplicar resize inicial
+                autoResizeTextarea(textarea);
+                
+                // Añadir evento input para resize dinámico
+                textarea.addEventListener('input', function() {
+                    autoResizeTextarea(this);
+                });
+                
+                // También resize cuando cambia el contenido programáticamente
+                textarea.addEventListener('change', function() {
+                    autoResizeTextarea(this);
+                });
+            });
+        }
+
+        function closeSplash() {
+            console.log('🚪 Cerrando splash screen...');
+            const splash = document.getElementById('splashScreen');
+            splash.classList.add('fade-out');
+            
+            setTimeout(() => {
+                splash.style.display = 'none';
+                // NO guardamos en localStorage para que se muestre cada vez
+                console.log('✅ Splash cerrado - Se mostrará de nuevo en la próxima visita');
+            }, 1000);
+        }
+        
+        // Modificar el event listener para incluir splash
+        window.addEventListener('DOMContentLoaded', function() {
+            loadData();
+            initSplashScreen();
+        });
+    </script>
+</body>
+</html>

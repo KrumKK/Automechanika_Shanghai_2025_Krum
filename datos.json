@@ -1,0 +1,889 @@
+{
+  "reuniones": [
+    {
+      "company": "Test 1",
+      "person": "Test 1",
+      "product": "Test 1",
+      "time": "",
+      "stand": "",
+      "comments": "Prueba Json, texto guardado. Foto eliminada. Seguimiento, Responsable, email, y acciones.",
+      "id": 1763363438764,
+      "fotos": [],
+      "seguimiento": {
+        "responsable": "Equipo Calidad",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [
+          "Pruebas 1",
+          "Pruebas 2",
+          "Pruebas 3"
+        ],
+        "estado": "finalizado",
+        "email": "krum@lizaerte.com"
+      },
+      "departamento": "Lizarte",
+      "prioridad": 3
+    },
+    {
+      "company": "ALTEZZA",
+      "person": "Gustavo/Gloria",
+      "product": "Grupo hidráulico, conectores DAES, Husillos DAES",
+      "time": "14:45",
+      "stand": "Hall 2.1 A71",
+      "comments": "Grupos hidráulicos – Plan de validación\nLa próxima semana recibiremos cinco grupos hidráulicos para someterlos a pruebas de validación. Realizaremos dos tipos de test: ensayo de durabilidad de 1.500 horas en banco de verificación y prueba de resistencia de 3.000 km en vehículo real.\nEl plazo de aprobación es crítico: si damos el OK antes de Navidad, podrán enviarnos las unidades con rapidez. En caso contrario, el envío se retrasaría hasta después de Año Nuevo, con inicio de fabricación en marzo y un plazo de producción de aproximadamente un mes, más el tiempo de transporte marítimo.\n\nReunión con Gloria – Cremalleras de husillo para DAES y componentes(Conectores)\nHablé con Gloria sobre las cremalleras de husillo destinadas a sistemas de dirección asistida eléctrica (DAES). Le comenté que las últimas ofertas que hemos recibido rondan los 100 € por unidad, aunque en realidad algunas cotizaciones han sido superiores. Le trasladé que un precio objetivo interesante para nosotros sería de unos 50 € por unidad. Su respuesta fue positiva: no lo ve imposible de conseguir pero en un tiempo más largo.\nNos recomienda que Javier Baztán y yo mantengamos una reunión con ella para solicitar varias referencias y obtener cotizaciones detalladas.\nAdemás, Gloria nos ofreció columnas EPS nuevas. Al preguntarle por las referencias disponibles, mencionó Honda CR-V, que de momento no resultan interesantes para nuestra línea de producto. También nos mostró documentación sobre conectores y recambios compatibles con sistemas DAES.",
+      "id": 1763364468847,
+      "fotos": [],
+      "seguimiento": {
+        "responsable": "Equipo Compras",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [
+          "Homologar nuevos grupos hidráulicos",
+          "Comprobar de nuevo si Honda CR-V sería interesante comprar DAES nuevas"
+        ],
+        "estado": "pendiente",
+        "email": "jbaztan@lizarte.com"
+      },
+      "departamento": "Innovación"
+    },
+    {
+      "company": "CHABGHUI GROUP",
+      "person": "Jason Bai",
+      "product": "Varios",
+      "time": "16:18",
+      "stand": "Hall 6.1 F01",
+      "comments": "También tienen DAE nueva para Ford F-150 pickup, una referencia que podría resultar interesante dado el volumen de este modelo en ciertos mercados.\nAdemás, disponen de distintos componentes sueltos para sistemas de dirección, como sensores de ángulo y clock springs (muelles de reloj o contactores rotatorios del airbag).\nPendiente revisar el email para consultar el catálogo completo y valorar qué referencias pueden encajar con nuestra línea de producto.",
+      "id": 1763378341743,
+      "fotos": [],
+      "seguimiento": {
+        "responsable": "Equipo Compras",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [
+          "Posible proveedor de anillos de airbag"
+        ],
+        "estado": "pendiente"
+      },
+      "departamento": "Innovación"
+    },
+    {
+      "company": "LT Drive Shaft",
+      "person": "Cactus",
+      "product": "Drive Shaft",
+      "time": "18:12",
+      "stand": "Hall 1.1 C24",
+      "comments": "Empresa con la que coincidimos en Paris",
+      "id": 1763719943011,
+      "fotos": [],
+      "seguimiento": {
+        "responsable": "",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [],
+        "estado": "finalizado"
+      },
+      "departamento": "Lizarte",
+      "prioridad": 3
+    },
+    {
+      "company": "Bomba Retrofitting",
+      "person": "Vanessa Li; liwei@zjquanxing.com (Hablar con Leo y Kathy)",
+      "product": "Bomba universal",
+      "time": "08:12",
+      "stand": "Hall1.1 A10",
+      "comments": "He visitado a la empresa que fabrica la bomba universal para retrofitting. Me han llevado a las instalaciones de Quanxing y durante el recorrido, Leo me ha revelado información relevante: la empresa Bourge no es fabricante, sino una comercializadora. No han sido sinceros conmigo. El fabricante real de la bomba es Quanxing.\nA partir de ahora, vamos a tratar directamente con Kathy y Leo para desarrollar el proyecto, eliminando intermediarios.\nObjetivo del proyecto:\nRecibir la bomba sin software precargado para que desde Lizarte podamos cargar nuestro propio software y así adaptar la bomba a cualquier aplicación. Además, trabajaremos en el diseño de soportes personalizados para facilitar la instalación en distintos vehículos.",
+      "id": 1763896381600,
+      "fotos": [],
+      "seguimiento": {
+        "responsable": "Equipo Calidad",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [
+          "Primera acción; la bomba pequeña puede funcionar con 12V",
+          "Segunda acción; qué necesitan para mandarnos una bomba sin software para que nosotros carguemos el nuestro?"
+        ],
+        "estado": "contactado",
+        "email": "jhualde@lizarte.com"
+      },
+      "departamento": "Innovación",
+      "prioridad": 1
+    },
+    {
+      "company": "CIPE Breaking Systems Technology",
+      "person": "Fiona Lu; sales02@ckgautoparts.com",
+      "product": "EPB",
+      "time": "11:29",
+      "stand": "Hall 6.1 E02",
+      "comments": "Fabricante chino especializado en componentes de sistemas de freno hidráulico: pinzas, servofrenos y bombas de freno. Suministran a OEMs como Ford y Nissan. Disponen de capacidad de I+D y fabricación avanzada para componentes de freno de disco y tambor, con enfoque en calidad y tecnología. Integran sistemas ABS y controles electrónicos en sus desarrollos.",
+      "id": 1763954957878,
+      "fotos": [],
+      "seguimiento": {
+        "responsable": "",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [],
+        "estado": "pendiente"
+      },
+      "departamento": "Innovación",
+      "prioridad": 1
+    },
+    {
+      "company": "Taizhou EBS Auto Parts Co., Ltd.",
+      "person": "Stefen Dong; ebs@ebsbrake.com",
+      "product": "EPB y pinzas de freno",
+      "time": "11:34",
+      "stand": "Hall 3 E56",
+      "comments": "Venden EPB, pinzas de freno. VW,BMW.",
+      "id": 1763955286688,
+      "fotos": [],
+      "seguimiento": {
+        "responsable": "Innovación",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [
+          "Valorar como nuevo producto para el catalogo de Lizarte"
+        ],
+        "estado": "pendiente",
+        "email": "krum@lizarte.com"
+      },
+      "departamento": "Innovación",
+      "prioridad": 1
+    },
+    {
+      "company": "UKAT???",
+      "person": "Molly",
+      "product": "No especifica en el email",
+      "time": "12:13",
+      "stand": "Hall 7.1 E76",
+      "comments": "",
+      "id": 1763957620217,
+      "fotos": [],
+      "seguimiento": {
+        "responsable": "",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [],
+        "estado": "pendiente"
+      },
+      "departamento": "Lizarte",
+      "prioridad": 3
+    },
+    {
+      "company": "EBI Bearing",
+      "person": "John Zhao; johnzhao@ebi-bearings.com",
+      "product": "Rodamientos",
+      "time": "12:15",
+      "stand": "Hall 1.1 D33",
+      "comments": "Interesante opción para comprar rodamientos en China y reducir costes. El producto expuesto en el stand me ha causado buena impresión, aparentan tener una calidad aceptable.",
+      "id": 1763957712020,
+      "fotos": [],
+      "seguimiento": {
+        "responsable": "Equipo Compras",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [
+          "Siguiente paso: solicitar muestras de las referencias top que estamos comprando actualmente para poder compararlas con nuestros proveedores habituales."
+        ],
+        "estado": "pendiente",
+        "email": "jbaztan@lizarte.com"
+      },
+      "departamento": "Lizarte",
+      "prioridad": 1
+    },
+    {
+      "company": "AIERFU",
+      "person": "Dane",
+      "product": "Direcciones",
+      "time": "19:32",
+      "stand": "Hall 6.1 F55",
+      "comments": "Nueva línea de fabricación, han mandado ya dos cremalleras de DAEs.\nEs muy interesante homologar cremalleras para DAEs, ahora puede que el precio/unidad sea alto, pero en cuanto baje, será estratégico para Lizarte.",
+      "id": 1763983993823,
+      "fotos": [
+        "fotos/reunion_aierfu_foto1.jpg"
+      ],
+      "seguimiento": {
+        "responsable": "Equipo Calidad",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [
+          "Revisar las cremalleras que han mandado para homologar."
+        ],
+        "estado": "pendiente",
+        "email": "jhualde@lizarte.com"
+      },
+      "departamento": "Lizarte"
+    },
+    {
+      "company": "YLCNC",
+      "person": "Kairi Ban; gongxue2@yuliancn.com",
+      "product": "Conectores LizOn",
+      "time": "10:00",
+      "stand": "Hall 4.1 C56",
+      "comments": "Proveedor de conectores de todo tipo. Como se puede observar en la foto, disponen de una amplia gama de referencias. Podrían servir tanto para la línea general como para LizOn.\nValorar como alternativa a Shungbang para diversificar proveedores o mejorar condiciones.",
+      "id": 1764122436398,
+      "fotos": [
+        "fotos/reunion_ylcnc_foto2.jpg",
+        "fotos/reunion_ylcnc_foto1.jpg"
+      ],
+      "seguimiento": {
+        "responsable": "Equipo Compras",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [
+          "Mandar los productos que estamos ahora comprando a China para ver si tienen stock, precio y nuevos productos."
+        ],
+        "estado": "pendiente",
+        "email": "jbaztan@lizarte.com"
+      },
+      "departamento": "Lizarte",
+      "prioridad": 1
+    },
+    {
+      "company": "- Cangzhou Fubang",
+      "person": "-Lucy",
+      "product": "Conectores LizOn",
+      "time": "10:17",
+      "stand": "Hall 4.1 H119",
+      "comments": "Proveedor de conectores de todo tipo. Como se puede observar en la foto, disponen de una amplia gama de referencias. Podrían servir tanto para la línea general como para LizOn.\nValorar como alternativa a Shungbang para diversificar proveedores o mejorar condiciones. Ojo tiene el mismo tamaño que ShungBang, proveedor actual. Puede parecer stand pequeño pero tiene potencial.",
+      "id": 1764123486251,
+      "fotos": [
+        "fotos/reunion___cangzhou_fubang_foto2.jpg",
+        "fotos/reunion___cangzhou_fubang_foto1.jpg"
+      ],
+      "seguimiento": {
+        "responsable": "Equipo Compras",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [
+          "Mandar los productos que estamos ahora comprando a China para ver si tienen stock, precio y nuevos productos."
+        ],
+        "estado": "pendiente",
+        "email": "jbaztan@lizarte.com"
+      },
+      "departamento": "Lizarte",
+      "prioridad": 1
+    },
+    {
+      "company": "YANGYU",
+      "person": "Vida Hong; vida@rayangyu.com",
+      "product": "EGR Valve",
+      "time": "10:31",
+      "stand": "Hall 4.1 E43",
+      "comments": "Disponen de muchas referencias en su catálogo. Nos conocen como marca reconocida en Europa, aunque hasta ahora no habían contactado con nosotros.\nEl proveedor tiene buena pinta para válvulas EGR. Merece la pena explorar la posibilidad de colaboración y solicitar más información sobre su gama de producto.",
+      "id": 1764124295568,
+      "fotos": [
+        "fotos/reunion_yangyu_foto1.jpg",
+        "fotos/reunion_yangyu_foto2.jpg",
+        "fotos/reunion_yangyu_foto3.jpg"
+      ],
+      "seguimiento": {
+        "responsable": "Innovación",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [
+          "Pedir catalogo con referencias y compartir con Richard."
+        ],
+        "estado": "pendiente",
+        "email": "krum@lizarte.com"
+      },
+      "departamento": "Innovación",
+      "prioridad": 1
+    },
+    {
+      "company": "Matteo Vehicle Parts Factory",
+      "person": "Marco (General Manager); 2826664554@qq.com",
+      "product": "Relen",
+      "time": "10:44",
+      "stand": "Hall 4.1 B61",
+      "comments": "Empresa especializada en relés de todo tipo y para distintos amperajes. Podría ser útil para cubrir necesidades de componentes eléctricos en diferentes aplicaciones.",
+      "id": 1764125076721,
+      "fotos": [
+        "fotos/reunion_matteo_vehicle_parts_factory_foto1.jpg",
+        "fotos/reunion_matteo_vehicle_parts_factory_foto2.jpg"
+      ],
+      "seguimiento": {
+        "responsable": "Equipo Compras",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [
+          "Contactar con ellos para consultar si disponen del relé que actualmente compramos a Altezza y solicitar precio directo. De esta forma, podríamos evitar intermediarios y mejorar costes."
+        ],
+        "estado": "pendiente",
+        "email": "jbaztan@lizarte.com"
+      },
+      "departamento": "Lizarte",
+      "prioridad": 1
+    },
+    {
+      "company": "KITPAMT",
+      "person": "Ms. Anna",
+      "product": "DAES Y COMPONENTES",
+      "time": "11:31",
+      "stand": "Hall 5.1 D111",
+      "comments": "Este proveedor me ha parecido muy interesante por la variedad de componentes que ofrecen:\n\nRodamientos de aguja\nRodamientos normales y de gran tamaño\nCarcasas\nTapas de conectores\nCorreas\nCables\n\nTambién tienen posicionadores, aunque son diferentes a los que usamos habitualmente. Disponen de sensor de piñón para Golf 5, lo cual podría ser relevante para nuestra línea.",
+      "id": 1764127927936,
+      "fotos": [
+        "fotos/reunion_kitpamt_foto1.jpg",
+        "fotos/reunion_kitpamt_foto3.jpg",
+        "fotos/reunion_kitpamt_foto2.jpg"
+      ],
+      "seguimiento": {
+        "responsable": "Innovación",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [
+          "Pedir email de contacto y catálogo.",
+          "Muy interesante para componentes de Encory, también tienen cremalleras con usillos."
+        ],
+        "estado": "contactado",
+        "email": "krum@lizarte.com"
+      },
+      "departamento": "Innovación",
+      "prioridad": 1
+    },
+    {
+      "company": "QUANBANG",
+      "person": "Con Liu",
+      "product": "Direcciones y Terminales",
+      "time": "12:00",
+      "stand": "Hall 5.1 F99",
+      "comments": "Venden Direcciones hidráulicas, pero lo que destaco es que venden terminales, me va a mandar el catálogo para compartir con Javier Baztán y pedir precio.",
+      "id": 1764129667486,
+      "fotos": [
+        "fotos/reunion_quanbang_foto1.jpg"
+      ],
+      "seguimiento": {
+        "responsable": "Equipo Compras",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [
+          "Valorar la idea de comprar terminales en vez de recuperar los actuales"
+        ],
+        "estado": "pendiente",
+        "email": "jbaztan@lizarte.com"
+      },
+      "departamento": "Lizarte"
+    },
+    {
+      "company": "YUGFROST",
+      "person": "David Gontmakher( Manager)",
+      "product": "Aires acondicionados para camiones",
+      "time": "12:08",
+      "stand": "Hall 5.1 K64",
+      "comments": "on dos compañías en una, con presencia en Rusia y China. Fabrican sistemas de aire acondicionado para camiones, diseñados específicamente para su uso en parada: cuando el camionero está descansando, puede mantener el aire encendido sin necesidad de tener el motor en marcha. El sistema incorpora una protección automática que apaga el equipo cuando la batería baja del 30%, evitando así que el camión se quede sin arranque.\nOfrecen la posibilidad de personalizar los productos con nuestra caja y marca, de forma que podríamos comercializarlos bajo el nombre Lizarte. Podría ser una línea interesante para diversificar el catálogo.",
+      "id": 1764130099961,
+      "fotos": [
+        "fotos/reunion_yugfrost_foto2.jpg",
+        "fotos/reunion_yugfrost_foto1.jpg"
+      ],
+      "seguimiento": {
+        "responsable": "Innovación",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [
+          "Valorar la idea como posible producto a comercializar. Había muchos stands en la feria ofreciendo productos similares, lo que indica que hay demanda y potencial de mercado. Merece la pena estudiarlo con más detalle."
+        ],
+        "estado": "pendiente",
+        "email": "krum@lizarte.com"
+      },
+      "departamento": "Innovación"
+    },
+    {
+      "company": "FOBAUTOPARTS",
+      "person": "Jack Tao y Jared Chen; jack@fobautoparts.com & sales04@fobautoparts.com",
+      "product": "Direcciones",
+      "time": "12:42",
+      "stand": "Hall 6.1 F100",
+      "comments": "Empresa comercializadora – Servicios de agrupación e inspección\nSe trata de una empresa comercializadora, no de un fabricante directo. Ofrecen varios servicios interesantes:\n\nAgrupación de pedidos: Pueden consolidar material de distintos proveedores en un único envío.\nInspección previa al envío: Revisan el producto antes de mandarlo y nos pueden enviar fotos como evidencia de que todo está en orden.\n\nEn cuanto a productos, comentan que las bombas las compran a Quanxing, pero las direcciones las fabrican ellos mismos. También ofrecen transmisiones, que según dicen las adquieren a GSP. La diferencia es que GSP no permite poner nuestra marca en el producto, pero ellos sí podrían hacerlo.\nAdemás, pueden darnos referencias de otras empresas o incluso acompañarnos a visitarlas para verificar las instalaciones de los fabricantes.\n\nPuede parecer interesante plantearlos como una empresa que nos haga de intermediario de confianza en China: agrupación de material, control de calidad e inspección antes del envío. Podría simplificarnos la gestión logística y darnos mayor seguridad en los pedidos. (Esta idea se comentó hace varios años, ahora mismo no se si es prioritario).",
+      "id": 1764132222182,
+      "fotos": [
+        "fotos/reunion_fobautoparts_foto1.jpg",
+        "fotos/reunion_fobautoparts_foto3.jpg",
+        "fotos/reunion_fobautoparts_foto2.jpg"
+      ],
+      "seguimiento": {
+        "responsable": "Innovación",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [
+          "Pedir catálogo de otros productos que comercializan, como por ejemplo bombas de gasolina (las que van desde el depósito hacia el motor), para valorar la opción de incluirlas en nuestro catálogo."
+        ],
+        "estado": "pendiente",
+        "email": "krum@lizarte.com"
+      },
+      "departamento": "Innovación",
+      "prioridad": 3
+    },
+    {
+      "company": "CHANGHI",
+      "person": "Jason Bai",
+      "product": "DAES",
+      "time": "13:39",
+      "stand": "Hall 6.1 F01",
+      "comments": "",
+      "id": 1764135592052,
+      "fotos": [],
+      "seguimiento": {
+        "responsable": "",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [],
+        "estado": "pendiente"
+      },
+      "departamento": "Lizarte"
+    },
+    {
+      "company": "WINNER AUTOPARTS",
+      "person": "Eve Xu; evexu@winner-parts.com",
+      "product": "EGR",
+      "time": "14:19",
+      "stand": "Hall 2.1 A96",
+      "comments": "La mejor empresa que he visto en la feria para válvulas EGR. Destacan por tener equipos de verificación expuestos en el stand, lo que demuestra un enfoque serio en el control de calidad de sus productos.\nTambién tienen productos de AdBlue.\n\nIdea a valorar: Durante la conversación hemos comentado la posibilidad de adquirir uno de sus equipos de verificación para realizar test internos de calidad en Lizarte. Esto nos permitiría validar el producto recibido y asegurar el nivel de calidad antes de su comercialización.",
+      "id": 1764137943163,
+      "fotos": [
+        "fotos/reunion_winner_autoparts_foto3.jpg",
+        "fotos/reunion_winner_autoparts_foto1.jpg",
+        "fotos/reunion_winner_autoparts_foto2.jpg"
+      ],
+      "seguimiento": {
+        "responsable": "Innovación",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [
+          "Contactar para pedir catálogo de las referencias que tienen de EGR y AdBlue."
+        ],
+        "estado": "pendiente",
+        "email": "krum@lizarte.com"
+      },
+      "departamento": "Innovación",
+      "prioridad": 1
+    },
+    {
+      "company": "SEINECA",
+      "person": "Luis Yu; service3@seineca.com",
+      "product": "CV JOINT",
+      "time": "16:24",
+      "stand": "Hall 3 K60",
+      "comments": "Es una empresa fundada en 2010 y fabrican directamente, no son comercializadores. Esto es un punto a favor en cuanto a control de calidad y trazabilidad del producto.\nPendiente recibir por email:\n\nListado de referencias fast mover en Europa con sus códigos OEM correspondientes.\nCatálogo de sensores para columnas de dirección y sistemas DAES (me lo enviará otra persona que estaba presente en la reunión).",
+      "id": 1764145484162,
+      "fotos": [
+        "fotos/reunion_seineca_foto1.jpg"
+      ],
+      "seguimiento": {
+        "responsable": "Equipo Compras",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [
+          "Pedir ambos catálogos de los dos productos."
+        ],
+        "estado": "pendiente",
+        "email": "jbaztan@lizarte.com"
+      },
+      "departamento": "Lizarte",
+      "prioridad": 3
+    },
+    {
+      "company": "CHIBOSS",
+      "person": "Levi & Hancy; levi@chiboss.cn & Hancy@chiboss.cn",
+      "product": "Correas EPS",
+      "time": "09:45",
+      "stand": "Hall 3.1 H123",
+      "comments": "Venden todo tipo de correas, incluyendo las que necesitamos para nuestras aplicaciones. También disponen de versiones más finas que podrían ser útiles para otras referencias.\nHa sido uno de los mejores stands que he visto en la feria.\n\nContacto: Hancy@chiboss.cn – nos va a enviar el catálogo en PDF.",
+      "id": 1764207955485,
+      "fotos": [
+        "fotos/reunion_chiboss_foto2.jpg",
+        "fotos/reunion_chiboss_foto1.jpg"
+      ],
+      "seguimiento": {
+        "responsable": "Equipo Calidad",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [
+          "Pedir referencias de Encory y precios para valorar vs proveedor actual"
+        ],
+        "estado": "pendiente",
+        "email": "jhualde@lizarte.com"
+      },
+      "departamento": "Lizarte",
+      "prioridad": 1
+    },
+    {
+      "company": "ZFYLCD",
+      "person": "Karol y lilei; jtyl13633187801@163.com",
+      "product": "Cardans",
+      "time": "10:07",
+      "stand": "Hall 1.1 E01",
+      "comments": "Venden cardanes y tienen buena pinta. Las piezas expuestas en el stand se ven bien acabadas; lógicamente habrán llevado el mejor producto posible para la feria, pero aun así merece la pena explorar la colaboración.\nComentan que trabajan con vehículos del parque europeo, lo cual es relevante para nuestro mercado.",
+      "id": 1764209275780,
+      "fotos": [
+        "fotos/reunion_zfylcd_foto2.jpg",
+        "fotos/reunion_zfylcd_foto1.jpg"
+      ],
+      "seguimiento": {
+        "responsable": "Equipo Compras",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [
+          "Pedir catálogo"
+        ],
+        "estado": "pendiente",
+        "email": "jbaztan@lizarte.com"
+      },
+      "departamento": "Lizarte",
+      "prioridad": 1
+    },
+    {
+      "company": "WUXI BELT",
+      "person": "Hanna; wxjudy@wuxibelt.cn",
+      "product": "Correas para DAES",
+      "time": "10:14",
+      "stand": "Hall 1.1",
+      "comments": "Otro proveedor de correas a tener en cuenta. Alternativa adicional para diversificar opciones de suministro.",
+      "id": 1764209654681,
+      "fotos": [
+        "fotos/reunion_wuxi_belt_foto1.jpg",
+        "fotos/reunion_wuxi_belt_foto2.jpg"
+      ],
+      "seguimiento": {
+        "responsable": "Equipo Compras",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [
+          "Solicitar correas de Encory para comparar calidad y precio con otros proveedores contactados en la feria."
+        ],
+        "estado": "pendiente",
+        "email": "jbaztan@lizarte.com"
+      },
+      "departamento": "Lizarte",
+      "prioridad": 1
+    },
+    {
+      "company": "TENDA TEC",
+      "person": "Jim Lee; jim@tendaparts.com",
+      "product": "EGR",
+      "time": "10:26",
+      "stand": "Hall 1.1",
+      "comments": "Empresa que vende válvulas EGR. Me ha gustado mucho su stand, muy profesional.\nComentan que suministran a Bosch y me han mostrado fotos como prueba. Además, me han indicado que en el stand de Bosch estaba su producto expuesto. He visitado el stand de Bosch y efectivamente, aparentemente es el mismo producto del proveedor.\nEsto da mucha confianza: si trabajan con Bosch, el nivel de exigencia y calidad debe ser alto. Disponen de muchas referencias en su catálogo.\n\nValoración: Proveedor a tener muy en cuenta para EGR. La relación con Bosch es un aval importante.",
+      "id": 1764210396599,
+      "fotos": [
+        "fotos/reunion_tenda_tec_foto2.jpg",
+        "fotos/reunion_tenda_tec_foto1.jpg"
+      ],
+      "seguimiento": {
+        "responsable": "Innovación",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [
+          "Acción: Pedir catálogo completo con todas las referencias y solicitar específicamente el listado de referencias que suministran a Bosch."
+        ],
+        "estado": "pendiente",
+        "email": "krum@lizarte.com"
+      },
+      "departamento": "Innovación",
+      "prioridad": 1
+    }
+  ],
+  "adicional": [
+    {
+      "id": "add_1",
+      "empresa": "N.F.YO",
+      "producto": "Ruedas y neumáticos",
+      "notas": "Exclusiva de venta de neumáticos en España. Ruedas de coches, motos, tractores. En España las ruedas de tractores son extremadamente caras.\nHan comprado una fabrica de fabricación de neumáticos y le propongo valorar la idea de comercializar neumáticos en España/Europa. Confirmar donde tendríamos la exclusividad.",
+      "oportunidad": "Nuevo negocio - venta de ruedas en Europa",
+      "prioridad": "alta",
+      "seguimiento": {
+        "responsable": "",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [],
+        "estado": "pendiente"
+      },
+      "departamento": "Innovación"
+    },
+    {
+      "id": "add_2",
+      "empresa": "Inyectores Diesel",
+      "producto": "Cabezas de inyectores Diesel",
+      "notas": "Va a mandar el catálogo. Producto de nicho muy interesante ya que en España el precio es alto.",
+      "oportunidad": "Producto de nicho con buen margen",
+      "prioridad": 3,
+      "seguimiento": {
+        "responsable": "",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [],
+        "estado": "pendiente"
+      },
+      "departamento": "Lizarte"
+    },
+    {
+      "id": "add_3",
+      "empresa": "Máquinas equilibrado",
+      "producto": "Máquinas de equilibrado y cambio de ruedas",
+      "notas": "Varias empresas vistas con este producto, es un producto que se vende bien en Europa. Ya que las máquinas Alemanas son muy caras y las chinas funcionan bien y el precio es más competitivo.",
+      "oportunidad": "Nuevo posible negocio - venta de máquinas",
+      "prioridad": 3,
+      "seguimiento": {
+        "responsable": "",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [],
+        "estado": "pendiente"
+      },
+      "departamento": "Innovación"
+    },
+    {
+      "id": "add_4",
+      "empresa": "Componentes eléctricos",
+      "producto": "Conectores, cables y componentes eléctricos",
+      "notas": "Todo tipo de accesorios para cables/conectores. Mirar foto de abajo del todo. Puede ser interesante tanto para comercial(creo que mercado pequeño), puede que sea más interesante para nosotros, de forma interna.",
+      "oportunidad": "ESCRIBIRLE AL CHINO con fotos de componentes que necesitamos. Poner a Pablo en copia.",
+      "prioridad": 2,
+      "seguimiento": {
+        "responsable": "",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "Email con fotos componentes eléctricos necesarios",
+        "fechaSeguimiento": "",
+        "acciones": [],
+        "estado": "pendiente"
+      },
+      "departamento": "Lizarte"
+    },
+    {
+      "id": "add_5",
+      "empresa": "Tornillos para Encory",
+      "producto": "Tornillos calidad 10.9/12.9, proveedor de VW",
+      "notas": "Empresa; C.K.T (http://www.ktf.cn)\nContacto; David; david.liu@ktf.cn\n\nFábrica de tornillos específicos para Volkswagen. Alta calidad.",
+      "oportunidad": "MUY IMPORTANTE. Calidad premium específica VW",
+      "prioridad": 1,
+      "seguimiento": {
+        "responsable": "Equipo Compras",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [
+          "Pedir catálogo de tornillos para Encory, en concreto, los 12 tornillos que lleva cada DAE."
+        ],
+        "estado": "pendiente",
+        "email": "jbaztan@lizarte.com"
+      },
+      "departamento": "Lizarte"
+    },
+    {
+      "id": "add_6",
+      "empresa": "Herramientas Premium",
+      "producto": "Puntas, herramientas, pistolas",
+      "notas": "Empresa; JTC AUTO TOOLS\nContacto; Antony Lin; antony@jtc.com.tw\n\nEl mejor stand de herramientas visto hasta ahora en la feria. Destaca por encima del resto en cuanto a presentación y gama de producto.\nPendiente: Valorar qué herramientas podrían interesarnos y solicitar más información o catálogo.",
+      "oportunidad": "Compra de herramientas que tienen un desgaste excesivo.",
+      "prioridad": "alta",
+      "seguimiento": {
+        "responsable": "",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [],
+        "estado": "pendiente"
+      },
+      "departamento": "Lizarte"
+    },
+    {
+      "id": "add_7",
+      "empresa": "Direct Sillones - Silvia G",
+      "producto": "Direcciones",
+      "notas": "Proveedor de direcciones que podría servir como alternativa a los actuales. Gran ventaja: la persona de contacto habla perfectamente castellano, lo que facilitaría mucho la comunicación y evitaría malentendidos en las negociaciones y gestiones técnicas.\nValoración: Tener en cuenta como proveedor alternativo de direcciones. El idioma es un plus importante a la hora de trabajar con proveedores en China.",
+      "oportunidad": "Comunicación fluida en español",
+      "prioridad": 3,
+      "seguimiento": {
+        "responsable": "",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [],
+        "estado": "pendiente"
+      },
+      "departamento": "Lizarte"
+    },
+    {
+      "id": "add_8",
+      "empresa": "NBM",
+      "producto": "Correas para BMW/Encory",
+      "notas": "Contacto; Kozy; nbmbelt-kozy@mstjd.com\n\nEmpresa dedicada a la fabricación de correas. No solo tienen referencias estándar, sino que también pueden desarrollar correas nuevas según especificaciones, lo cual es interesante si necesitamos algo a medida.\nTambién disponen de columnas EPS nuevas, aunque de momento su catálogo está enfocado al mercado USA. Habría que valorar si tienen referencias aplicables al parque europeo o si podrían desarrollarlas.",
+      "oportunidad": "Desarrollo de producto y expansión EPS",
+      "prioridad": 1,
+      "seguimiento": {
+        "responsable": "",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [],
+        "estado": "pendiente"
+      },
+      "departamento": "Lizarte"
+    },
+    {
+      "id": "add_9",
+      "empresa": "YAS - Bruce Lee",
+      "producto": "Direcciones (PROYECTO CLAVE)",
+      "notas": "REUNIÓN IMPORTANTE: No están interesados en proyecto inicial de almacén. PROPONEN: Mandarnos mucho material y ampliar plazo de pago. Lizarte se encarga de vender. Referencias homologadas + no homologadas para mercado europeo. Venderíamos con marca LIZARTE.",
+      "oportunidad": "PROYECTO ESTRATÉGICO - Ampliar catálogo direcciones significativamente",
+      "prioridad": 1,
+      "seguimiento": {
+        "responsable": "",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "Informar volumen anual de direcciones vendidas para calcular plazo de pago",
+        "fechaSeguimiento": "",
+        "acciones": [],
+        "estado": "pendiente"
+      },
+      "departamento": "Innovación"
+    },
+    {
+      "id": "add_10",
+      "empresa": "Varios - Otros productos",
+      "producto": "Altavoces, ventiladores, rodamientos, guantes",
+      "notas": "Altavoces para coches. Ventiladores pequeños con potencia. Rodamientos varios. Guantes naranja con bolitas.",
+      "oportunidad": "Diversificación catálogo",
+      "prioridad": "baja",
+      "seguimiento": {
+        "responsable": "",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [],
+        "estado": "pendiente"
+      },
+      "departamento": "Lizarte"
+    },
+    {
+      "id": "add_11",
+      "empresa": "Galería OneNote - Tarjetas y Fotos",
+      "producto": "Tarjetas de visita, productos, stands",
+      "notas": "47 fotos extraídas de la app by KKK. Incluye tarjetas de visita de contactos, fotos de productos, stands visitados y material de referencia.",
+      "oportunidad": "Archivo visual de referencia de la feria",
+      "prioridad": 1,
+      "fotos": [
+        "fotos/onenote_imagen-000.png",
+        "fotos/onenote_imagen-001.png",
+        "fotos/onenote_imagen-002.png",
+        "fotos/onenote_imagen-003.png",
+        "fotos/onenote_imagen-004.png",
+        "fotos/onenote_imagen-005.png",
+        "fotos/onenote_imagen-006.png",
+        "fotos/onenote_imagen-007.png",
+        "fotos/onenote_imagen-008.png",
+        "fotos/onenote_imagen-009.png",
+        "fotos/onenote_imagen-010.png",
+        "fotos/onenote_imagen-011.png",
+        "fotos/onenote_imagen-012.png",
+        "fotos/onenote_imagen-013.png",
+        "fotos/onenote_imagen-014.png",
+        "fotos/onenote_imagen-015.png",
+        "fotos/onenote_imagen-016.png",
+        "fotos/onenote_imagen-017.png",
+        "fotos/onenote_imagen-018.png",
+        "fotos/onenote_imagen-019.png",
+        "fotos/onenote_imagen-020.png",
+        "fotos/onenote_imagen-021.png",
+        "fotos/onenote_imagen-022.png",
+        "fotos/onenote_imagen-023.png",
+        "fotos/onenote_imagen-024.png",
+        "fotos/onenote_imagen-025.png",
+        "fotos/onenote_imagen-026.png",
+        "fotos/onenote_imagen-027.png",
+        "fotos/onenote_imagen-028.png",
+        "fotos/onenote_imagen-029.png",
+        "fotos/onenote_imagen-030.png",
+        "fotos/onenote_imagen-031.png",
+        "fotos/onenote_imagen-032.png",
+        "fotos/onenote_imagen-033.png",
+        "fotos/onenote_imagen-034.png",
+        "fotos/onenote_imagen-035.png",
+        "fotos/onenote_imagen-036.png",
+        "fotos/onenote_imagen-037.png",
+        "fotos/onenote_imagen-038.png",
+        "fotos/onenote_imagen-039.png",
+        "fotos/onenote_imagen-040.png",
+        "fotos/onenote_imagen-041.png",
+        "fotos/onenote_imagen-042.png",
+        "fotos/onenote_imagen-043.png",
+        "fotos/onenote_imagen-044.png",
+        "fotos/onenote_imagen-045.png",
+        "fotos/onenote_imagen-046.png"
+      ],
+      "seguimiento": {
+        "responsable": "",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [],
+        "estado": "pendiente",
+        "email": ""
+      },
+      "departamento": "Lizarte"
+    }
+  ]
+}
