@@ -665,6 +665,29 @@
         "estado": "contactado",
         "email": "krum@lizarte.com"
       }
+    },
+    {
+      "id": "1765892785333",
+      "company": "Nueva Empresa",
+      "person": "",
+      "product": "",
+      "time": "",
+      "stand": "",
+      "comments": "",
+      "departamento": "Lizarte",
+      "prioridad": 1,
+      "fotos": [],
+      "fotos_extra": [],
+      "seguimiento": {
+        "responsable": "",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [],
+        "estado": "pendiente",
+        "email": ""
+      }
     }
   ],
   "adicional": [
