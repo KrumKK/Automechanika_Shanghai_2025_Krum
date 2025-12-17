@@ -2132,6 +2132,7 @@
                         <div class="form-group">
                             <label>📝 Notas / Comentarios</label>
                             <textarea 
+                                class="long-text-field"
                                 onchange="updateTexto('reuniones', ${realIdx}, 'comments', this.value)"
                                 placeholder="Añade notas o comentarios sobre esta reunión..."
                                 style="min-height: 80px;">${item.comments || ''}</textarea>
@@ -2224,6 +2225,7 @@
                         <div class="form-group">
                             <label>📝 Notas</label>
                             <textarea 
+                                class="long-text-field"
                                 onchange="updateTexto('adicional', ${realIdx}, 'notas', this.value)"
                                 placeholder="Añade notas sobre esta empresa..."
                                 style="min-height: 60px;">${item.notas || ''}</textarea>
@@ -2232,6 +2234,7 @@
                         <div class="form-group">
                             <label>💡 Oportunidad</label>
                             <textarea 
+                                class="long-text-field"
                                 onchange="updateTexto('adicional', ${realIdx}, 'oportunidad', this.value)"
                                 placeholder="Describe la oportunidad de negocio..."
                                 style="min-height: 60px;">${item.oportunidad || ''}</textarea>
@@ -3533,20 +3536,34 @@ Sistema de Seguimiento Automechanika`;
             // Calcular altura necesaria
             const scrollHeight = textarea.scrollHeight;
             const minHeight = 40; // min-height del CSS
-            const maxHeight = 400; // max-height del CSS
             
-            // Aplicar altura calculada
-            if (scrollHeight > minHeight) {
-                textarea.style.height = Math.min(scrollHeight, maxHeight) + 'px';
-            } else {
-                textarea.style.height = minHeight + 'px';
-            }
+            // Detectar si es un campo de texto largo usando clase o atributo onchange
+            const isLongTextField = textarea.classList.contains('long-text-field') ||
+                                   (textarea.getAttribute('onchange') && 
+                                   (textarea.getAttribute('onchange').includes("'comments'") ||
+                                    textarea.getAttribute('onchange').includes("'notas'") ||
+                                    textarea.getAttribute('onchange').includes("'oportunidad'")));
             
-            // Si el contenido excede max-height, mostrar scroll
-            if (scrollHeight > maxHeight) {
-                textarea.style.overflowY = 'auto';
+            // Para campos de texto largos, no aplicar límite máximo
+            if (isLongTextField) {
+                // Ajustar completamente al contenido sin límite
+                textarea.style.height = Math.max(scrollHeight, minHeight) + 'px';
+                textarea.style.overflowY = 'hidden'; // Sin scroll, todo visible
             } else {
-                textarea.style.overflowY = 'hidden';
+                // Para otros campos, mantener el límite de 400px
+                const maxHeight = 400;
+                if (scrollHeight > minHeight) {
+                    textarea.style.height = Math.min(scrollHeight, maxHeight) + 'px';
+                } else {
+                    textarea.style.height = minHeight + 'px';
+                }
+                
+                // Si el contenido excede max-height, mostrar scroll
+                if (scrollHeight > maxHeight) {
+                    textarea.style.overflowY = 'auto';
+                } else {
+                    textarea.style.overflowY = 'hidden';
+                }
             }
         }
         
