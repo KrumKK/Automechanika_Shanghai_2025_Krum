@@ -1160,6 +1160,7 @@
     <div class="tabs">
         <button class="tab active" onclick="switchTab('reuniones')">🤝 Reuniones (25)</button>
         <button class="tab" onclick="switchTab('adicional')">📋 Info Adicional (11)</button>
+        <button class="tab" onclick="switchTab('guia')">📖 Guía</button>
         <button class="tab" onclick="switchTab('config')">⚙️ Configuración</button>
     </div>
     
@@ -1212,6 +1213,166 @@
     
     <div id="adicionalSection" class="content-section">
         <div id="adicionalContainer" class="items-container"></div>
+    </div>
+    
+    <div id="guiaSection" class="content-section">
+        <div class="config-section" style="max-width: 900px; margin: 0 auto; padding: 20px;">
+            <div class="config-title" style="text-align: center; margin-bottom: 30px;">📘 Guía de Uso - Sistema de Seguimiento Automechanika Shanghai 2025</div>
+            
+            <div style="background: white; border-radius: 12px; padding: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); line-height: 1.8; color: #2d3748; max-height: 80vh; overflow-y: auto;">
+                <div style="margin-bottom: 30px;">
+                    <h2 style="color: #667eea; margin-bottom: 15px; font-size: 20px;">🎯 Introducción</h2>
+                    <p>Esta aplicación web ha sido diseñada para gestionar y hacer seguimiento de todos los contactos y reuniones realizadas durante la feria <strong>Automechanika Shanghai 2025</strong> (19 Nov - 6 Dic). Permite organizar la información de empresas, reuniones programadas, oportunidades de negocio y mantener un control completo del estado de seguimiento de cada contacto.</p>
+                </div>
+
+                <div style="margin-bottom: 30px; padding-top: 20px; border-top: 2px solid #e2e8f0;">
+                    <h2 style="color: #667eea; margin-bottom: 15px; font-size: 20px;">🚀 Pantalla Inicial (Splash Screen)</h2>
+                    <p>Al abrir la aplicación, verás una pantalla de bienvenida que muestra:</p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li><strong>🏢 Empresas Priorizadas Contactadas</strong>: Total de empresas registradas en el sistema</li>
+                        <li><strong>🤝 Reuniones Estratégicas</strong>: Número de reuniones programadas</li>
+                        <li><strong>📷 Registros Visuales</strong>: Total de fotos subidas</li>
+                        <li><strong>⭐ Oportunidades Innovación</strong>: Empresas asignadas al departamento de Innovación</li>
+                    </ul>
+                    <p style="margin-top: 10px;"><strong>Nota</strong>: Esta pantalla se muestra automáticamente al cargar la aplicación. Haz clic en "🚀 ACCEDER AL SISTEMA" para continuar.</p>
+                </div>
+
+                <div style="margin-bottom: 30px; padding-top: 20px; border-top: 2px solid #e2e8f0;">
+                    <h2 style="color: #667eea; margin-bottom: 15px; font-size: 20px;">📊 Dashboard Principal</h2>
+                    <h3 style="color: #764ba2; margin-top: 15px; margin-bottom: 10px; font-size: 16px;">Tarjetas de Estadísticas</h3>
+                    <p>En la parte superior de la pantalla principal encontrarás 5 tarjetas con estadísticas en tiempo real:</p>
+                    <ol style="margin-left: 20px; margin-top: 10px;">
+                        <li><strong>Total</strong>: Número total de empresas (reuniones + información adicional)</li>
+                        <li><strong>Pendientes</strong>: Empresas que aún no han sido contactadas</li>
+                        <li><strong>Contactados</strong>: Empresas con las que ya se ha establecido contacto</li>
+                        <li><strong>En Proceso</strong>: Empresas con negociaciones o seguimiento activo</li>
+                        <li><strong>Finalizados</strong>: Empresas con seguimiento completado</li>
+                    </ol>
+                    <p style="margin-top: 10px;"><strong>💡 Importante</strong>: Estos números se actualizan automáticamente cuando añades, modificas o cambias el estado de las empresas.</p>
+                </div>
+
+                <div style="margin-bottom: 30px; padding-top: 20px; border-top: 2px solid #e2e8f0;">
+                    <h2 style="color: #667eea; margin-bottom: 15px; font-size: 20px;">📑 Pestañas Principales</h2>
+                    <p>La aplicación está organizada en cuatro pestañas:</p>
+                    
+                    <h3 style="color: #764ba2; margin-top: 15px; margin-bottom: 10px; font-size: 16px;">🤝 Reuniones</h3>
+                    <p>Contiene todas las <strong>reuniones programadas</strong> durante la feria. Cada reunión incluye: nombre de empresa, persona de contacto, producto/servicio, hora y stand, comentarios, fotos y sistema de seguimiento completo.</p>
+                    <p style="margin-top: 10px;"><strong>Contador</strong>: El número entre paréntesis <code>(X)</code> muestra cuántas reuniones hay registradas.</p>
+
+                    <h3 style="color: #764ba2; margin-top: 15px; margin-bottom: 10px; font-size: 16px;">📋 Info Adicional</h3>
+                    <p>Contiene <strong>empresas de interés</strong> que no tienen reunión programada pero son relevantes para el seguimiento. Incluye: nombre de empresa, producto/servicio, notas, oportunidad de negocio, fotos y sistema de seguimiento completo.</p>
+                    <p style="margin-top: 10px;"><strong>Contador</strong>: El número entre paréntesis <code>(X)</code> muestra cuántas empresas adicionales hay registradas.</p>
+
+                    <h3 style="color: #764ba2; margin-top: 15px; margin-bottom: 10px; font-size: 16px;">📖 Guía</h3>
+                    <p>Esta pestaña que estás viendo ahora. Contiene toda la documentación de uso de la aplicación.</p>
+
+                    <h3 style="color: #764ba2; margin-top: 15px; margin-bottom: 10px; font-size: 16px;">⚙️ Configuración</h3>
+                    <p>Permite personalizar el título, subtítulo y notas generales sobre la feria.</p>
+                </div>
+
+                <div style="margin-bottom: 30px; padding-top: 20px; border-top: 2px solid #e2e8f0;">
+                    <h2 style="color: #667eea; margin-bottom: 15px; font-size: 20px;">🏷️ Sistema de Clasificación</h2>
+                    
+                    <h3 style="color: #764ba2; margin-top: 15px; margin-bottom: 10px; font-size: 16px;">Departamentos</h3>
+                    <p>Cada empresa puede estar asignada a uno de dos departamentos:</p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li><strong>🔵 Lizarte</strong>: Empresas relacionadas con el negocio principal de Lizarte</li>
+                        <li><strong>⭐ Innovación</strong>: Empresas relacionadas con proyectos de innovación y nuevas oportunidades</li>
+                    </ul>
+
+                    <h3 style="color: #764ba2; margin-top: 15px; margin-bottom: 10px; font-size: 16px;">Prioridades</h3>
+                    <p>Cada empresa tiene un nivel de prioridad que puedes ajustar:</p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li><strong>🔴 0 - Muy Importante</strong>: Máxima prioridad, requiere atención inmediata</li>
+                        <li><strong>🟢 1 - Alta</strong>: Alta prioridad, seguimiento prioritario</li>
+                        <li><strong>🟡 2 - Media</strong>: Prioridad media, seguimiento normal</li>
+                        <li><strong>🟠 3 - Baja</strong>: Baja prioridad, seguimiento ocasional</li>
+                    </ul>
+                </div>
+
+                <div style="margin-bottom: 30px; padding-top: 20px; border-top: 2px solid #e2e8f0;">
+                    <h2 style="color: #667eea; margin-bottom: 15px; font-size: 20px;">📋 Sistema de Seguimiento</h2>
+                    <p>Cada empresa tiene una sección de <strong>Seguimiento</strong> que permite gestionar el estado del contacto:</p>
+                    
+                    <h3 style="color: #764ba2; margin-top: 15px; margin-bottom: 10px; font-size: 16px;">Estados</h3>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li><strong>⚪ Pendiente</strong>: Aún no se ha contactado con la empresa</li>
+                        <li><strong>🟡 Contactado</strong>: Ya se ha establecido contacto inicial</li>
+                        <li><strong>🔵 En Proceso</strong>: Hay negociaciones o seguimiento activo en curso</li>
+                        <li><strong>🟢 Finalizado</strong>: El seguimiento de esta empresa está completado</li>
+                    </ul>
+                    <p style="margin-top: 10px;"><strong>Importante</strong>: El estado seleccionado se refleja automáticamente en las estadísticas del dashboard.</p>
+
+                    <h3 style="color: #764ba2; margin-top: 15px; margin-bottom: 10px; font-size: 16px;">Información de Seguimiento</h3>
+                    <p>Para cada empresa puedes registrar: responsable, email, fecha de seguimiento, próxima acción y lista de acciones pendientes.</p>
+                </div>
+
+                <div style="margin-bottom: 30px; padding-top: 20px; border-top: 2px solid #e2e8f0;">
+                    <h2 style="color: #667eea; margin-bottom: 15px; font-size: 20px;">🔍 Filtros y Búsqueda</h2>
+                    <p>En la parte superior encontrarás un panel de filtros:</p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li><strong>🔍 Buscar</strong>: Busca en nombre de empresa o producto/servicio</li>
+                        <li><strong>🏢 Departamento</strong>: Filtra por Lizarte o Innovación</li>
+                        <li><strong>👤 Responsable</strong>: Filtra por la persona asignada</li>
+                        <li><strong>📊 Estado</strong>: Filtra por el estado de seguimiento</li>
+                        <li><strong>⭐ Prioridad</strong>: Filtra por nivel de prioridad</li>
+                    </ul>
+                    <p style="margin-top: 10px;"><strong>💡 Tip</strong>: Puedes combinar múltiples filtros para encontrar exactamente lo que buscas.</p>
+                </div>
+
+                <div style="margin-bottom: 30px; padding-top: 20px; border-top: 2px solid #e2e8f0;">
+                    <h2 style="color: #667eea; margin-bottom: 15px; font-size: 20px;">➕ Añadir Nueva Empresa</h2>
+                    <p>Haz clic en el botón <strong>"➕ Añadir Nueva Empresa"</strong> (arriba a la derecha).</p>
+                    <p>Se abrirá un menú donde puedes elegir:</p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li><strong>🤝 Añadir Reunión</strong>: Para empresas con reunión programada</li>
+                        <li><strong>📋 Añadir Info Adicional</strong>: Para empresas de interés sin reunión programada</li>
+                    </ul>
+                </div>
+
+                <div style="margin-bottom: 30px; padding-top: 20px; border-top: 2px solid #e2e8f0;">
+                    <h2 style="color: #667eea; margin-bottom: 15px; font-size: 20px;">✏️ Editar Información</h2>
+                    <p><strong>Campos de Texto</strong>: Haz clic en cualquier campo y escribe para modificar. Los cambios se guardan automáticamente.</p>
+                    <p><strong>Prioridad</strong>: Haz clic en los botones numéricos (0, 1, 2, 3) en la esquina superior derecha de cada tarjeta.</p>
+                    <p><strong>Departamento</strong>: Selecciona en el menú desplegable dentro de la información básica.</p>
+                    <p><strong>Estado de Seguimiento</strong>: Selecciona el botón de radio correspondiente en la sección de Seguimiento.</p>
+                </div>
+
+                <div style="margin-bottom: 30px; padding-top: 20px; border-top: 2px solid #e2e8f0;">
+                    <h2 style="color: #667eea; margin-bottom: 15px; font-size: 20px;">📤 Exportar Datos</h2>
+                    <p><strong>¿Cuándo exportar?</strong> Cuando hayas añadido nuevas empresas, modificado información importante, eliminado empresas o quieras compartir los datos actualizados con el equipo.</p>
+                    <p><strong>Cómo exportar</strong>:</p>
+                    <ol style="margin-left: 20px; margin-top: 10px;">
+                        <li>Haz clic en el botón flotante <strong>"📤 EXPORTAR"</strong> (esquina inferior derecha)</li>
+                        <li>El sistema generará un archivo <code>datos.json</code> con todos los datos actualizados</li>
+                        <li>El archivo se descargará automáticamente</li>
+                        <li>Sube el archivo a GitHub para compartirlo con el equipo</li>
+                    </ol>
+                    <p style="margin-top: 10px;"><strong>💡 Importante</strong>: Solo cuando subas el archivo a GitHub, los cambios serán visibles para todos los miembros del equipo.</p>
+                </div>
+
+                <div style="margin-bottom: 30px; padding-top: 20px; border-top: 2px solid #e2e8f0;">
+                    <h2 style="color: #667eea; margin-bottom: 15px; font-size: 20px;">❓ Preguntas Frecuentes</h2>
+                    
+                    <p style="margin-top: 15px;"><strong>¿Puedo usar la aplicación sin conexión a internet?</strong></p>
+                    <p>Sí, la aplicación funciona completamente sin conexión. Solo necesitas internet para cargar la aplicación por primera vez y subir el archivo exportado a GitHub.</p>
+
+                    <p style="margin-top: 15px;"><strong>¿Qué pasa si cierro el navegador?</strong></p>
+                    <p>Todos tus cambios están guardados en el almacenamiento local. Al volver a abrir la aplicación, verás todos tus datos.</p>
+
+                    <p style="margin-top: 15px;"><strong>¿Cómo comparto los datos con mi equipo?</strong></p>
+                    <p>Exporta los datos, sube el archivo <code>datos.json</code> a GitHub y comparte el enlace de la aplicación con tu equipo.</p>
+
+                    <p style="margin-top: 15px;"><strong>¿Los cambios se guardan automáticamente?</strong></p>
+                    <p>Sí, todos los cambios se guardan automáticamente en el almacenamiento local. Solo necesitas exportar cuando quieras compartir los datos con el equipo.</p>
+                </div>
+
+                <div style="margin-top: 30px; padding-top: 20px; border-top: 2px solid #e2e8f0; text-align: center; color: #718096; font-size: 14px;">
+                    <p><strong>Versión</strong>: V12 by Krum Kovachev</p>
+                    <p style="margin-top: 10px;">Para dudas o problemas técnicos, contacta con el desarrollador.</p>
+                </div>
+            </div>
+        </div>
     </div>
     
     <div id="configSection" class="content-section">
@@ -3580,17 +3741,17 @@ Sistema de Seguimiento Automechanika`;
             } else {
                 // Para otros campos, mantener el límite de 400px
                 const maxHeight = 400;
-                if (scrollHeight > minHeight) {
-                    textarea.style.height = Math.min(scrollHeight, maxHeight) + 'px';
-                } else {
-                    textarea.style.height = minHeight + 'px';
-                }
-                
-                // Si el contenido excede max-height, mostrar scroll
-                if (scrollHeight > maxHeight) {
-                    textarea.style.overflowY = 'auto';
-                } else {
-                    textarea.style.overflowY = 'hidden';
+            if (scrollHeight > minHeight) {
+                textarea.style.height = Math.min(scrollHeight, maxHeight) + 'px';
+            } else {
+                textarea.style.height = minHeight + 'px';
+            }
+            
+            // Si el contenido excede max-height, mostrar scroll
+            if (scrollHeight > maxHeight) {
+                textarea.style.overflowY = 'auto';
+            } else {
+                textarea.style.overflowY = 'hidden';
                 }
             }
         }
