@@ -1639,37 +1639,67 @@
         function loadConfig() {
             const saved = localStorage.getItem('config_automechanika');
             if (saved) {
-                const savedConfig = JSON.parse(saved);
-                // Asegurar que todos los campos existan, usando valores por defecto si faltan
-                appConfig = {
-                    titulo: savedConfig.titulo || appConfig.titulo,
-                    subtitulo: savedConfig.subtitulo || appConfig.subtitulo,
-                    equipo: savedConfig.equipo || appConfig.equipo,
-                    notas: savedConfig.notas || appConfig.notas
-                };
-                
-                document.getElementById('configTitulo').value = appConfig.titulo;
-                document.getElementById('configSubtitulo').value = appConfig.subtitulo;
-                document.getElementById('configEquipo').value = appConfig.equipo;
-                document.getElementById('configNotas').value = appConfig.notas || '';
-                
-                document.querySelector('h1').textContent = appConfig.titulo;
-                document.querySelector('.subtitle').textContent = appConfig.subtitulo;
+                try {
+                    const savedConfig = JSON.parse(saved);
+                    console.log('📥 Cargando configuración guardada:', savedConfig);
+                    
+                    // Usar valores guardados si existen, sino usar valores por defecto
+                    // IMPORTANTE: Usar !== undefined para permitir cadenas vacías
+                    appConfig.titulo = savedConfig.titulo !== undefined ? savedConfig.titulo : appConfig.titulo;
+                    appConfig.subtitulo = savedConfig.subtitulo !== undefined ? savedConfig.subtitulo : appConfig.subtitulo;
+                    appConfig.equipo = savedConfig.equipo !== undefined ? savedConfig.equipo : appConfig.equipo;
+                    appConfig.notas = savedConfig.notas !== undefined ? savedConfig.notas : appConfig.notas;
+                    
+                    console.log('✅ Configuración cargada - Equipo:', appConfig.equipo);
+                    
+                    // Actualizar campos del formulario
+                    if (document.getElementById('configTitulo')) {
+                        document.getElementById('configTitulo').value = appConfig.titulo;
+                    }
+                    if (document.getElementById('configSubtitulo')) {
+                        document.getElementById('configSubtitulo').value = appConfig.subtitulo;
+                    }
+                    if (document.getElementById('configEquipo')) {
+                        document.getElementById('configEquipo').value = appConfig.equipo;
+                    }
+                    if (document.getElementById('configNotas')) {
+                        document.getElementById('configNotas').value = appConfig.notas || '';
+                    }
+                    
+                    // Actualizar título y subtítulo en la interfaz
+                    const h1 = document.querySelector('h1');
+                    if (h1) h1.textContent = appConfig.titulo;
+                    const subtitle = document.querySelector('.subtitle');
+                    if (subtitle) subtitle.textContent = appConfig.subtitulo;
+                } catch (error) {
+                    console.error('❌ Error cargando configuración:', error);
+                }
             } else {
+                console.log('ℹ️ No hay configuración guardada, usando valores por defecto');
                 // Si no hay configuración guardada, usar valores por defecto
-                document.getElementById('configTitulo').value = appConfig.titulo;
-                document.getElementById('configSubtitulo').value = appConfig.subtitulo;
-                document.getElementById('configEquipo').value = appConfig.equipo;
-                document.getElementById('configNotas').value = appConfig.notas || '';
+                if (document.getElementById('configTitulo')) {
+                    document.getElementById('configTitulo').value = appConfig.titulo;
+                }
+                if (document.getElementById('configSubtitulo')) {
+                    document.getElementById('configSubtitulo').value = appConfig.subtitulo;
+                }
+                if (document.getElementById('configEquipo')) {
+                    document.getElementById('configEquipo').value = appConfig.equipo;
+                }
+                if (document.getElementById('configNotas')) {
+                    document.getElementById('configNotas').value = appConfig.notas || '';
+                }
             }
             
             // Asegurar que equipoLizarte siempre tenga un valor válido
             if (appConfig.equipo && typeof appConfig.equipo === 'string' && appConfig.equipo.trim().length > 0) {
                 equipoLizarte = appConfig.equipo.split(',').map(e => e.trim()).filter(e => e.length > 0);
+                console.log('👥 Equipo cargado:', equipoLizarte);
             } else {
                 // Usar valor por defecto si no hay equipo válido
                 const defaultEquipo = 'Krum Kovachev, Equipo Técnico, Equipo Comercial, Dirección, Sin asignar';
                 equipoLizarte = defaultEquipo.split(',').map(e => e.trim()).filter(e => e.length > 0);
+                console.log('👥 Usando equipo por defecto:', equipoLizarte);
             }
         }
         
@@ -1686,21 +1716,40 @@
                 return;
             }
             
-            // Actualizar appConfig (permitir valores vacíos para permitir limpiar campos)
+            // Actualizar appConfig
             appConfig.titulo = titulo;
             appConfig.subtitulo = subtitulo;
             appConfig.equipo = equipo;
             appConfig.notas = notas;
             
+            console.log('💾 Guardando configuración:', appConfig);
+            
             // Guardar en localStorage
-            localStorage.setItem('config_automechanika', JSON.stringify(appConfig));
+            try {
+                localStorage.setItem('config_automechanika', JSON.stringify(appConfig));
+                console.log('✅ Configuración guardada en localStorage');
+                
+                // Verificar que se guardó correctamente
+                const verificacion = localStorage.getItem('config_automechanika');
+                if (verificacion) {
+                    const verificado = JSON.parse(verificacion);
+                    console.log('✅ Verificación - Equipo guardado:', verificado.equipo);
+                }
+            } catch (error) {
+                console.error('❌ Error guardando configuración:', error);
+                alert('❌ Error al guardar la configuración. Verifica la consola para más detalles.');
+                return;
+            }
             
             // Actualizar la interfaz
-            document.querySelector('h1').textContent = appConfig.titulo;
-            document.querySelector('.subtitle').textContent = appConfig.subtitulo;
+            const h1 = document.querySelector('h1');
+            if (h1) h1.textContent = appConfig.titulo;
+            const subtitle = document.querySelector('.subtitle');
+            if (subtitle) subtitle.textContent = appConfig.subtitulo;
             
             // Actualizar la lista de responsables
             equipoLizarte = appConfig.equipo.split(',').map(e => e.trim()).filter(e => e.length > 0);
+            console.log('👥 Equipo actualizado:', equipoLizarte);
             populateResponsableFilter();
             renderAll();
             
