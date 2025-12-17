@@ -78,7 +78,7 @@
       "product": "Bomba universal",
       "time": "08:12",
       "stand": "Hall1.1 A10",
-      "comments": "He visitado a la empresa que fabrica la bomba universal para retrofitting. Me han llevado a las instalaciones de Quanxing y durante el recorrido, Leo me ha revelado información relevante: la empresa Bourge no es fabricante, sino una comercializadora. No han sido sinceros conmigo. El fabricante real de la bomba es Quanxing.\nA partir de ahora, vamos a tratar directamente con Kathy y Leo para desarrollar el proyecto, eliminando intermediarios.\nObjetivo del proyecto:\nRecibir la bomba sin software precargado para que desde Lizarte podamos cargar nuestro propio software y así adaptar la bomba a cualquier aplicación. Además, trabajaremos en el diseño de soportes personalizados para facilitar la instalación en distintos vehículos.",
+      "comments": "He realizado una visita a la empresa que fabrica la bomba universal para retrofitting. Me han llevado directamente a las instalaciones de Quanxing, donde he podido ver el proceso productivo de primera mano. Durante el recorrido, Leo me ha revelado información muy relevante que cambia completamente nuestra estrategia de aprovisionamiento: la empresa Bourge, con quien habíamos estado en contacto hasta ahora, no es fabricante. Es simplemente una comercializadora que revende el producto de Quanxing. No han sido sinceros con nosotros al presentarse como algo que no son.\nEsta revelación es importante porque significa que hemos estado negociando con un intermediario que añade su margen sin aportar valor real. El fabricante auténtico de la bomba es Quanxing, y ahora tenemos contacto directo con ellos.\nDecisión tomada:\nA partir de ahora, vamos a tratar directamente con Kathy y Leo en Quanxing para desarrollar el proyecto, eliminando intermediarios. Esto nos permitirá:\n\nMejores precios al eliminar el margen del comercializador.\nComunicación directa con quien realmente fabrica el producto.\nMayor capacidad de personalización y desarrollo conjunto.\nResolución de problemas técnicos de forma más ágil.\n\nObjetivo del proyecto:\nEl proyecto con Quanxing tiene un enfoque muy específico que nos diferencia del mercado y aporta un valor estratégico enorme:\n\nRecibir la bomba sin software precargado: Queremos que la bomba llegue \"en blanco\" para que desde Lizarte podamos cargar nuestro propio software. Esto es clave porque nos permite adaptar la bomba a cualquier aplicación de forma flexible, sin depender del fabricante para cada configuración diferente. Nosotros controlamos el software, nosotros controlamos el producto final.\nDiseño de soportes personalizados: Además de la bomba, trabajaremos en el diseño de soportes adaptados para facilitar la instalación en distintos vehículos. Esto convierte el producto en una solución de retrofitting completa, no solo un componente suelto. El cliente recibe bomba + soporte + software configurado = instalación sencilla y rápida.\n\nOportunidad de negocio identificada:\nEsta es una de las visitas más estratégicas identificadas en la feria, con potencial de impacto a largo plazo:\n\nProducto propio diferenciado: Al cargar nuestro propio software y diseñar soportes personalizados, el producto final es 100% Lizarte. No es una bomba genérica que cualquier competidor puede comprar, es una solución desarrollada por nosotros que solo nosotros podemos ofrecer. Esto nos posiciona como especialistas, no como simples revendedores.\nFlexibilidad de aplicación: Una bomba universal que podemos adaptar vía software a múltiples vehículos reduce enormemente la necesidad de stock de referencias diferentes. Con un mismo hardware físico podemos cubrir muchas aplicaciones simplemente cambiando la configuración de software. Esto simplifica la logística y reduce el capital inmovilizado en stock.\nSolución de retrofitting completa: El mercado del retrofitting busca soluciones fáciles de instalar. Si ofrecemos bomba + soporte + software configurado, el taller solo tiene que montar y conectar. Esto es un argumento de venta potente frente a competidores que solo venden la bomba y dejan al taller resolver la instalación.\nMárgenes mejorados: Al eliminar a Bourge como intermediario y tratar directamente con el fabricante, nuestros márgenes mejoran automáticamente. Además, el valor añadido del software y los soportes personalizados justifica un precio de venta superior.\nControl del conocimiento: El software lo desarrollamos y cargamos nosotros. Esto significa que el conocimiento técnico queda en Lizarte, no en el proveedor. Es una barrera de entrada para competidores que quieran copiar nuestra solución.\nEscalabilidad: Una vez desarrollado el sistema (software + soportes para los vehículos más comunes), escalar a nuevas aplicaciones es relativamente sencillo. Cada nuevo soporte diseñado amplía nuestro catálogo sin necesidad de desarrollar un producto completamente nuevo.\n\nDatos del contacto:\n\nFabricante real: Quanxing\nContactos directos: Kathy y Leo\nIntermediario descartado: Bourge (comercializadora, no fabricante)",
       "id": 1763896381600,
       "fotos": [],
       "seguimiento": {
@@ -89,7 +89,8 @@
         "fechaSeguimiento": "",
         "acciones": [
           "Primera acción; la bomba pequeña puede funcionar con 12V",
-          "Segunda acción; qué necesitan para mandarnos una bomba sin software para que nosotros carguemos el nuestro?"
+          "Segunda acción; qué necesitan para mandarnos una bomba sin software para que nosotros carguemos el nuestro?",
+          "Establecer comunicación formal con Kathy y Leo como nuestros interlocutores directos. Definir especificaciones técnicas para recibir la bomba sin software. Iniciar el desarrollo del software propio internamente. Comenzar el diseño de soportes para las aplicaciones más demandadas del mercado. Solicitar muestras de bomba sin software para iniciar pruebas de integración. Cortar relación comercial con Bourge de forma profesional."
         ],
         "estado": "contactado",
         "email": "jhualde@lizarte.com"
@@ -693,125 +694,54 @@
       "id": "add_1",
       "empresa": "N.F.YO",
       "producto": "Ruedas y neumáticos",
-      "notas": "Exclusiva de venta de neumáticos en España. Ruedas de coches, motos, tractores. En España las ruedas de tractores son extremadamente caras.\nHan comprado una fabrica de fabricación de neumáticos y le propongo valorar la idea de comercializar neumáticos en España/Europa. Confirmar donde tendríamos la exclusividad.",
-      "oportunidad": "Nuevo negocio - venta de ruedas en Europa",
+      "notas": "NFYO – Oportunidad de diversificación con neumáticos\n\nHe visitado el stand de NFYO y tras una conversación con Lucy, me ha revelado información muy interesante: han comprado recientemente una empresa dedicada a la fabricación de neumáticos, lo que amplía significativamente su portfolio de productos.\nLe he comentado que estamos interesados en diversificar con nuevas líneas de negocio y le he preguntado si habría opción de valorar la idea de comercializar neumáticos a través de Lizarte. Su respuesta ha sido positiva: sí estarían interesados. Además, me ha comentado que podríamos tener la exclusiva de ventas, aunque necesito confirmar si sería exclusiva para España o para toda Europa. Creo recordar que mencionó Europa, pero no estoy al 100% seguro, por lo que es un punto a aclarar en el siguiente contacto.\n\nOfrecen neumáticos para diferentes tipos de vehículos: coches, motos y tractores. Este último segmento resulta especialmente atractivo, ya que en España las ruedas de tractores son extremadamente caras. Si conseguimos ofrecer un producto de calidad aceptable a un precio competitivo, podría haber un nicho de mercado muy interesante en el sector agrícola.\n\nValoración: Oportunidad de diversificación importante que podría abrir una nueva línea de negocio completamente diferente a lo que hacemos actualmente. La exclusividad de ventas (si se confirma para Europa) sería un valor añadido enorme.",
+      "oportunidad": "Exclusividad territorial – Si se confirma la exclusiva para España o Europa, tendríamos el mercado cerrado para nosotros con ese producto. Eso es una ventaja competitiva muy potente.\n\nNeumáticos de tractor – Nicho de alto margen – Esta es probablemente la más interesante. Si en España las ruedas de tractor son extremadamente caras, hay un hueco claro para entrar con un producto de precio competitivo. El sector agrícola necesita neumáticos de forma recurrente y el agricultor busca reducir costes. Podríamos ofrecer una alternativa más económica sin sacrificar demasiado en calidad.\n\nDiversificación de líneas de producto – Salir del sector tradicional de Lizarte (dirección, bombas, etc.) y entrar en neumáticos abre un mercado completamente nuevo con clientes potencialmente diferentes.\n\nAcceso directo a fabricante – NFYO ha comprado la fábrica, por lo que no hay intermediarios. Eso permite negociar mejores precios y márgenes.\n\nResumen: La oportunidad más clara es atacar el nicho de neumáticos de tractor en España, donde el precio actual del mercado es muy alto y hay margen para entrar con una oferta más competitiva, especialmente si contamos con exclusividad.",
       "prioridad": "alta",
       "seguimiento": {
-        "responsable": "",
-        "contactado": false,
-        "respuestaRecibida": false,
-        "proximaAccion": "",
-        "fechaSeguimiento": "",
-        "acciones": [],
-        "estado": "pendiente"
-      },
-      "departamento": "Innovación",
-      "fotos": []
-    },
-    {
-      "id": "add_2",
-      "empresa": "Inyectores Diesel",
-      "producto": "Cabezas de inyectores Diesel",
-      "notas": "Va a mandar el catálogo. Producto de nicho muy interesante ya que en España el precio es alto.",
-      "oportunidad": "Producto de nicho con buen margen",
-      "prioridad": 3,
-      "seguimiento": {
-        "responsable": "",
-        "contactado": false,
-        "respuestaRecibida": false,
-        "proximaAccion": "",
-        "fechaSeguimiento": "",
-        "acciones": [],
-        "estado": "pendiente"
-      },
-      "departamento": "Lizarte",
-      "fotos": []
-    },
-    {
-      "id": "add_3",
-      "empresa": "Máquinas equilibrado",
-      "producto": "Máquinas de equilibrado y cambio de ruedas",
-      "notas": "Varias empresas vistas con este producto, es un producto que se vende bien en Europa. Ya que las máquinas Alemanas son muy caras y las chinas funcionan bien y el precio es más competitivo.",
-      "oportunidad": "Nuevo posible negocio - venta de máquinas",
-      "prioridad": 3,
-      "seguimiento": {
-        "responsable": "",
-        "contactado": false,
-        "respuestaRecibida": false,
-        "proximaAccion": "",
-        "fechaSeguimiento": "",
-        "acciones": [],
-        "estado": "pendiente"
-      },
-      "departamento": "Innovación",
-      "fotos": []
-    },
-    {
-      "id": "add_4",
-      "empresa": "Componentes eléctricos",
-      "producto": "Conectores, cables y componentes eléctricos",
-      "notas": "Todo tipo de accesorios para cables/conectores. Mirar foto de abajo del todo. Puede ser interesante tanto para comercial(creo que mercado pequeño), puede que sea más interesante para nosotros, de forma interna.",
-      "oportunidad": "ESCRIBIRLE AL CHINO con fotos de componentes que necesitamos. Poner a Pablo en copia.",
-      "prioridad": 2,
-      "seguimiento": {
-        "responsable": "",
-        "contactado": false,
-        "respuestaRecibida": false,
-        "proximaAccion": "Email con fotos componentes eléctricos necesarios",
-        "fechaSeguimiento": "",
-        "acciones": [],
-        "estado": "pendiente"
-      },
-      "departamento": "Lizarte",
-      "fotos": []
-    },
-    {
-      "id": "add_5",
-      "empresa": "Tornillos para Encory",
-      "producto": "Tornillos calidad 10.9/12.9, proveedor de VW",
-      "notas": "Empresa; C.K.T (http://www.ktf.cn)\nContacto; David; david.liu@ktf.cn\n\nFábrica de tornillos específicos para Volkswagen. Alta calidad.",
-      "oportunidad": "MUY IMPORTANTE. Calidad premium específica VW",
-      "prioridad": 1,
-      "seguimiento": {
-        "responsable": "Equipo Compras",
+        "responsable": "Innovación",
         "contactado": false,
         "respuestaRecibida": false,
         "proximaAccion": "",
         "fechaSeguimiento": "",
         "acciones": [
-          "Pedir catálogo de tornillos para Encory, en concreto, los 12 tornillos que lleva cada DAE."
+          "Contactar con Lucy para confirmar el alcance territorial de la exclusiva (España o Europa), solicitar catálogo de neumáticos con referencias y precios, y valorar internamente si esta línea de negocio encaja con la estrategia de Lizarte. Especial atención a las ruedas de tractor por el potencial de margen en el mercado español."
         ],
         "estado": "pendiente",
-        "email": "jbaztan@lizarte.com"
+        "email": "krum@lizarte.com"
       },
-      "departamento": "Lizarte",
-      "fotos": []
+      "departamento": "Innovación",
+      "fotos": [],
+      "fotos_extra": []
     },
     {
-      "id": "add_6",
-      "empresa": "Herramientas Premium",
-      "producto": "Puntas, herramientas, pistolas",
-      "notas": "Empresa; JTC AUTO TOOLS\nContacto; Antony Lin; antony@jtc.com.tw\n\nEl mejor stand de herramientas visto hasta ahora en la feria. Destaca por encima del resto en cuanto a presentación y gama de producto.\nPendiente: Valorar qué herramientas podrían interesarnos y solicitar más información o catálogo.",
-      "oportunidad": "Compra de herramientas que tienen un desgaste excesivo.",
-      "prioridad": "alta",
+      "id": "add_2",
+      "empresa": "YARN ",
+      "producto": "Cabezas de inyectores Diesel",
+      "notas": "Contacto; kathy@yarncm.com\n\nProveedor de inyectores diésel – Cabezas de inyector\n\nEmpresa especializada en inyectores diésel que también comercializa cabezas de inyector como componente separado. Este es un punto especialmente relevante, ya que las cabezas de inyector son un producto que actualmente necesitamos en Lizarte y no siempre es fácil encontrar proveedores que las ofrezcan de forma independiente.\n\nSe trata de un producto muy interesante. En España, el precio de mercado de las cabezas de inyector es alto, lo que abre una oportunidad clara para mejorar márgenes si conseguimos un proveedor competitivo en origen. Al ser un componente específico y no un producto de gran volumen generalista, hay menos competencia y más margen de maniobra en la comercialización.",
+      "oportunidad": "El mercado español tiene precios elevados en este producto, por lo que si conseguimos aprovisionarnos directamente de este fabricante a buen precio, podemos:\n\nCubrir nuestra propia necesidad interna a menor coste.\nComercializar las cabezas de inyector en el mercado español con un margen atractivo, aprovechando que la competencia vende caro.\nPosicionarnos como alternativa competitiva en un nicho donde pocos operadores están entrando con producto de origen chino.",
+      "prioridad": 3,
       "seguimiento": {
-        "responsable": "",
+        "responsable": "Compras",
         "contactado": false,
         "respuestaRecibida": false,
         "proximaAccion": "",
         "fechaSeguimiento": "",
-        "acciones": [],
-        "estado": "pendiente"
+        "acciones": [
+          "Pendiente solicitar catálogo. Una vez recibido, revisar referencias disponibles, comparar con las cabezas de inyector que necesitamos actualmente y solicitar precios. Si los números cuadran, valorar tanto el uso interno como la posibilidad de comercialización."
+        ],
+        "estado": "pendiente",
+        "email": "jbaztan@lziarte.com"
       },
       "departamento": "Lizarte",
-      "fotos": []
+      "fotos": [],
+      "fotos_extra": []
     },
     {
-      "id": "add_7",
-      "empresa": "Direct Sillones - Silvia G",
-      "producto": "Direcciones",
-      "notas": "Proveedor de direcciones que podría servir como alternativa a los actuales. Gran ventaja: la persona de contacto habla perfectamente castellano, lo que facilitaría mucho la comunicación y evitaría malentendidos en las negociaciones y gestiones técnicas.\nValoración: Tener en cuenta como proveedor alternativo de direcciones. El idioma es un plus importante a la hora de trabajar con proveedores en China.",
-      "oportunidad": "Comunicación fluida en español",
+      "id": "add_3",
+      "empresa": "Máquinas equilibrado",
+      "producto": "Máquinas de equilibrado y cambio de ruedas",
+      "notas": "Contacto; Chen Li; sales1@trainsway.com\n\nDurante la feria he visto varias empresas que ofrecen máquinas de equilibrado y cambio de ruedas. Es un producto que tiene muy buena salida en el mercado europeo, especialmente en talleres mecánicos que necesitan renovar o ampliar su equipamiento sin realizar grandes inversiones.\nEl contexto de mercado es favorable: las máquinas alemanas, que tradicionalmente dominan el sector, son muy caras y no todos los talleres pueden permitírselas, especialmente los más pequeños o los que están empezando. Por otro lado, las máquinas chinas han mejorado mucho en calidad y funcionan bien para el uso diario de un taller estándar, todo ello a un precio significativamente más competitivo.\n Esta diferencia de precio sin una pérdida notable de prestaciones es lo que está impulsando la demanda.",
+      "oportunidad": "Existe un hueco claro en el mercado para ofrecer máquinas de equilibrado y cambio de ruedas de origen chino a talleres europeos que buscan una alternativa económica(al igual que los elevadores, como el que tenemos nosotros) a las marcas alemanas premium. Los talleres pequeños y medianos son especialmente sensibles al precio y estarían dispuestos a comprar maquinaria china si alguien de confianza se la ofrece con garantía y servicio postventa.\nLizarte, con su red de contactos en el sector del recambio y su reputación como marca reconocida en Europa, podría:\n\nComercializar estas máquinas como complemento a su catálogo actual, ampliando la oferta hacia equipamiento de taller.\nOfrecer un pack completo: máquinas + servicio técnico + garantía, lo que generaría confianza en el comprador.\nAprovechar la relación con talleres que ya compran productos Lizarte para hacer venta cruzada de este equipamiento.\n\nAl haber visto varias empresas con este producto en la feria, hay margen para comparar proveedores y elegir el que mejor relación calidad-precio-servicio ofrezca.",
       "prioridad": 3,
       "seguimiento": {
         "responsable": "",
@@ -822,65 +752,166 @@
         "acciones": [],
         "estado": "pendiente"
       },
+      "departamento": "Innovación",
+      "fotos": [],
+      "fotos_extra": []
+    },
+    {
+      "id": "add_4",
+      "empresa": "GL Link, Shenzhen Jinyang Electronic Technology",
+      "producto": "Conectores, cables y componentes eléctricos",
+      "notas": "Contacto; yuyanyiya@126.com\n\nEmpresa que ofrece conectores, cables y componentes eléctricos de todo tipo. Dentro de su gama, destacan especialmente los accesorios para cables y conectores OBD, un producto muy específico que no siempre es fácil encontrar con variedad de referencias y a buen precio.\nEste tipo de producto tiene una doble vertiente de interés:\nPara comercialización:\nExiste un mercado para accesorios OBD, aunque probablemente sea un mercado pequeño y de nicho. Los compradores potenciales serían talleres especializados en diagnosis, empresas de equipamiento de taller y profesionales que trabajan con herramientas de diagnóstico. No sería un producto de gran volumen, pero podría ser un complemento interesante al catálogo si los márgenes son buenos.\nPara uso interno (más interesante):\nProbablemente el mayor valor de este proveedor esté en cubrir nuestras propias necesidades internas. En Lizarte y especialmente en LizOn, trabajamos con componentes eléctricos, conectores y cables de forma habitual. Tener un proveedor fiable y competitivo en precio para este tipo de material podría reducir costes de aprovisionamiento y asegurarnos disponibilidad de componentes que a veces son difíciles de conseguir.",
+      "oportunidad": "La oportunidad principal aquí no está tanto en la comercialización externa (mercado limitado), sino en el ahorro de costes interno. Si conseguimos aprovisionarnos de conectores, cables y accesorios OBD directamente de este proveedor a precios competitivos, podemos:\n\nReducir el coste de los componentes que usamos en producción y reparación.\nTener un proveedor alternativo para materiales que actualmente compramos a otros, mejorando nuestra capacidad de negociación.\nDisponer de stock de componentes eléctricos difíciles de encontrar en el mercado local.\n\nPoner a Pablo en copia.",
+      "prioridad": 2,
+      "seguimiento": {
+        "responsable": "Innovación",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "Email con fotos componentes eléctricos necesarios",
+        "fechaSeguimiento": "",
+        "acciones": [
+          "Revisar el catálogo en detalle cuando lo recibamos y cruzarlo con nuestras necesidades internas actuales (tanto en Lizarte como en LizOn). Identificar qué referencias consumimos habitualmente y solicitar precios para comparar con los proveedores actuales. Si la comercialización tiene sentido, valorarlo como segunda opción."
+        ],
+        "estado": "pendiente",
+        "email": "krum@lizarte.com"
+      },
       "departamento": "Lizarte",
-      "fotos": []
+      "fotos": [],
+      "fotos_extra": []
+    },
+    {
+      "id": "add_5",
+      "empresa": "C.K.T (http://www.ktf.cn) ; Tornillos para Encory",
+      "producto": "Tornillos calidad 10.9/12.9, proveedor de VW",
+      "notas": "Empresa fabricante de tornillos de alta calidad con diferentes grados de resistencia: 8.8, 10.9 y 12.9. Un punto muy relevante es que fabrican directamente para Volkswagen, lo cual, si se confirma, es un aval de calidad y fiabilidad enorme. VW tiene unos estándares de exigencia muy altos para sus proveedores, por lo que trabajar con ellos implica haber superado auditorías y controles de calidad rigurosos. Esto da mucha seguridad.\nDurante la conversación he detectado una oportunidad muy interesante: existe la posibilidad de comprar tornillos de calidad 12.9 (la más alta) al precio de los 10.9. Si esto se confirma, estaríamos obteniendo un producto de mayor resistencia y prestaciones por el mismo coste que actualmente pagamos por una calidad inferior. En aplicaciones de automoción, donde los tornillos están sometidos a esfuerzos importantes, esto supone una mejora técnica directa sin impacto en el coste.\nDatos del proveedor:\n\nEmpresa: C.K.T.\nWeb: http://www.ktf.cn\nContacto: David\nEmail: david.liu@ktf.cn",
+      "oportunidad": "Esta es una oportunidad de alto valor por varios motivos:\n\nMejora de calidad sin coste adicional: Si podemos comprar tornillos 12.9 al precio de 10.9, estamos mejorando la calidad de nuestro producto final sin incrementar costes. Esto nos diferencia de la competencia y reduce el riesgo de fallos en los componentes que fabricamos o remanufacturamos.\n\nReducción de costes: Si actualmente compramos tornillos 10.9 a un proveedor europeo, es muy probable que C.K.T. pueda ofrecernos mejor precio incluso en la misma calidad. El ahorro podría ser significativo en un componente de consumo recurrente.\n\nProveedor avalado por OEM: El hecho de que trabajen para Volkswagen elimina gran parte de la incertidumbre sobre la calidad. No estamos apostando por un fabricante desconocido, sino por uno que ya ha pasado los filtros de un OEM de primer nivel.\n\nTornillería específica para automoción: No es un fabricante genérico, sino especializado en tornillos para el sector de automoción. Esto garantiza que conocen las especificaciones y requisitos del sector.",
+      "prioridad": 0,
+      "seguimiento": {
+        "responsable": "Compras",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [
+          "Contactar con David lo antes posible para solicitar catálogo completo, listado de referencias que fabrican para VW, y precios para las calidades 10.9 y 12.9. Confirmar la posibilidad de obtener 12.9 al precio de 10.9. Cruzar con nuestras necesidades internas de tornillería y valorar homologación urgente si los números cuadran."
+        ],
+        "estado": "pendiente",
+        "email": "jbaztan@lizarte.com"
+      },
+      "departamento": "Lizarte",
+      "fotos": [],
+      "fotos_extra": []
+    },
+    {
+      "id": "add_6",
+      "empresa": "Herramientas Premium",
+      "producto": "Puntas, herramientas, pistolas",
+      "notas": "Sin duda, el mejor stand de herramientas que he visto en toda la feria. JTC AUTO TOOLS destaca claramente por encima del resto tanto en la presentación de sus productos como en la amplitud de su gama. La imagen profesional del stand transmite seriedad y la variedad de herramientas expuestas demuestra que tienen un catálogo muy completo para el sector de automoción.Un punto importante que he identificado durante la visita es la posibilidad de utilizar este proveedor para comprar herramientas que en nuestro día a día tienen un desgaste excesivo. En cualquier entorno de producción o taller, hay herramientas que se deterioran rápidamente por el uso intensivo y que necesitamos reponer con frecuencia. Si conseguimos un proveedor de calidad aceptable a buen precio, podemos reducir significativamente el coste de reposición de estas herramientas de alto consumo.Datos del proveedor:\n\nEmpresa: JTC AUTO TOOLS\nWeb: jtc.com.tw (Taiwán)\nContacto: Antony Lin\nEmail: antony@jtc.com.tw",
+      "oportunidad": "Oportunidad de negocio identificada:\n\nReducción de costes en herramientas de alto desgaste: Actualmente, las herramientas que se desgastan rápidamente suponen un coste recurrente importante. Si conseguimos aprovisionarnos de un fabricante asiático de calidad a mejor precio, el ahorro acumulado a lo largo del año puede ser considerable. No hablamos de comprar herramientas baratas de mala calidad, sino de encontrar un equilibrio óptimo entre durabilidad y precio.\n\nProveedor de origen taiwanés: A diferencia de muchos fabricantes chinos, JTC es de Taiwán, donde la industria de herramientas tiene muy buena reputación por su calidad. Esto reduce el riesgo de problemas de calidad que a veces se asocian con productos de origen chino.\nPosible comercialización: Dado que es el mejor stand de herramientas de la feria, podría valorarse también la opción de comercializar algunas de sus herramientas a través de Lizarte, especialmente herramientas específicas para automoción que encajen con nuestro público objetivo (talleres, profesionales del sector). Sería una línea complementaria al recambio.\n\nEquipamiento interno: Más allá del consumible de desgaste, también podríamos valorar la compra de herramientas de mayor calidad para equipar nuestras instalaciones, mejorando la eficiencia del trabajo en producción.",
+      "prioridad": "alta",
+      "seguimiento": {
+        "responsable": "Compras",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [
+          "Solicitar catálogo completo a Antony Lin. Internamente, elaborar un listado de las herramientas que más consumimos por desgaste y las que necesitamos reponer con frecuencia. Cruzar ese listado con el catálogo de JTC para pedir precios específicos. Valorar también si hay herramientas interesantes para comercialización o para mejorar el equipamiento de nuestras instalaciones."
+        ],
+        "estado": "pendiente",
+        "email": "jbaztan@lizarte.com"
+      },
+      "departamento": "Lizarte",
+      "fotos": [],
+      "fotos_extra": []
+    },
+    {
+      "id": "add_7",
+      "empresa": "Direct Sillones - Silvia G",
+      "producto": "Direcciones",
+      "notas": "Empresa que comercializa direcciones completas y que podría servir como alternativa a los proveedores actuales. Lo que más destaca de este contacto no es solo el producto en sí, sino una ventaja operativa muy importante: la persona de contacto habla perfectamente castellano.Este detalle, que puede parecer menor, es en realidad un plus enorme a la hora de trabajar con proveedores en China. \nLa barrera idiomática es uno de los principales problemas que surgen en las relaciones comerciales con Asia: malentendidos en especificaciones técnicas, confusiones en pedidos, errores en documentación, problemas a la hora de gestionar incidencias o reclamaciones... Todo esto se complica cuando la comunicación se hace en un inglés limitado por ambas partes o a través de traductores automáticos.\nContar con un interlocutor que hable nuestro idioma de forma fluida facilita enormemente las negociaciones, las gestiones técnicas del día a día y la resolución de cualquier problema que pueda surgir. La comunicación directa y sin barreras genera confianza y reduce errores.",
+      "oportunidad": "Proveedor alternativo de direcciones: Siempre es estratégico tener alternativas a los proveedores actuales para no depender de una única fuente. Esto nos da capacidad de negociación y seguridad ante posibles problemas de suministro. Si este proveedor ofrece producto de calidad comparable a buen precio, podría entrar en nuestra cartera de proveedores.\n\nReducción de errores y costes ocultos: Trabajar con alguien que habla castellano reduce drásticamente los errores derivados de malentendidos. Estos errores tienen un coste real: pedidos incorrectos, devoluciones, retrasos, producto que no cumple especificaciones... Un proveedor con el que podamos comunicarnos sin fricciones puede acabar siendo más rentable aunque su precio no sea el más bajo del mercado.\n\nAgilidad en la gestión: Las consultas técnicas, modificaciones de pedido, gestión de incidencias y cualquier negociación se pueden resolver de forma más rápida y eficaz cuando no hay barrera idiomática. Esto ahorra tiempo y recursos internos.\nRelación comercial más sólida: La comunicación fluida permite construir una relación de confianza más fácilmente, lo que a largo plazo puede traducirse en mejores condiciones, mayor flexibilidad y un trato preferente.\n\nValoración: Tener muy en cuenta como proveedor alternativo de direcciones. Aunque el producto deba pasar igualmente un proceso de homologación y comparación de precios, la ventaja del idioma es un factor diferencial que no debemos subestimar.",
+      "prioridad": 3,
+      "seguimiento": {
+        "responsable": "Compras",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [
+          " Solicitar catálogo de direcciones con referencias y precios. Comparar con los proveedores actuales(YAS) en términos de calidad, cobertura de referencias y precio. Si el producto es competitivo, valorar incorporarlo como segunda fuente de suministro aprovechando la facilidad de comunicación."
+        ],
+        "estado": "pendiente",
+        "email": "jbaztan@lizarte.com"
+      },
+      "departamento": "Lizarte",
+      "fotos": [],
+      "fotos_extra": []
     },
     {
       "id": "add_8",
       "empresa": "NBM",
       "producto": "Correas para BMW/Encory",
-      "notas": "Contacto; Kozy; nbmbelt-kozy@mstjd.com\n\nEmpresa dedicada a la fabricación de correas. No solo tienen referencias estándar, sino que también pueden desarrollar correas nuevas según especificaciones, lo cual es interesante si necesitamos algo a medida.\nTambién disponen de columnas EPS nuevas, aunque de momento su catálogo está enfocado al mercado USA. Habría que valorar si tienen referencias aplicables al parque europeo o si podrían desarrollarlas.",
-      "oportunidad": "Desarrollo de producto y expansión EPS",
+      "notas": "Empresa dedicada a la fabricación de correas con una característica que la diferencia de otros proveedores vistos en la feria: no solo disponen de referencias estándar de catálogo, sino que también tienen capacidad para desarrollar correas nuevas según especificaciones concretas. Esto es especialmente interesante si en algún momento necesitamos algo a medida, ya sea por dimensiones especiales, materiales específicos o aplicaciones particulares que no cubren los productos estándar del mercado.\nAdemás de las correas, también disponen de columnas EPS nuevas en su catálogo. Sin embargo, de momento su gama está enfocada principalmente al mercado USA, por lo que las referencias actuales podrían no coincidir directamente con las aplicaciones del parque europeo. Aun así, si tienen capacidad de desarrollo para correas, es probable que también puedan adaptar o desarrollar referencias de columnas EPS para el mercado europeo si hay volumen suficiente que lo justifique.\nDatos del proveedor:\n\nContacto: Kozy\nEmail: nbmbelt-kozy@mstjd.com",
+      "oportunidad": "Oportunidad de negocio identificada:\n\nCorreas a medida: La capacidad de fabricar correas según especificaciones nos abre una puerta que pocos proveedores ofrecen. Si en alguna aplicación tenemos problemas para encontrar una correa estándar que encaje perfectamente, o si queremos optimizar el rendimiento de algún producto con una correa específica, este proveedor podría desarrollarla para nosotros. Esto nos da flexibilidad técnica que con otros proveedores no tendríamos.\n\nProveedor alternativo de correas estándar: Además de la capacidad de desarrollo, también pueden suministrar correas estándar. Esto les convierte en otra opción más para diversificar proveedores en este componente y comparar precios con los demás contactos de correas identificados en la feria.\n\nColumnas EPS – Oportunidad a medio plazo: Aunque su catálogo de EPS esté enfocado a USA, merece la pena explorar si tienen referencias que coincidan con vehículos europeos (algunos modelos son globales) o si estarían dispuestos a desarrollar referencias para nuestro mercado. Si la calidad es buena y el precio competitivo, podría ser una fuente interesante de columnas EPS nuevas, un producto con demanda creciente.\n\nPartner de desarrollo: Un proveedor con capacidad de desarrollo técnico puede convertirse en un partner estratégico a largo plazo, no solo como suministrador de producto, sino como colaborador en proyectos de mejora o nuevos desarrollos. Este tipo de relaciones aportan valor más allá del simple aprovisionamiento.",
       "prioridad": 1,
       "seguimiento": {
-        "responsable": "",
+        "responsable": "Compras",
         "contactado": false,
         "respuestaRecibida": false,
         "proximaAccion": "",
         "fechaSeguimiento": "",
         "acciones": [],
-        "estado": "pendiente"
+        "estado": "pendiente",
+        "email": "jbaztan@lziarte.com"
       },
       "departamento": "Lizarte",
-      "fotos": []
+      "fotos": [],
+      "fotos_extra": []
     },
     {
       "id": "add_9",
-      "empresa": "YAS - Bruce Lee",
+      "empresa": "YAS - Bruce Lee & Bella",
       "producto": "Direcciones (PROYECTO CLAVE)",
-      "notas": "REUNIÓN IMPORTANTE: No están interesados en proyecto inicial de almacén. PROPONEN: Mandarnos mucho material y ampliar plazo de pago. Lizarte se encarga de vender. Referencias homologadas + no homologadas para mercado europeo. Venderíamos con marca LIZARTE.",
-      "oportunidad": "PROYECTO ESTRATÉGICO - Ampliar catálogo direcciones significativamente",
-      "prioridad": 1,
+      "notas": "He mantenido una reunión importante con Bruce Lee y Bella. El proyecto inicial que teníamos en mente, basado en la creación de un almacén conjunto, no les interesa.Bruce Lee, comentó que es algo nuevo para él y no lo visualiza. Sin embargo, han puesto sobre la mesa una propuesta alternativa que resulta muy interesante desde el punto de vista estratégico y comercial.\nPropuesta del proveedor:\n\nEnvío de gran volumen de material: Nos mandarían un stock importante de producto, tanto referencias ya homologadas como referencias nuevas no homologadas.\n\nAmpliación del plazo de pago: Ofrecen condiciones de pago extendidas, lo que reduce significativamente la necesidad de inversión inicial y el riesgo financiero por nuestra parte. Eso sí, necesitan saber una estimación de tiempo necesario para vender el producto, importante este punto. \nLizarte se encarga de la comercialización: Nosotros nos ocuparíamos de vender el producto en Europa, aprovechando nuestra red comercial, reputación y conocimiento del mercado.\n\nVenta bajo marca LIZARTE: Todo el producto se comercializaría con nuestra marca, no con la suya. Esto mantiene nuestra imagen de marca y la confianza del cliente final en Lizarte.\n\n¿Por qué es tan interesante esta propuesta?\nEste modelo de colaboración tiene un valor estratégico enorme por varios motivos:\n\nBajo riesgo financiero: El proveedor asume el riesgo de enviarnos stock y nos da plazo de pago ampliado. Esto significa que Lizarte no tiene que hacer una inversión inicial grande. Básicamente, vendemos primero y pagamos después. El flujo de caja juega a nuestro favor.\n\nAmpliación masiva de catálogo: Podríamos ampliar significativamente el catálogo de direcciones, algo que de otra forma requeriría una inversión enorme en stock y homologaciones. Tener más referencias significa poder atender más demanda y captar clientes que ahora van a la competencia porque no tenemos su referencia.\n\nSolución al problema del casco en mercados lejanos: Este modelo es especialmente interesante para vender en países donde el retorno del casco es un problema logístico (como vimos con el contacto de Sudáfrica). Si vendemos producto nuevo bajo marca Lizarte, no hay casco que gestionar. Abre la puerta a mercados que hasta ahora eran complicados para nosotros.\n\nMarca propia: Al vender con marca LIZARTE, no perdemos identidad ni posicionamiento. El cliente sigue asociando el producto con nosotros, lo que refuerza nuestra presencia en el mercado y nos diferencia de competidores que venden marcas blancas genéricas.\n\nReferencias no homologadas = oportunidad: El hecho de que incluyan referencias no homologadas para el mercado europeo significa que podemos acceder a producto nuevo antes que la competencia. Si homologamos esas referencias, ganamos ventaja competitiva.",
+      "oportunidad": "Oportunidad de negocio identificada:\nEsta es una de las oportunidades más importantes detectadas en la feria. Estamos hablando de un proyecto estratégico que podría transformar nuestra posición en el mercado de direcciones:\n\nCrecimiento acelerado: Podemos crecer en catálogo y volumen de ventas sin la inversión proporcional que normalmente requeriría.\n\nEntrada en nuevos mercados: Los países donde el retorno de casco era un freno ahora se convierten en mercados accesibles.\n\nCompetitividad: Más referencias + marca propia + precios competitivos = mayor capacidad de competir con los grandes competidores del mercado.\n\nModelo replicable: Si funciona con direcciones, podría plantearse un modelo similar con otros productos en el futuro. Ej; Defu. \n\nRiesgos a considerar:\n\nDependencia de un único proveedor para un volumen grande de producto.\n\nNecesidad de validar la calidad de las referencias no homologadas antes de comercializarlas.\n\nGestión del stock: aunque el riesgo financiero es menor, hay que ser capaces de mover el producto. Y estimar un plazo de venta, ya que ese será el plazo de pago. Ej, si decimos que seremos capaces de vender el producto en 6 meses, eso significa, que en 6 meses tendremos que realizar el pago y si no hemos vendido todo el material. será un riesgo. ",
+      "prioridad": 0,
       "seguimiento": {
-        "responsable": "",
+        "responsable": "Dirección",
         "contactado": false,
         "respuestaRecibida": false,
         "proximaAccion": "Informar volumen anual de direcciones vendidas para calcular plazo de pago",
         "fechaSeguimiento": "",
-        "acciones": [],
-        "estado": "pendiente"
+        "acciones": [
+          "Analizar la propuesta en detalle internamente. Definir qué volumen de referencias estaríamos dispuestos a asumir en una primera fase. Solicitar listado completo de referencias disponibles (homologadas y no homologadas) con precios. Evaluar la calidad del producto con muestras antes de comprometernos. Negociar condiciones concretas de plazo de pago y posibles devoluciones de producto no vendido. Presentar la propuesta a dirección como proyecto estratégico de ampliación de catálogo de direcciones."
+        ],
+        "estado": "pendiente",
+        "email": "oscar@lizarte.com"
       },
       "departamento": "Innovación",
-      "fotos": []
+      "fotos": [],
+      "fotos_extra": []
     },
     {
       "id": "add_10",
-      "empresa": "Varios - Otros productos",
-      "producto": "Altavoces, ventiladores, rodamientos, guantes",
-      "notas": "Altavoces para coches. Ventiladores pequeños con potencia. Rodamientos varios. Guantes naranja con bolitas.",
-      "oportunidad": "Diversificación catálogo",
+      "empresa": "7+ (seven plus tools)",
+      "producto": "Herramientas ",
+      "notas": "Proveedor de pistolas de impacto portátiles – Herramientas de montaje\nEmpresa que ofrece pistolas de impacto portátiles, un tipo de herramienta cada vez más demandada por producción y necesaria para Encory/BMW. Lo más interesante de este producto es que permite trabajar con un par de apriete controlado, algo fundamental para garantizar la calidad del montaje en componentes de automoción donde el apriete incorrecto puede provocar fallos graves.\nEn nuestro proceso de montaje actual, contar con herramientas que aseguren un par de apriete preciso y repetible es clave para mantener la calidad del producto final. Las pistolas de impacto portátiles con control de par eliminan la variabilidad del apriete manual y reducen el riesgo de errores humanos, ya sea por apriete insuficiente (que puede provocar holguras y vibraciones) o por apriete excesivo (que puede dañar roscas o componentes).\nEl hecho de que sean portátiles añade versatilidad: pueden utilizarse en diferentes puestos de trabajo sin necesidad de instalaciones fijas, lo que facilita la organización de la producción y permite adaptarse a diferentes necesidades.\n\nContacto; info@sevenplustools.com",
+      "oportunidad": "Mejora de calidad en producción: Incorporar pistolas de impacto con par controlado en nuestros procesos de montaje eleva el nivel de calidad y consistencia del producto. Cada tornillo, cada unión, queda apretada exactamente con el par especificado. Esto reduce reclamaciones por fallos de montaje y refuerza la fiabilidad del producto Lizarte.\nReducción de errores y reprocesos: El control de par evita tanto el apriete insuficiente como el excesivo. Menos errores de montaje significa menos tiempo perdido en reprocesos y menos coste por producto defectuoso.\nTrazabilidad y control: Algunas pistolas de impacto modernas permiten registrar los datos de apriete, lo que añade trazabilidad al proceso productivo. Esto puede ser un argumento de calidad frente a clientes exigentes o en auditorías.",
       "prioridad": "baja",
       "seguimiento": {
-        "responsable": "",
+        "responsable": "Compras",
         "contactado": false,
         "respuestaRecibida": false,
         "proximaAccion": "",
         "fechaSeguimiento": "",
         "acciones": [],
-        "estado": "pendiente"
+        "estado": "pendiente",
+        "email": "jbaztan@lizarte.com"
       },
       "departamento": "Lizarte",
-      "fotos": []
+      "fotos": [],
+      "fotos_extra": []
     },
     {
       "id": "add_11",
@@ -948,7 +979,8 @@
         "estado": "pendiente",
         "email": ""
       },
-      "departamento": "Lizarte"
+      "departamento": "Lizarte",
+      "fotos_extra": []
     },
     {
       "id": "add_1765891635308",
@@ -970,7 +1002,8 @@
         ],
         "estado": "pendiente",
         "email": "krum@lizarte.com"
-      }
+      },
+      "fotos_extra": []
     },
     {
       "id": "add_1765891979628",
@@ -992,7 +1025,8 @@
         ],
         "estado": "pendiente",
         "email": "jbaztan@lizarte.com"
-      }
+      },
+      "fotos_extra": []
     },
     {
       "id": "add_1765892154124",
@@ -1014,6 +1048,136 @@
         "email": "jbaztan@lizarte.com"
       },
       "fotos_extra": []
+    },
+    {
+      "id": "add_1765956616629",
+      "empresa": "SANTPRO",
+      "producto": "Herramientas, puntas de pistolas.",
+      "notas": "Contacto;Sabina; sales04@shengtetools.com\n\nEmpresa que tiene todo tipo de accesorios para herramientas: bocas, llaves, vasos, puntas y demás utillaje de uso diario. Este tipo de producto es exactamente lo que utilizamos de forma continua en producción y que tiene un desgaste y consumo elevado.En cualquier entorno productivo como el nuestro, las herramientas de mano y sus accesorios sufren un deterioro constante por el uso intensivo. Bocas que se redondean, llaves que pierden precisión, vasos que se dañan... Son elementos que hay que reponer con frecuencia y que, aunque individualmente no son caros, en conjunto suponen un coste recurrente significativo a lo largo del año.\n\nHasta ahora, este tipo de material probablemente lo compramos a proveedores locales o distribuidores europeos, con los márgenes que eso implica. Encontrar un fabricante o proveedor en origen que ofrezca este tipo de accesorios a precios competitivos y con calidad suficiente para uso industrial puede suponer un ahorro importante en el gasto de consumibles de producción.",
+      "oportunidad": "",
+      "departamento": "Lizarte",
+      "prioridad": 1,
+      "fotos": [],
+      "fotos_extra": [],
+      "seguimiento": {
+        "responsable": "Compras",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [],
+        "estado": "pendiente",
+        "email": "jbaztan@lizarte.com"
+      }
+    },
+    {
+      "id": "add_1765956833381",
+      "empresa": "LTMS ",
+      "producto": "",
+      "notas": "Contacto; 506015814@qq.com\n\nEmpresa que tiene todo tipo de accesorios para herramientas: bocas, llaves, vasos, puntas y demás utillaje de uso diario. Este tipo de producto es exactamente lo que utilizamos de forma continua en producción y que tiene un desgaste y consumo elevado.En cualquier entorno productivo como el nuestro, las herramientas de mano y sus accesorios sufren un deterioro constante por el uso intensivo. Bocas que se redondean, llaves que pierden precisión, vasos que se dañan... Son elementos que hay que reponer con frecuencia y que, aunque individualmente no son caros, en conjunto suponen un coste recurrente significativo a lo largo del año.\n\nHasta ahora, este tipo de material probablemente lo compramos a proveedores locales o distribuidores europeos, con los márgenes que eso implica. Encontrar un fabricante o proveedor en origen que ofrezca este tipo de accesorios a precios competitivos y con calidad suficiente para uso industrial puede suponer un ahorro importante en el gasto de consumibles de producción.",
+      "oportunidad": "",
+      "departamento": "Lizarte",
+      "prioridad": 1,
+      "fotos": [],
+      "fotos_extra": [],
+      "seguimiento": {
+        "responsable": "Compras",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [],
+        "estado": "pendiente",
+        "email": "jbaztan@lizarte.com"
+      }
+    },
+    {
+      "id": "add_1765956951296",
+      "empresa": "Ruain Linguang Plastic Manufacture",
+      "producto": "Cables, conectores",
+      "notas": "Contacto; linguang_linkai@163.com\n\nStand pequeño pero tiene alta variedad de cableado para LizOn",
+      "oportunidad": "",
+      "departamento": "Lizarte",
+      "prioridad": 1,
+      "fotos": [],
+      "fotos_extra": [],
+      "seguimiento": {
+        "responsable": "",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [],
+        "estado": "pendiente"
+      }
+    },
+    {
+      "id": "add_1765957135382",
+      "empresa": "CAGREN",
+      "producto": "",
+      "notas": "Contacto; george@cagren.com\n\nStand pequeño pero tiene alta variedad de cableado para LizOn",
+      "oportunidad": "",
+      "departamento": "Lizarte",
+      "prioridad": 1,
+      "fotos": [],
+      "fotos_extra": [],
+      "seguimiento": {
+        "responsable": "Compras",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [],
+        "estado": "pendiente",
+        "email": "jbaztan@lizarte.com"
+      }
+    },
+    {
+      "id": "add_1765959293995",
+      "empresa": "YUHUAN YUANHAO MACHINERY Co.,LTD",
+      "producto": "Terminales ",
+      "notas": "Contacto: yhsuspension@foxmail.com\nEmpresa que ofrece terminales, al igual que la otra empresa, idea de comprar terminales para no retrabajar los actuales. ",
+      "oportunidad": "",
+      "departamento": "Lizarte",
+      "prioridad": 1,
+      "fotos": [],
+      "fotos_extra": [],
+      "seguimiento": {
+        "responsable": "",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [],
+        "estado": "pendiente"
+      }
+    },
+    {
+      "id": "add_1765959803163",
+      "empresa": "SINOMZ",
+      "producto": "LizOn ",
+      "notas": "VISITA ESTRATÉGICA A FÁBRICA – SINOMZ\nHe realizado una visita completa a las instalaciones de SINOMZ. La visita ha sido muy reveladora y ha aportado información clave tanto sobre la capacidad del proveedor como sobre las posibilidades de colaboración futura. Es importante destacar que con esta empresa nos conocemos desde hace más de 15 años, lo que establece una base de confianza sólida para cualquier proyecto conjunto.\n\nDATOS DE LA EMPRESA:\n\nNombre: SINOMZ\nFundación: 2004 (más de 20 años de trayectoria)\nPlantilla: 350 trabajadores\nSuperficie actual: 40.000 m²\nEquipo técnico: 25 ingenieros de desarrollo\nEquipo de calidad: 26 personas dedicadas a control de calidad\nInstalaciones: Nuevas, se trasladaron hace varios años a la ubicación actual\n\nEstos números hablan de una empresa consolidada y con estructura seria. No estamos ante un pequeño taller, sino ante un fabricante con capacidad industrial real y equipos dedicados tanto a desarrollo como a calidad. El ratio de personal técnico y de calidad respecto al total de trabajadores es muy saludable.\n\nAPACIDAD PRODUCTIVA Y CRECIMIENTO:\nSituación actual:\n\nCapacidad planificada: 1,2 millones de piezas al año entre bombas y direcciones.\n\nEvolución en los últimos 5 años:\n\nPartían de una capacidad de 450.000 bombas al año.\nEn 2025 han alcanzado: 800.000 bombas + 400.000 direcciones anuales.\nEn 2019 comenzaron a desarrollar y fabricar direcciones además de bombas.\n\nEste crecimiento demuestra una empresa en expansión constante que ha sabido diversificar su producto (de solo bombas a bombas + direcciones) y casi duplicar su capacidad productiva en cinco años.\nPlanes de expansión – Nueva fábrica:\n\nEstán construyendo una nueva fábrica de 85.000 m² (más del doble de la actual).\nCapacidad objetivo: 2,2 millones de piezas anuales.\nSe trasladarán a la nueva fábrica porque la actual se les queda pequeña.\nLa fábrica actual la reconvertirán para fabricar otros productos.\n\nEsto indica que SINOMZ tiene planes de crecimiento muy ambiciosos y visión a largo plazo. Quieren consolidarse como un jugador de referencia en el mercado global.\n\nIMPRESIONES DE LA VISITA A PRODUCCIÓN:\nHe podido ver tanto la línea de bombas como la de direcciones. La impresión general es muy positiva:\n\nAlto nivel de automatización: Tanto en bombas como en direcciones, los procesos están muy automatizados. Esto garantiza consistencia en la calidad, capacidad de producción elevada y menor dependencia de errores de mano de obra manual.\nCapacidades grandes: Las instalaciones están preparadas para volúmenes industriales serios. Pueden absorber pedidos grandes sin problemas de capacidad.",
+      "oportunidad": "INTERÉS MUTUO EN COLABORACIÓN:\nDurante la reunión ha quedado claro que SINOMZ tiene un interés genuino en trabajar con Lizarte:\n\nAjuste de precios: Han manifestado que pueden ajustar los precios dada la relación de confianza que tenemos, ya que nos conocemos desde hace más de 15 años. Esto es un punto de partida excelente para negociar condiciones ventajosas.\n\nPropuesta de almacén en Europa: Les he explicado nuestra idea de montar un almacén en Europa para agilizar el suministro y reducir plazos de entrega. La respuesta ha sido positiva: les parece bien y quieren que lo hablemos en detalle. Esto podría ser un proyecto conjunto muy interesante.\n\nInterés del propietario en EPS: El propietario de SINOMZ ha mostrado gran interés en la posibilidad de montar una empresa en China dedicada a EPS. Le he explicado la diferencia entre producto remanufacturado y producto nuevo para que entienda nuestro modelo de negocio y dónde podría haber sinergias.\n\nDisponibilidad para reunirse en España: El propietario ha ofrecido venir personalmente a España para discutir todos los temas si fuese necesario. Este gesto demuestra un nivel de compromiso e interés muy alto. No es habitual que el dueño de una empresa de este tamaño se ofrezca a desplazarse para cerrar acuerdos.\n\nOPORTUNIDADES DE NEGOCIO IDENTIFICADAS:\nEsta visita ha puesto sobre la mesa múltiples oportunidades estratégicas:\n\nPrecios competitivos por relación histórica: 15 años de relación nos posicionan como cliente preferente. Podemos negociar condiciones que otros compradores nuevos no conseguirían. Aprovechar esta ventaja para mejorar márgenes.\n\nAlmacén conjunto en Europa: Si SINOMZ está dispuesto a participar en un modelo de almacén en Europa, podríamos tener stock cerca del cliente final con plazos de entrega reducidos. Esto nos haría mucho más competitivos frente a proveedores que sirven directamente desde China con semanas de espera.\n\nSINOMZ quiere entrar en el negocio de EPS pero carece del conocimiento técnico especializado en remanufacturado. Nosotros, por el contrario, tenemos años de experiencia y know-how en reman de mecatrónica y sistemas electrónicos, pero montar una operación de este tipo en China requeriría una inversión enorme en instalaciones, maquinaria, personal y gestión local.\nLa propuesta une lo mejor de ambos mundos:\n\nSINOMZ aporta: Instalaciones, capacidad productiva, maquinaria, mano de obra, conocimiento del mercado chino y gestión local. Ya tienen 40.000 m² (pronto 85.000 m²), 350 trabajadores, 25 ingenieros y procesos altamente automatizados.\nLizarte aporta: Conocimiento técnico en remanufacturado de EPS, experiencia en el mercado europeo, red comercial, marca reconocida y know-how acumulado durante años en LizOn.\n\nRespuesta del propietario:\nEl propietario de SINOMZ ha mostrado gran interés en la propuesta. No solo le parece viable, sino que ha manifestado total disposición a reunirse cuando queramos y donde queramos para tratar el tema en profundidad. Esta actitud demuestra que lo ve como una oportunidad real de negocio, no como una idea más que escuchar por cortesía.\nModelo propuesto – Lizarte & SINOMZ:\nLa idea sería constituir una empresa conjunta (joint venture) dedicada específicamente al remanufacturado de EPS, operando desde China pero con el conocimiento y supervisión técnica de Lizarte. El modelo podría contemplar:\n\nProducción de EPS remanufacturado en China con costes competitivos.\nTransferencia de conocimiento técnico de Lizarte a la operación conjunta.\nComercialización del producto en Europa bajo marca Lizarte y/o en Asia bajo marca conjunta.\nReparto de beneficios según participación acordada. ",
+      "departamento": "Innovación",
+      "prioridad": 1,
+      "fotos": [],
+      "fotos_extra": [],
+      "seguimiento": {
+        "responsable": "Dirección",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [
+          "Evaluar internamente el interés estratégico de Lizarte en este proyecto y el nivel de compromiso que estamos dispuestos a asumir.",
+          "Definir qué modelo de colaboración preferimos (joint venture, licencia de know-how, acuerdo de producción, etc.).",
+          "Preparar una propuesta inicial con los términos básicos que querríamos negociar.",
+          "Organizar una reunión formal con el propietario de SINOMZ, ya sea en España o en China, para discutir el proyecto en profundidad.",
+          "Consultar con asesoría legal especializada en operaciones internacionales y joint ventures en China."
+        ],
+        "estado": "pendiente",
+        "email": "oscar@lizarte.com"
+      }
     }
   ]
 }
