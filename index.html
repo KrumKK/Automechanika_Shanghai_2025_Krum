@@ -1158,9 +1158,9 @@
     </div>
     
     <div class="tabs">
-        <button class="tab active" onclick="switchTab('reuniones')">🤝 Reuniones (25)</button>
+        <button class="tab active" onclick="switchTab('guia')">📖 Guía</button>
+        <button class="tab" onclick="switchTab('reuniones')">🤝 Reuniones (25)</button>
         <button class="tab" onclick="switchTab('adicional')">📋 Info Adicional (11)</button>
-        <button class="tab" onclick="switchTab('guia')">📖 Guía</button>
         <button class="tab" onclick="switchTab('config')">⚙️ Configuración</button>
     </div>
     
@@ -1207,15 +1207,7 @@
         </div>
     </div>
     
-    <div id="reunionesSection" class="content-section active">
-        <div id="reunionesContainer" class="items-container"></div>
-    </div>
-    
-    <div id="adicionalSection" class="content-section">
-        <div id="adicionalContainer" class="items-container"></div>
-    </div>
-    
-    <div id="guiaSection" class="content-section">
+    <div id="guiaSection" class="content-section active">
         <div class="config-section" style="max-width: 900px; margin: 0 auto; padding: 20px;">
             <div class="config-title" style="text-align: center; margin-bottom: 30px;">📘 Guía de Uso - Sistema de Seguimiento Automechanika Shanghai 2025</div>
             
@@ -1373,6 +1365,14 @@
                 </div>
             </div>
         </div>
+    </div>
+    
+    <div id="reunionesSection" class="content-section">
+        <div id="reunionesContainer" class="items-container"></div>
+    </div>
+    
+    <div id="adicionalSection" class="content-section">
+        <div id="adicionalContainer" class="items-container"></div>
     </div>
     
     <div id="configSection" class="content-section">
@@ -1639,7 +1639,15 @@
         function loadConfig() {
             const saved = localStorage.getItem('config_automechanika');
             if (saved) {
-                appConfig = JSON.parse(saved);
+                const savedConfig = JSON.parse(saved);
+                // Asegurar que todos los campos existan, usando valores por defecto si faltan
+                appConfig = {
+                    titulo: savedConfig.titulo || appConfig.titulo,
+                    subtitulo: savedConfig.subtitulo || appConfig.subtitulo,
+                    equipo: savedConfig.equipo || appConfig.equipo,
+                    notas: savedConfig.notas || appConfig.notas
+                };
+                
                 document.getElementById('configTitulo').value = appConfig.titulo;
                 document.getElementById('configSubtitulo').value = appConfig.subtitulo;
                 document.getElementById('configEquipo').value = appConfig.equipo;
@@ -1647,28 +1655,55 @@
                 
                 document.querySelector('h1').textContent = appConfig.titulo;
                 document.querySelector('.subtitle').textContent = appConfig.subtitulo;
+            } else {
+                // Si no hay configuración guardada, usar valores por defecto
+                document.getElementById('configTitulo').value = appConfig.titulo;
+                document.getElementById('configSubtitulo').value = appConfig.subtitulo;
+                document.getElementById('configEquipo').value = appConfig.equipo;
+                document.getElementById('configNotas').value = appConfig.notas || '';
             }
             
-            equipoLizarte = appConfig.equipo.split(',').map(e => e.trim());
+            // Asegurar que equipoLizarte siempre tenga un valor válido
+            if (appConfig.equipo && typeof appConfig.equipo === 'string') {
+                equipoLizarte = appConfig.equipo.split(',').map(e => e.trim()).filter(e => e.length > 0);
+            } else {
+                equipoLizarte = appConfig.equipo.split(',').map(e => e.trim());
+            }
         }
         
         function saveConfig() {
-            appConfig.titulo = document.getElementById('configTitulo').value;
-            appConfig.subtitulo = document.getElementById('configSubtitulo').value;
-            appConfig.equipo = document.getElementById('configEquipo').value;
-            appConfig.notas = document.getElementById('configNotas').value;
+            // Obtener valores de los campos
+            const titulo = document.getElementById('configTitulo').value.trim();
+            const subtitulo = document.getElementById('configSubtitulo').value.trim();
+            const equipo = document.getElementById('configEquipo').value.trim();
+            const notas = document.getElementById('configNotas').value.trim();
             
+            // Validar que el campo equipo no esté vacío
+            if (!equipo) {
+                alert('⚠️ El campo "Miembros del Equipo" no puede estar vacío');
+                return;
+            }
+            
+            // Actualizar appConfig
+            appConfig.titulo = titulo || appConfig.titulo;
+            appConfig.subtitulo = subtitulo || appConfig.subtitulo;
+            appConfig.equipo = equipo;
+            appConfig.notas = notas || '';
+            
+            // Guardar en localStorage
             localStorage.setItem('config_automechanika', JSON.stringify(appConfig));
             
+            // Actualizar la interfaz
             document.querySelector('h1').textContent = appConfig.titulo;
             document.querySelector('.subtitle').textContent = appConfig.subtitulo;
             
-            equipoLizarte = appConfig.equipo.split(',').map(e => e.trim());
+            // Actualizar la lista de responsables
+            equipoLizarte = appConfig.equipo.split(',').map(e => e.trim()).filter(e => e.length > 0);
             populateResponsableFilter();
             renderAll();
             
             showSaveIndicator();
-            alert('✅ Configuración guardada');
+            alert('✅ Configuración guardada correctamente');
         }
         
         function loadSeguimiento() {
