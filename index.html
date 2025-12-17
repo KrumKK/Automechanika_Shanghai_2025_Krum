@@ -1664,10 +1664,12 @@
             }
             
             // Asegurar que equipoLizarte siempre tenga un valor válido
-            if (appConfig.equipo && typeof appConfig.equipo === 'string') {
+            if (appConfig.equipo && typeof appConfig.equipo === 'string' && appConfig.equipo.trim().length > 0) {
                 equipoLizarte = appConfig.equipo.split(',').map(e => e.trim()).filter(e => e.length > 0);
             } else {
-                equipoLizarte = appConfig.equipo.split(',').map(e => e.trim());
+                // Usar valor por defecto si no hay equipo válido
+                const defaultEquipo = 'Krum Kovachev, Equipo Técnico, Equipo Comercial, Dirección, Sin asignar';
+                equipoLizarte = defaultEquipo.split(',').map(e => e.trim()).filter(e => e.length > 0);
             }
         }
         
@@ -1684,11 +1686,11 @@
                 return;
             }
             
-            // Actualizar appConfig
-            appConfig.titulo = titulo || appConfig.titulo;
-            appConfig.subtitulo = subtitulo || appConfig.subtitulo;
+            // Actualizar appConfig (permitir valores vacíos para permitir limpiar campos)
+            appConfig.titulo = titulo;
+            appConfig.subtitulo = subtitulo;
             appConfig.equipo = equipo;
-            appConfig.notas = notas || '';
+            appConfig.notas = notas;
             
             // Guardar en localStorage
             localStorage.setItem('config_automechanika', JSON.stringify(appConfig));
