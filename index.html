@@ -3543,12 +3543,8 @@ Sistema de Seguimiento Automechanika`;
             color: #000;
         }
         .empresa-page {
-            page-break-before: always;
             width: 100%;
             min-height: 100vh;
-        }
-        .empresa-page:first-child {
-            page-break-before: auto;
         }
         h1 {
             font-size: 18pt;
@@ -3687,14 +3683,19 @@ Sistema de Seguimiento Automechanika`;
             }
 
             // Función para generar HTML de una empresa (TODA la información en una página)
-            function generarEmpresaHTML(item, esReunion) {
+            function generarEmpresaHTML(item, esReunion, esPrimeraEmpresa) {
                 const nombre = esReunion ? item.company : item.empresa;
                 const depto = item.departamento || 'Lizarte';
                 const deptoClass = depto.toLowerCase() === 'innovación' ? 'badge-innovacion' : 'badge-lizarte';
                 const seg = item.seguimiento || {};
                 const estadoClass = `estado-${seg.estado || 'pendiente'}`;
                 
-                let empresaHTML = `
+                let empresaHTML = '';
+                // Salto de página solo si no es la primera empresa
+                if (!esPrimeraEmpresa) {
+                    empresaHTML += `<!--[if gte mso 9]><br clear=all style='mso-special-character:line-break; page-break-before:always'><![endif]-->`;
+                }
+                empresaHTML += `
     <div class="empresa-page" style="width: 29.7cm; height: 21cm; margin: 0; padding: 1.5cm;">
         <table style="width: 100%; border-collapse: collapse;">
             <!-- Fila 1: Nombre + Información Básica (izquierda) y Seguimiento (derecha) -->
@@ -3822,12 +3823,15 @@ Sistema de Seguimiento Automechanika`;
 
             // REUNIONES - cada empresa en página nueva (orden del JSON/HTML, sin ordenar por hora)
             appData.reuniones.forEach((item, index) => {
-                html += generarEmpresaHTML(item, true);
+                // Primera empresa sin salto de página, resto con salto
+                const esPrimera = index === 0;
+                html += generarEmpresaHTML(item, true, esPrimera);
             });
 
             // INFO ADICIONAL - cada empresa en página nueva (después de todas las reuniones)
-            appData.adicional.forEach(item => {
-                html += generarEmpresaHTML(item, false);
+            appData.adicional.forEach((item, index) => {
+                // Todas las adicionales tienen salto de página (porque vienen después de reuniones)
+                html += generarEmpresaHTML(item, false, false);
             });
 
             // Cierre del documento
