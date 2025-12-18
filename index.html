@@ -3672,37 +3672,54 @@ Sistema de Seguimiento Automechanika`;
 </head>
 <body>`;
 
-            // Portada
-            html += `
-    <div style="text-align: center; padding: 50pt 0;">
-        <h1 style="font-size: 24pt; margin-bottom: 20pt;">${appConfig.titulo}</h1>
-        <p style="font-size: 14pt; color: #718096;">${appConfig.subtitulo}</p>
-        <p style="font-size: 12pt; margin-top: 30pt; color: #a0aec0;">Fecha: ${new Date().toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
-    </div>`;
-
-            if (appConfig.notas) {
-                html += `
-    <div style="page-break-before: always; padding: 20pt; background-color: #f7fafc; border: 1px solid #e2e8f0; margin: 20pt 0;">
-        <h2>NOTAS GENERALES</h2>
-        <div class="texto-largo">${appConfig.notas.replace(/\n/g, '<br>')}</div>
-    </div>`;
-            }
-
-            // Resumen ejecutivo
+            // Calcular estadísticas del splash screen
             const allItems = [...appData.reuniones, ...appData.adicional];
-            const pendientes = allItems.filter(i => i.seguimiento.estado === 'pendiente').length;
-            const contactados = allItems.filter(i => i.seguimiento.estado === 'contactado').length;
-            const proceso = allItems.filter(i => i.seguimiento.estado === 'proceso').length;
-            const finalizados = allItems.filter(i => i.seguimiento.estado === 'finalizado').length;
+            const totalEmpresas = allItems.length;
+            const numReuniones = appData.reuniones.length;
+            
+            // Contar fotos totales
+            let numFotos = 0;
+            appData.reuniones.forEach(item => {
+                numFotos += (Array.isArray(item.fotos) ? item.fotos.length : 0);
+                numFotos += (Array.isArray(item.fotos_extra) ? item.fotos_extra.length : 0);
+            });
+            appData.adicional.forEach(item => {
+                numFotos += (Array.isArray(item.fotos) ? item.fotos.length : 0);
+                numFotos += (Array.isArray(item.fotos_extra) ? item.fotos_extra.length : 0);
+            });
+            
+            // Contar oportunidades de innovación
+            const numOportunidades = allItems.filter(item => (item.departamento || 'Lizarte') === 'Innovación').length;
 
+            // Primera página: Resumen del splash screen (las 4 estadísticas principales)
             html += `
-    <div style="page-break-before: always;">
-        <h2>RESUMEN EJECUTIVO</h2>
-        <div class="info-row"><span class="info-label">Total de contactos:</span><span class="info-value">${allItems.length}</span></div>
-        <div class="info-row"><span class="info-label">Pendientes:</span><span class="info-value">${pendientes}</span></div>
-        <div class="info-row"><span class="info-label">Contactados:</span><span class="info-value">${contactados}</span></div>
-        <div class="info-row"><span class="info-label">En proceso:</span><span class="info-value">${proceso}</span></div>
-        <div class="info-row"><span class="info-label">Finalizados:</span><span class="info-value">${finalizados}</span></div>
+    <div style="text-align: center; padding: 80pt 0; min-height: 100vh; display: flex; flex-direction: column; justify-content: center;">
+        <h1 style="font-size: 28pt; margin-bottom: 40pt; color: #667eea; font-weight: bold;">${appConfig.titulo}</h1>
+        <p style="font-size: 16pt; color: #718096; margin-bottom: 60pt;">${appConfig.subtitulo}</p>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40pt; max-width: 600pt; margin: 0 auto;">
+            <div style="text-align: center; padding: 30pt; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12pt; color: white;">
+                <div style="font-size: 48pt; font-weight: bold; margin-bottom: 10pt;">${totalEmpresas}</div>
+                <div style="font-size: 14pt; opacity: 0.9;">🏢 Empresas Priorizadas Contactadas</div>
+            </div>
+            
+            <div style="text-align: center; padding: 30pt; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12pt; color: white;">
+                <div style="font-size: 48pt; font-weight: bold; margin-bottom: 10pt;">${numReuniones}</div>
+                <div style="font-size: 14pt; opacity: 0.9;">🤝 Reuniones Estratégicas</div>
+            </div>
+            
+            <div style="text-align: center; padding: 30pt; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12pt; color: white;">
+                <div style="font-size: 48pt; font-weight: bold; margin-bottom: 10pt;">${numFotos}</div>
+                <div style="font-size: 14pt; opacity: 0.9;">📷 Registros Visuales</div>
+            </div>
+            
+            <div style="text-align: center; padding: 30pt; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12pt; color: white;">
+                <div style="font-size: 48pt; font-weight: bold; margin-bottom: 10pt;">${numOportunidades}</div>
+                <div style="font-size: 14pt; opacity: 0.9;">⭐ Oportunidades Innovación</div>
+            </div>
+        </div>
+        
+        <p style="font-size: 11pt; margin-top: 60pt; color: #a0aec0;">Fecha: ${new Date().toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
     </div>`;
 
             // Función auxiliar para escapar HTML
@@ -3835,27 +3852,19 @@ Sistema de Seguimiento Automechanika`;
                 return empresaHTML;
             }
 
-            // Reuniones - cada una en página nueva
-            html += `
-    <div style="page-break-before: always;">
-        <h2>REUNIONES PROGRAMADAS (${appData.reuniones.length})</h2>
-    </div>`;
-            
+            // REUNIONES - cada empresa en página nueva (empezando desde la segunda página)
             appData.reuniones.sort((a, b) => {
                 const timeA = a.time || '';
                 const timeB = b.time || '';
                 return timeA.localeCompare(timeB);
-            }).forEach(item => {
+            }).forEach((item, index) => {
+                // Cada empresa empieza en página nueva
                 html += generarEmpresaHTML(item, true);
             });
 
-            // Info Adicional - cada una en página nueva
-            html += `
-    <div style="page-break-before: always;">
-        <h2>INFORMACIÓN ADICIONAL (${appData.adicional.length})</h2>
-    </div>`;
-            
+            // INFO ADICIONAL - cada empresa en página nueva (después de todas las reuniones)
             appData.adicional.forEach(item => {
+                // Cada empresa empieza en página nueva
                 html += generarEmpresaHTML(item, false);
             });
 
