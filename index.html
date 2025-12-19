@@ -2785,6 +2785,10 @@
             `}).join('');
         }
         
+        function formatearMoneda(valor) {
+            return new Intl.NumberFormat('es-ES', {style: 'currency', currency: 'EUR'}).format(valor);
+        }
+        
         function renderAhorros() {
             if (!appData) {
                 console.warn('⚠️ appData no está inicializado');
@@ -2810,9 +2814,6 @@
                 const unidadesAno = parseFloat(item.unidadesAno || 0);
                 const ahorroUnitario = precioActual - precioNuevo;
                 const ahorroTotal = ahorroUnitario * unidadesAno;
-                function formatearMoneda(valor) {
-                    return new Intl.NumberFormat('es-ES', {style: 'currency', currency: 'EUR'}).format(valor);
-                }
                 const ahorroTotalFormateado = formatearMoneda(ahorroTotal);
                 const ahorroUnitarioFormateado = formatearMoneda(ahorroUnitario);
                 const unidadesFormateadas = unidadesAno.toLocaleString('es-ES');
