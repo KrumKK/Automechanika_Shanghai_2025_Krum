@@ -2380,22 +2380,36 @@
         
         // Funciones para Nuevos Coches
         function showAddNuevoCocheModal() {
-            if (!appData.nuevosCoches) appData.nuevosCoches = [];
-            const nuevoCoche = {
-                id: 'coche_' + Date.now(),
-                nombre: '',
-                descripcion: ''
-            };
-            appData.nuevosCoches.push(nuevoCoche);
-            saveData();
-            renderNuevosCoches();
-            updateTabCounters();
-            // Scroll al nuevo elemento
-            setTimeout(() => {
-                const container = document.getElementById('nuevosCochesContainer');
-                const lastCard = container.lastElementChild;
-                if (lastCard) lastCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }, 100);
+            try {
+                console.log('🚗 showAddNuevoCocheModal llamada');
+                if (!appData) {
+                    console.error('❌ appData no está inicializado');
+                    alert('Error: Los datos no están cargados. Por favor, recarga la página.');
+                    return;
+                }
+                if (!appData.nuevosCoches) appData.nuevosCoches = [];
+                const nuevoCoche = {
+                    id: 'coche_' + Date.now(),
+                    nombre: '',
+                    descripcion: ''
+                };
+                appData.nuevosCoches.push(nuevoCoche);
+                console.log('✅ Nuevo coche añadido. Total:', appData.nuevosCoches.length);
+                saveData();
+                renderNuevosCoches();
+                updateTabCounters();
+                // Scroll al nuevo elemento
+                setTimeout(() => {
+                    const container = document.getElementById('nuevosCochesContainer');
+                    if (container) {
+                        const lastCard = container.lastElementChild;
+                        if (lastCard) lastCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }
+                }, 100);
+            } catch (error) {
+                console.error('❌ Error en showAddNuevoCocheModal:', error);
+                alert('Error al añadir nuevo coche. Por favor, revisa la consola (F12).');
+            }
         }
         
         function updateNuevoCoche(index, field, value) {
@@ -2415,26 +2429,40 @@
         
         // Funciones para Ahorros
         function showAddAhorroModal() {
-            if (!appData.ahorros) appData.ahorros = [];
-            const nuevoAhorro = {
-                id: 'ahorro_' + Date.now(),
-                empresa: '',
-                producto: '',
-                precioActual: '',
-                precioNuevo: '',
-                unidadesAno: '',
-                ahorroTotal: 0
-            };
-            appData.ahorros.push(nuevoAhorro);
-            saveData();
-            renderAhorros();
-            updateTabCounters();
-            // Scroll al nuevo elemento
-            setTimeout(() => {
-                const container = document.getElementById('ahorrosContainer');
-                const lastCard = container.lastElementChild;
-                if (lastCard) lastCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }, 100);
+            try {
+                console.log('💰 showAddAhorroModal llamada');
+                if (!appData) {
+                    console.error('❌ appData no está inicializado');
+                    alert('Error: Los datos no están cargados. Por favor, recarga la página.');
+                    return;
+                }
+                if (!appData.ahorros) appData.ahorros = [];
+                const nuevoAhorro = {
+                    id: 'ahorro_' + Date.now(),
+                    empresa: '',
+                    producto: '',
+                    precioActual: '',
+                    precioNuevo: '',
+                    unidadesAno: '',
+                    ahorroTotal: 0
+                };
+                appData.ahorros.push(nuevoAhorro);
+                console.log('✅ Nuevo ahorro añadido. Total:', appData.ahorros.length);
+                saveData();
+                renderAhorros();
+                updateTabCounters();
+                // Scroll al nuevo elemento
+                setTimeout(() => {
+                    const container = document.getElementById('ahorrosContainer');
+                    if (container) {
+                        const lastCard = container.lastElementChild;
+                        if (lastCard) lastCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }
+                }, 100);
+            } catch (error) {
+                console.error('❌ Error en showAddAhorroModal:', error);
+                alert('Error al añadir ahorro. Por favor, revisa la consola (F12).');
+            }
         }
         
         function updateAhorro(index, field, value) {
