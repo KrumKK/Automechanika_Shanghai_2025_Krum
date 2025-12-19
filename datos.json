@@ -10,7 +10,7 @@
       "id": 1763364468847,
       "fotos": [],
       "seguimiento": {
-        "responsable": "Equipo Compras",
+        "responsable": "Compras",
         "contactado": false,
         "respuestaRecibida": false,
         "proximaAccion": "",
@@ -56,7 +56,7 @@
       "product": "Drive Shaft",
       "time": "18:12",
       "stand": "Hall 1.1 C24",
-      "comments": "Empresa con la que coincidimos en Paris",
+      "comments": "Empresa con la que coincidimos en Paris, poco más que añadir. ",
       "id": 1763719943011,
       "fotos": [],
       "seguimiento": {
@@ -82,7 +82,7 @@
       "id": 1763896381600,
       "fotos": [],
       "seguimiento": {
-        "responsable": "Equipo Calidad",
+        "responsable": "Calidad",
         "contactado": false,
         "respuestaRecibida": false,
         "proximaAccion": "",
@@ -96,7 +96,7 @@
         "email": "jhualde@lizarte.com"
       },
       "departamento": "Innovación",
-      "prioridad": 1,
+      "prioridad": 0,
       "fotos_extra": []
     },
     {
@@ -109,13 +109,14 @@
       "id": 1763954957878,
       "fotos": [],
       "seguimiento": {
-        "responsable": "",
+        "responsable": "Innovación",
         "contactado": false,
         "respuestaRecibida": false,
         "proximaAccion": "",
         "fechaSeguimiento": "",
         "acciones": [],
-        "estado": "pendiente"
+        "estado": "pendiente",
+        "email": "krum@lizarte.com"
       },
       "departamento": "Innovación",
       "prioridad": 1,
@@ -127,7 +128,7 @@
       "product": "EPB y pinzas de freno",
       "time": "11:34",
       "stand": "Hall 3 E56",
-      "comments": "Venden EPB, pinzas de freno. VW,BMW.",
+      "comments": "Empresa que ofrece frenos de estacionamiento eléctricos (EPB) y pinzas de freno, tanto mecánicas como electrónicas. Trabajan con referencias para Volkswagen y BMW, marcas de alto volumen en el parque europeo.\nLos sistemas EPB están cada vez más presentes en vehículos modernos, lo que genera una demanda creciente de recambios. Posicionarse en este mercado ahora puede suponer una ventaja competitiva a medio plazo.",
       "id": 1763955286688,
       "fotos": [],
       "seguimiento": {
@@ -137,7 +138,7 @@
         "proximaAccion": "",
         "fechaSeguimiento": "",
         "acciones": [
-          "Valorar como nuevo producto para el catalogo de Lizarte"
+          "Solicitar catálogo con referencias y precios. Valorar si encaja como nueva línea de producto complementaria al catálogo actual."
         ],
         "estado": "pendiente",
         "email": "krum@lizarte.com"
@@ -152,7 +153,7 @@
       "product": "No especifica en el email",
       "time": "12:13",
       "stand": "Hall 7.1 E76",
-      "comments": "",
+      "comments": "Creo que puede ser un error, ya que no localizo información al respecto. Deja la empresa por si acaso, si encuentro info, la reportaré.",
       "id": 1763957620217,
       "fotos": [],
       "seguimiento": {
@@ -174,11 +175,11 @@
       "product": "Rodamientos",
       "time": "12:15",
       "stand": "Hall 1.1 D33",
-      "comments": "Interesante, opción para comprar rodamientos en China y reducir costes. El producto expuesto en el stand me ha causado buena impresión, aparentan tener una calidad aceptable.",
+      "comments": "Interesante opción para comprar rodamientos directamente en China y reducir costes de aprovisionamiento. El producto expuesto en el stand me ha causado buena impresión, con un acabado y calidad aparentemente aceptables para nuestras aplicaciones.\nComprar rodamientos en origen podría suponer un ahorro significativo en un componente de consumo recurrente que actualmente adquirimos a proveedores locales o europeos con márgenes añadidos.",
       "id": 1763957712020,
       "fotos": [],
       "seguimiento": {
-        "responsable": "Equipo Compras",
+        "responsable": "Calidad",
         "contactado": false,
         "respuestaRecibida": false,
         "proximaAccion": "",
@@ -199,13 +200,13 @@
       "product": "Direcciones",
       "time": "19:32",
       "stand": "Hall 6.1 F55",
-      "comments": "Nueva línea de fabricación, han mandado ya dos cremalleras de DAEs.\nEs muy interesante homologar cremalleras para DAEs, ahora puede que el precio/unidad sea alto, pero en cuanto baje, será estratégico para Lizarte.",
+      "comments": "Me he reunido con Dane, quien quiere convertirse en nuestro proveedor principal. Le he comentado que primero necesita hablar con Javier respecto a los targets de precio, y que Calidad debe validar las piezas. Si todo está OK, lo valoraremos.\nYa nos han enviado dos cremalleras de DAES para pruebas.\nValoración: Es muy interesante homologar cremalleras para DAES. Aunque actualmente el precio por unidad puede ser alto por ser un producto nuevo en el mercado, en cuanto los precios bajen será estratégico para Lizarte tener este componente ya homologado y un proveedor validado.",
       "id": 1763983993823,
       "fotos": [
         "fotos/reunion_aierfu_foto1.jpg"
       ],
       "seguimiento": {
-        "responsable": "Equipo Calidad",
+        "responsable": "Calidad",
         "contactado": false,
         "respuestaRecibida": false,
         "proximaAccion": "",
@@ -217,7 +218,7 @@
         "email": "jhualde@lizarte.com"
       },
       "departamento": "Lizarte",
-      "prioridad": 1,
+      "prioridad": 2,
       "fotos_extra": []
     },
     {
@@ -233,7 +234,7 @@
         "fotos/reunion_ylcnc_foto1.jpg"
       ],
       "seguimiento": {
-        "responsable": "Equipo Compras",
+        "responsable": "Compras",
         "contactado": false,
         "respuestaRecibida": false,
         "proximaAccion": "",
@@ -261,7 +262,7 @@
         "fotos/reunion___cangzhou_fubang_foto1.jpg"
       ],
       "seguimiento": {
-        "responsable": "Equipo Compras",
+        "responsable": "Compras",
         "contactado": false,
         "respuestaRecibida": false,
         "proximaAccion": "",
@@ -273,7 +274,7 @@
         "email": "jbaztan@lizarte.com"
       },
       "departamento": "Lizarte",
-      "prioridad": 1,
+      "prioridad": 2,
       "fotos_extra": []
     },
     {
@@ -302,7 +303,7 @@
         "email": "krum@lizarte.com"
       },
       "departamento": "Innovación",
-      "prioridad": 1,
+      "prioridad": 0,
       "fotos_extra": []
     },
     {
@@ -311,14 +312,14 @@
       "product": "Relen",
       "time": "10:44",
       "stand": "Hall 4.1 B61",
-      "comments": "Empresa especializada en relés de todo tipo y para distintos amperajes. Podría ser útil para cubrir necesidades de componentes eléctricos en diferentes aplicaciones.",
+      "comments": "Empresa especializada en relés de todo tipo y para distintos amperajes. Disponen de una gama amplia que podría cubrir nuestras necesidades de componentes eléctricos en diferentes aplicaciones, tanto para la línea general de Lizarte como para LizOn.\nTener un proveedor directo de relés en China podría reducir costes respecto a los intermediarios actuales y asegurar disponibilidad de un componente que usamos de forma recurrente.",
       "id": 1764125076721,
       "fotos": [
         "fotos/reunion_matteo_vehicle_parts_factory_foto1.jpg",
         "fotos/reunion_matteo_vehicle_parts_factory_foto2.jpg"
       ],
       "seguimiento": {
-        "responsable": "Equipo Compras",
+        "responsable": "Compras",
         "contactado": false,
         "respuestaRecibida": false,
         "proximaAccion": "",
@@ -360,7 +361,7 @@
         "email": "krum@lizarte.com"
       },
       "departamento": "Innovación",
-      "prioridad": 1,
+      "prioridad": 0,
       "fotos_extra": []
     },
     {
@@ -375,7 +376,7 @@
         "fotos/reunion_quanbang_foto1.jpg"
       ],
       "seguimiento": {
-        "responsable": "Equipo Compras",
+        "responsable": "Compras",
         "contactado": false,
         "respuestaRecibida": false,
         "proximaAccion": "",
@@ -387,7 +388,7 @@
         "email": "jbaztan@lizarte.com"
       },
       "departamento": "Lizarte",
-      "prioridad": 1,
+      "prioridad": 2,
       "fotos_extra": []
     },
     {
@@ -453,7 +454,7 @@
       "product": "DAES",
       "time": "13:39",
       "stand": "Hall 6.1 F01",
-      "comments": "",
+      "comments": "Problemas para recuperar la información. ",
       "id": 1764135592052,
       "fotos": [],
       "seguimiento": {
@@ -495,7 +496,7 @@
         "email": "krum@lizarte.com"
       },
       "departamento": "Innovación",
-      "prioridad": 1,
+      "prioridad": 0,
       "fotos_extra": []
     },
     {
@@ -510,7 +511,7 @@
         "fotos/reunion_seineca_foto1.jpg"
       ],
       "seguimiento": {
-        "responsable": "Equipo Compras",
+        "responsable": "Compras",
         "contactado": false,
         "respuestaRecibida": false,
         "proximaAccion": "",
@@ -538,7 +539,7 @@
         "fotos/reunion_chiboss_foto1.jpg"
       ],
       "seguimiento": {
-        "responsable": "Equipo Calidad",
+        "responsable": "Calidad",
         "contactado": false,
         "respuestaRecibida": false,
         "proximaAccion": "",
@@ -550,7 +551,7 @@
         "email": "jhualde@lizarte.com"
       },
       "departamento": "Lizarte",
-      "prioridad": 1,
+      "prioridad": 0,
       "fotos_extra": []
     },
     {
@@ -566,7 +567,7 @@
         "fotos/reunion_zfylcd_foto1.jpg"
       ],
       "seguimiento": {
-        "responsable": "Equipo Compras",
+        "responsable": "Compras",
         "contactado": false,
         "respuestaRecibida": false,
         "proximaAccion": "",
@@ -578,7 +579,7 @@
         "email": "jbaztan@lizarte.com"
       },
       "departamento": "Lizarte",
-      "prioridad": 1,
+      "prioridad": 3,
       "fotos_extra": []
     },
     {
@@ -594,7 +595,7 @@
         "fotos/reunion_wuxi_belt_foto2.jpg"
       ],
       "seguimiento": {
-        "responsable": "Equipo Compras",
+        "responsable": "Calidad",
         "contactado": false,
         "respuestaRecibida": false,
         "proximaAccion": "",
@@ -606,7 +607,7 @@
         "email": "jbaztan@lizarte.com"
       },
       "departamento": "Lizarte",
-      "prioridad": 1,
+      "prioridad": 0,
       "fotos_extra": []
     },
     {
@@ -634,7 +635,7 @@
         "email": "krum@lizarte.com"
       },
       "departamento": "Innovación",
-      "prioridad": 1,
+      "prioridad": 0,
       "fotos_extra": []
     },
     {
@@ -696,7 +697,7 @@
       "producto": "Ruedas y neumáticos",
       "notas": "NFYO – Oportunidad de diversificación con neumáticos\n\nHe visitado el stand de NFYO y tras una conversación con Lucy, me ha revelado información muy interesante: han comprado recientemente una empresa dedicada a la fabricación de neumáticos, lo que amplía significativamente su portfolio de productos.\nLe he comentado que estamos interesados en diversificar con nuevas líneas de negocio y le he preguntado si habría opción de valorar la idea de comercializar neumáticos a través de Lizarte. Su respuesta ha sido positiva: sí estarían interesados. Además, me ha comentado que podríamos tener la exclusiva de ventas, aunque necesito confirmar si sería exclusiva para España o para toda Europa. Creo recordar que mencionó Europa, pero no estoy al 100% seguro, por lo que es un punto a aclarar en el siguiente contacto.\n\nOfrecen neumáticos para diferentes tipos de vehículos: coches, motos y tractores. Este último segmento resulta especialmente atractivo, ya que en España las ruedas de tractores son extremadamente caras. Si conseguimos ofrecer un producto de calidad aceptable a un precio competitivo, podría haber un nicho de mercado muy interesante en el sector agrícola.\n\nValoración: Oportunidad de diversificación importante que podría abrir una nueva línea de negocio completamente diferente a lo que hacemos actualmente. La exclusividad de ventas (si se confirma para Europa) sería un valor añadido enorme.",
       "oportunidad": "Exclusividad territorial – Si se confirma la exclusiva para España o Europa, tendríamos el mercado cerrado para nosotros con ese producto. Eso es una ventaja competitiva muy potente.\n\nNeumáticos de tractor – Nicho de alto margen – Esta es probablemente la más interesante. Si en España las ruedas de tractor son extremadamente caras, hay un hueco claro para entrar con un producto de precio competitivo. El sector agrícola necesita neumáticos de forma recurrente y el agricultor busca reducir costes. Podríamos ofrecer una alternativa más económica sin sacrificar demasiado en calidad.\n\nDiversificación de líneas de producto – Salir del sector tradicional de Lizarte (dirección, bombas, etc.) y entrar en neumáticos abre un mercado completamente nuevo con clientes potencialmente diferentes.\n\nAcceso directo a fabricante – NFYO ha comprado la fábrica, por lo que no hay intermediarios. Eso permite negociar mejores precios y márgenes.\n\nResumen: La oportunidad más clara es atacar el nicho de neumáticos de tractor en España, donde el precio actual del mercado es muy alto y hay margen para entrar con una oferta más competitiva, especialmente si contamos con exclusividad.",
-      "prioridad": "alta",
+      "prioridad": 1,
       "seguimiento": {
         "responsable": "Innovación",
         "contactado": false,
@@ -744,13 +745,14 @@
       "oportunidad": "Existe un hueco claro en el mercado para ofrecer máquinas de equilibrado y cambio de ruedas de origen chino a talleres europeos que buscan una alternativa económica(al igual que los elevadores, como el que tenemos nosotros) a las marcas alemanas premium. Los talleres pequeños y medianos son especialmente sensibles al precio y estarían dispuestos a comprar maquinaria china si alguien de confianza se la ofrece con garantía y servicio postventa.\nLizarte, con su red de contactos en el sector del recambio y su reputación como marca reconocida en Europa, podría:\n\nComercializar estas máquinas como complemento a su catálogo actual, ampliando la oferta hacia equipamiento de taller.\nOfrecer un pack completo: máquinas + servicio técnico + garantía, lo que generaría confianza en el comprador.\nAprovechar la relación con talleres que ya compran productos Lizarte para hacer venta cruzada de este equipamiento.\n\nAl haber visto varias empresas con este producto en la feria, hay margen para comparar proveedores y elegir el que mejor relación calidad-precio-servicio ofrezca.",
       "prioridad": 3,
       "seguimiento": {
-        "responsable": "",
+        "responsable": "Innovación",
         "contactado": false,
         "respuestaRecibida": false,
         "proximaAccion": "",
         "fechaSeguimiento": "",
         "acciones": [],
-        "estado": "pendiente"
+        "estado": "pendiente",
+        "email": "krum@lizarte.com"
       },
       "departamento": "Innovación",
       "fotos": [],
@@ -808,7 +810,7 @@
       "producto": "Puntas, herramientas, pistolas",
       "notas": "Sin duda, el mejor stand de herramientas que he visto en toda la feria. JTC AUTO TOOLS destaca claramente por encima del resto tanto en la presentación de sus productos como en la amplitud de su gama. La imagen profesional del stand transmite seriedad y la variedad de herramientas expuestas demuestra que tienen un catálogo muy completo para el sector de automoción.Un punto importante que he identificado durante la visita es la posibilidad de utilizar este proveedor para comprar herramientas que en nuestro día a día tienen un desgaste excesivo. En cualquier entorno de producción o taller, hay herramientas que se deterioran rápidamente por el uso intensivo y que necesitamos reponer con frecuencia. Si conseguimos un proveedor de calidad aceptable a buen precio, podemos reducir significativamente el coste de reposición de estas herramientas de alto consumo.Datos del proveedor:\n\nEmpresa: JTC AUTO TOOLS\nWeb: jtc.com.tw (Taiwán)\nContacto: Antony Lin\nEmail: antony@jtc.com.tw",
       "oportunidad": "Oportunidad de negocio identificada:\n\nReducción de costes en herramientas de alto desgaste: Actualmente, las herramientas que se desgastan rápidamente suponen un coste recurrente importante. Si conseguimos aprovisionarnos de un fabricante asiático de calidad a mejor precio, el ahorro acumulado a lo largo del año puede ser considerable. No hablamos de comprar herramientas baratas de mala calidad, sino de encontrar un equilibrio óptimo entre durabilidad y precio.\n\nProveedor de origen taiwanés: A diferencia de muchos fabricantes chinos, JTC es de Taiwán, donde la industria de herramientas tiene muy buena reputación por su calidad. Esto reduce el riesgo de problemas de calidad que a veces se asocian con productos de origen chino.\nPosible comercialización: Dado que es el mejor stand de herramientas de la feria, podría valorarse también la opción de comercializar algunas de sus herramientas a través de Lizarte, especialmente herramientas específicas para automoción que encajen con nuestro público objetivo (talleres, profesionales del sector). Sería una línea complementaria al recambio.\n\nEquipamiento interno: Más allá del consumible de desgaste, también podríamos valorar la compra de herramientas de mayor calidad para equipar nuestras instalaciones, mejorando la eficiencia del trabajo en producción.",
-      "prioridad": "alta",
+      "prioridad": 3,
       "seguimiento": {
         "responsable": "Compras",
         "contactado": false,
@@ -898,7 +900,7 @@
       "producto": "Herramientas ",
       "notas": "Proveedor de pistolas de impacto portátiles – Herramientas de montaje\nEmpresa que ofrece pistolas de impacto portátiles, un tipo de herramienta cada vez más demandada por producción y necesaria para Encory/BMW. Lo más interesante de este producto es que permite trabajar con un par de apriete controlado, algo fundamental para garantizar la calidad del montaje en componentes de automoción donde el apriete incorrecto puede provocar fallos graves.\nEn nuestro proceso de montaje actual, contar con herramientas que aseguren un par de apriete preciso y repetible es clave para mantener la calidad del producto final. Las pistolas de impacto portátiles con control de par eliminan la variabilidad del apriete manual y reducen el riesgo de errores humanos, ya sea por apriete insuficiente (que puede provocar holguras y vibraciones) o por apriete excesivo (que puede dañar roscas o componentes).\nEl hecho de que sean portátiles añade versatilidad: pueden utilizarse en diferentes puestos de trabajo sin necesidad de instalaciones fijas, lo que facilita la organización de la producción y permite adaptarse a diferentes necesidades.\n\nContacto; info@sevenplustools.com",
       "oportunidad": "Mejora de calidad en producción: Incorporar pistolas de impacto con par controlado en nuestros procesos de montaje eleva el nivel de calidad y consistencia del producto. Cada tornillo, cada unión, queda apretada exactamente con el par especificado. Esto reduce reclamaciones por fallos de montaje y refuerza la fiabilidad del producto Lizarte.\nReducción de errores y reprocesos: El control de par evita tanto el apriete insuficiente como el excesivo. Menos errores de montaje significa menos tiempo perdido en reprocesos y menos coste por producto defectuoso.\nTrazabilidad y control: Algunas pistolas de impacto modernas permiten registrar los datos de apriete, lo que añade trazabilidad al proceso productivo. Esto puede ser un argumento de calidad frente a clientes exigentes o en auditorías.",
-      "prioridad": "baja",
+      "prioridad": 3,
       "seguimiento": {
         "responsable": "Compras",
         "contactado": false,
@@ -1056,7 +1058,7 @@
       "notas": "Contacto;Sabina; sales04@shengtetools.com\n\nEmpresa que tiene todo tipo de accesorios para herramientas: bocas, llaves, vasos, puntas y demás utillaje de uso diario. Este tipo de producto es exactamente lo que utilizamos de forma continua en producción y que tiene un desgaste y consumo elevado.En cualquier entorno productivo como el nuestro, las herramientas de mano y sus accesorios sufren un deterioro constante por el uso intensivo. Bocas que se redondean, llaves que pierden precisión, vasos que se dañan... Son elementos que hay que reponer con frecuencia y que, aunque individualmente no son caros, en conjunto suponen un coste recurrente significativo a lo largo del año.\n\nHasta ahora, este tipo de material probablemente lo compramos a proveedores locales o distribuidores europeos, con los márgenes que eso implica. Encontrar un fabricante o proveedor en origen que ofrezca este tipo de accesorios a precios competitivos y con calidad suficiente para uso industrial puede suponer un ahorro importante en el gasto de consumibles de producción.",
       "oportunidad": "",
       "departamento": "Lizarte",
-      "prioridad": 1,
+      "prioridad": 2,
       "fotos": [],
       "fotos_extra": [],
       "seguimiento": {
@@ -1095,27 +1097,7 @@
       "id": "add_1765956951296",
       "empresa": "Ruain Linguang Plastic Manufacture",
       "producto": "Cables, conectores",
-      "notas": "Contacto; linguang_linkai@163.com\n\nStand pequeño pero tiene alta variedad de cableado para LizOn",
-      "oportunidad": "",
-      "departamento": "Lizarte",
-      "prioridad": 1,
-      "fotos": [],
-      "fotos_extra": [],
-      "seguimiento": {
-        "responsable": "",
-        "contactado": false,
-        "respuestaRecibida": false,
-        "proximaAccion": "",
-        "fechaSeguimiento": "",
-        "acciones": [],
-        "estado": "pendiente"
-      }
-    },
-    {
-      "id": "add_1765957135382",
-      "empresa": "CAGREN",
-      "producto": "",
-      "notas": "Contacto; george@cagren.com\n\nStand pequeño pero tiene alta variedad de cableado para LizOn",
+      "notas": "Stand pequeño pero con alta variedad de cableado específico que podría ser útil para LizOn. A veces los stands más pequeños esconden proveedores muy especializados con producto de nicho difícil de encontrar en otros sitios.\nEl cableado es un componente esencial en nuestras aplicaciones de mecatrónica. Contar con un proveedor directo especializado podría asegurar disponibilidad y reducir costes frente a los canales de aprovisionamiento actuales.\n\nContacto: linguang_linkai@163.com",
       "oportunidad": "",
       "departamento": "Lizarte",
       "prioridad": 1,
@@ -1133,23 +1115,45 @@
       }
     },
     {
-      "id": "add_1765959293995",
-      "empresa": "YUHUAN YUANHAO MACHINERY Co.,LTD",
-      "producto": "Terminales ",
-      "notas": "Contacto: yhsuspension@foxmail.com\nEmpresa que ofrece terminales, al igual que la otra empresa, idea de comprar terminales para no retrabajar los actuales. ",
+      "id": "add_1765957135382",
+      "empresa": "CAGREN",
+      "producto": "",
+      "notas": "Stand pequeño pero con alta variedad de cableado específico que podría ser útil para LizOn. A veces los stands más pequeños esconden proveedores muy especializados con producto de nicho difícil de encontrar en otros sitios.\nEl cableado es un componente esencial en nuestras aplicaciones de mecatrónica. Contar con un proveedor directo especializado podría asegurar disponibilidad y reducir costes frente a los canales de aprovisionamiento actuales.\n\nContacto; george@cagren.com",
       "oportunidad": "",
       "departamento": "Lizarte",
-      "prioridad": 1,
+      "prioridad": 2,
       "fotos": [],
       "fotos_extra": [],
       "seguimiento": {
-        "responsable": "",
+        "responsable": "Compras",
         "contactado": false,
         "respuestaRecibida": false,
         "proximaAccion": "",
         "fechaSeguimiento": "",
         "acciones": [],
-        "estado": "pendiente"
+        "estado": "pendiente",
+        "email": "jbaztan@lizarte.com"
+      }
+    },
+    {
+      "id": "add_1765959293995",
+      "empresa": "YUHUAN YUANHAO MACHINERY Co.,LTD",
+      "producto": "Terminales ",
+      "notas": "Empresa que ofrece terminales como componente. Al igual que otro proveedor identificado en la feria, la idea es comprar terminales directamente listos para usar y evitar tener que retrabajar los actuales, lo que supondría un ahorro de tiempo y coste de mano de obra en producción.\nTener varias opciones de proveedores de terminales nos permite comparar calidad y precio, además de asegurar suministro alternativo.\n\nContacto: yhsuspension@foxmail.com",
+      "oportunidad": "",
+      "departamento": "Lizarte",
+      "prioridad": 2,
+      "fotos": [],
+      "fotos_extra": [],
+      "seguimiento": {
+        "responsable": "Compras",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [],
+        "estado": "pendiente",
+        "email": "jbaztan@lizarte.com"
       }
     },
     {
@@ -1159,7 +1163,7 @@
       "notas": "VISITA ESTRATÉGICA A FÁBRICA – SINOMZ\nHe realizado una visita completa a las instalaciones de SINOMZ. La visita ha sido muy reveladora y ha aportado información clave tanto sobre la capacidad del proveedor como sobre las posibilidades de colaboración futura. Es importante destacar que con esta empresa nos conocemos desde hace más de 15 años, lo que establece una base de confianza sólida para cualquier proyecto conjunto.\n\nDATOS DE LA EMPRESA:\n\nNombre: SINOMZ\nFundación: 2004 (más de 20 años de trayectoria)\nPlantilla: 350 trabajadores\nSuperficie actual: 40.000 m²\nEquipo técnico: 25 ingenieros de desarrollo\nEquipo de calidad: 26 personas dedicadas a control de calidad\nInstalaciones: Nuevas, se trasladaron hace varios años a la ubicación actual\n\nEstos números hablan de una empresa consolidada y con estructura seria. No estamos ante un pequeño taller, sino ante un fabricante con capacidad industrial real y equipos dedicados tanto a desarrollo como a calidad. El ratio de personal técnico y de calidad respecto al total de trabajadores es muy saludable.\n\nAPACIDAD PRODUCTIVA Y CRECIMIENTO:\nSituación actual:\n\nCapacidad planificada: 1,2 millones de piezas al año entre bombas y direcciones.\n\nEvolución en los últimos 5 años:\n\nPartían de una capacidad de 450.000 bombas al año.\nEn 2025 han alcanzado: 800.000 bombas + 400.000 direcciones anuales.\nEn 2019 comenzaron a desarrollar y fabricar direcciones además de bombas.\n\nEste crecimiento demuestra una empresa en expansión constante que ha sabido diversificar su producto (de solo bombas a bombas + direcciones) y casi duplicar su capacidad productiva en cinco años.\nPlanes de expansión – Nueva fábrica:\n\nEstán construyendo una nueva fábrica de 85.000 m² (más del doble de la actual).\nCapacidad objetivo: 2,2 millones de piezas anuales.\nSe trasladarán a la nueva fábrica porque la actual se les queda pequeña.\nLa fábrica actual la reconvertirán para fabricar otros productos.\n\nEsto indica que SINOMZ tiene planes de crecimiento muy ambiciosos y visión a largo plazo. Quieren consolidarse como un jugador de referencia en el mercado global.\n\nIMPRESIONES DE LA VISITA A PRODUCCIÓN:\nHe podido ver tanto la línea de bombas como la de direcciones. La impresión general es muy positiva:\n\nAlto nivel de automatización: Tanto en bombas como en direcciones, los procesos están muy automatizados. Esto garantiza consistencia en la calidad, capacidad de producción elevada y menor dependencia de errores de mano de obra manual.\nCapacidades grandes: Las instalaciones están preparadas para volúmenes industriales serios. Pueden absorber pedidos grandes sin problemas de capacidad.",
       "oportunidad": "INTERÉS MUTUO EN COLABORACIÓN:\nDurante la reunión ha quedado claro que SINOMZ tiene un interés genuino en trabajar con Lizarte:\n\nAjuste de precios: Han manifestado que pueden ajustar los precios dada la relación de confianza que tenemos, ya que nos conocemos desde hace más de 15 años. Esto es un punto de partida excelente para negociar condiciones ventajosas.\n\nPropuesta de almacén en Europa: Les he explicado nuestra idea de montar un almacén en Europa para agilizar el suministro y reducir plazos de entrega. La respuesta ha sido positiva: les parece bien y quieren que lo hablemos en detalle. Esto podría ser un proyecto conjunto muy interesante.\n\nInterés del propietario en EPS: El propietario de SINOMZ ha mostrado gran interés en la posibilidad de montar una empresa en China dedicada a EPS. Le he explicado la diferencia entre producto remanufacturado y producto nuevo para que entienda nuestro modelo de negocio y dónde podría haber sinergias.\n\nDisponibilidad para reunirse en España: El propietario ha ofrecido venir personalmente a España para discutir todos los temas si fuese necesario. Este gesto demuestra un nivel de compromiso e interés muy alto. No es habitual que el dueño de una empresa de este tamaño se ofrezca a desplazarse para cerrar acuerdos.\n\nOPORTUNIDADES DE NEGOCIO IDENTIFICADAS:\nEsta visita ha puesto sobre la mesa múltiples oportunidades estratégicas:\n\nPrecios competitivos por relación histórica: 15 años de relación nos posicionan como cliente preferente. Podemos negociar condiciones que otros compradores nuevos no conseguirían. Aprovechar esta ventaja para mejorar márgenes.\n\nAlmacén conjunto en Europa: Si SINOMZ está dispuesto a participar en un modelo de almacén en Europa, podríamos tener stock cerca del cliente final con plazos de entrega reducidos. Esto nos haría mucho más competitivos frente a proveedores que sirven directamente desde China con semanas de espera.\n\nSINOMZ quiere entrar en el negocio de EPS pero carece del conocimiento técnico especializado en remanufacturado. Nosotros, por el contrario, tenemos años de experiencia y know-how en reman de mecatrónica y sistemas electrónicos, pero montar una operación de este tipo en China requeriría una inversión enorme en instalaciones, maquinaria, personal y gestión local.\nLa propuesta une lo mejor de ambos mundos:\n\nSINOMZ aporta: Instalaciones, capacidad productiva, maquinaria, mano de obra, conocimiento del mercado chino y gestión local. Ya tienen 40.000 m² (pronto 85.000 m²), 350 trabajadores, 25 ingenieros y procesos altamente automatizados.\nLizarte aporta: Conocimiento técnico en remanufacturado de EPS, experiencia en el mercado europeo, red comercial, marca reconocida y know-how acumulado durante años en LizOn.\n\nRespuesta del propietario:\nEl propietario de SINOMZ ha mostrado gran interés en la propuesta. No solo le parece viable, sino que ha manifestado total disposición a reunirse cuando queramos y donde queramos para tratar el tema en profundidad. Esta actitud demuestra que lo ve como una oportunidad real de negocio, no como una idea más que escuchar por cortesía.\nModelo propuesto – Lizarte & SINOMZ:\nLa idea sería constituir una empresa conjunta (joint venture) dedicada específicamente al remanufacturado de EPS, operando desde China pero con el conocimiento y supervisión técnica de Lizarte. El modelo podría contemplar:\n\nProducción de EPS remanufacturado en China con costes competitivos.\nTransferencia de conocimiento técnico de Lizarte a la operación conjunta.\nComercialización del producto en Europa bajo marca Lizarte y/o en Asia bajo marca conjunta.\nReparto de beneficios según participación acordada. ",
       "departamento": "Innovación",
-      "prioridad": 1,
+      "prioridad": 0,
       "fotos": [],
       "fotos_extra": [],
       "seguimiento": {
