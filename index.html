@@ -2810,9 +2810,11 @@
                 const unidadesAno = parseFloat(item.unidadesAno || 0);
                 const ahorroUnitario = precioActual - precioNuevo;
                 const ahorroTotal = ahorroUnitario * unidadesAno;
-                const formatoMoneda = {style: 'currency', currency: 'EUR'};
-                const ahorroTotalFormateado = ahorroTotal.toLocaleString('es-ES', formatoMoneda);
-                const ahorroUnitarioFormateado = ahorroUnitario.toLocaleString('es-ES', formatoMoneda);
+                function formatearMoneda(valor) {
+                    return new Intl.NumberFormat('es-ES', {style: 'currency', currency: 'EUR'}).format(valor);
+                }
+                const ahorroTotalFormateado = formatearMoneda(ahorroTotal);
+                const ahorroUnitarioFormateado = formatearMoneda(ahorroUnitario);
                 const unidadesFormateadas = unidadesAno.toLocaleString('es-ES');
                 
                 return `
