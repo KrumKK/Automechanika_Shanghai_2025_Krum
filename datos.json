@@ -1182,6 +1182,31 @@
         "estado": "pendiente",
         "email": "oscar@lizarte.com"
       }
+    },
+    {
+      "id": "add_1766263234248",
+      "empresa": "CHEERHO",
+      "producto": "Cascos, PtCom",
+      "notas": "He visitado las instalaciones de Cheerho y me ha sorprendido la gran cantidad de cascos de LizOn que tienen disponibles. Esto abre una oportunidad interesante de aprovisionamiento para nuestra línea de remanufacturado.\nProyectos identificados:\n\n1. Compra de cascos para LizOn:\nHe hablado directamente con el dueño para valorar la posibilidad de que nos suministre cascos de LizOn. Tener acceso a un stock grande de cascos en China podría solucionar problemas de disponibilidad y reducir costes de aprovisionamiento de materia prima para reman.\n\n2. Bomba 04550803 – Alternativa al retrofitting:\nVenden la bomba referencia 04550803 por 70$. Esta referencia es especialmente relevante porque actualmente tenemos altos porcentajes de garantías con ella y ya hemos agotado las opciones de mejora en nuestro proceso de retrofitting.",
+      "oportunidad": "Comprar esta bomba directamente como pieza nueva en lugar de hacer retrofitting podría:\n\nMejorar significativamente la calidad del producto final.\nReducir las garantías y los costes asociados a reclamaciones.\nSimplificar el proceso productivo al eliminar el retrofitting de esta referencia problemática.\n\nA veces la mejor solución no es seguir intentando mejorar un proceso que no da más de sí, sino cambiar de estrategia y optar por producto nuevo cuando el coste lo justifica.",
+      "departamento": "Innovación",
+      "prioridad": 0,
+      "fotos": [],
+      "fotos_extra": [],
+      "seguimiento": {
+        "responsable": "Innovación",
+        "contactado": false,
+        "respuestaRecibida": false,
+        "proximaAccion": "",
+        "fechaSeguimiento": "",
+        "acciones": [
+          "Pedirles el listado de referencias de cascos LizOn que tienen disponibles.",
+          "Enviarles las referencias de cascos que nos interesan para ver coincidencias y precios.",
+          "Solicitar dos muestras de la bomba 04550803 para validar calidad y confirmar que resuelve los problemas de garantías que tenemos actualmente."
+        ],
+        "estado": "pendiente",
+        "email": "krum@lizarte.com"
+      }
     }
   ],
   "nuevosCoches": [
