@@ -4733,25 +4733,32 @@ Sistema de Seguimiento Automechanika`;
                 // Calcular ahorro total desde localStorage
                 let ahorroTotal = 0;
                 const ahorrosData = localStorage.getItem('ahorros_automechanika');
+                console.log('💰 Datos de ahorros en localStorage:', ahorrosData ? 'Existen' : 'No existen');
+                
                 if (ahorrosData) {
                     try {
                         const ahorros = JSON.parse(ahorrosData);
+                        console.log('💰 Ahorros parseados:', ahorros.length, 'items');
                         
                         // Convertir ahorros en USD a EUR si es necesario
-                        const conversionPromises = ahorros.map(async (item) => {
+                        const conversionPromises = ahorros.map(async (item, idx) => {
                             const moneda = item.moneda || 'EUR';
+                            console.log(`💰 Ahorro ${idx + 1}:`, { moneda, precioActual: item.precioActual, precioNuevo: item.precioNuevo, unidadesAno: item.unidadesAno });
+                            
                             if (moneda === 'USD' && (!item.precioActualEUR || item.precioActualEUR === 0)) {
                                 // Convertir a EUR si no está convertido
+                                console.log(`💰 Convirtiendo ahorro ${idx + 1} de USD a EUR...`);
                                 const tasaCambio = await obtenerTasaCambioUSD();
                                 item.precioActualEUR = parseFloat(item.precioActual || 0) * tasaCambio;
                                 item.precioNuevoEUR = parseFloat(item.precioNuevo || 0) * tasaCambio;
                                 item.tasaCambio = tasaCambio;
+                                console.log(`✅ Ahorro ${idx + 1} convertido:`, { precioActualEUR: item.precioActualEUR, precioNuevoEUR: item.precioNuevoEUR, tasaCambio });
                             } else if (moneda === 'EUR') {
                                 // Si es EUR, usar valores originales si no hay valores EUR guardados
-                                if (item.precioActualEUR === undefined) {
+                                if (item.precioActualEUR === undefined || item.precioActualEUR === null) {
                                     item.precioActualEUR = parseFloat(item.precioActual || 0);
                                 }
-                                if (item.precioNuevoEUR === undefined) {
+                                if (item.precioNuevoEUR === undefined || item.precioNuevoEUR === null) {
                                     item.precioNuevoEUR = parseFloat(item.precioNuevo || 0);
                                 }
                             }
@@ -4761,17 +4768,22 @@ Sistema de Seguimiento Automechanika`;
                         await Promise.all(conversionPromises);
                         
                         // Calcular total en EUR
-                        ahorros.forEach(item => {
-                            const precioActualEUR = item.precioActualEUR !== undefined ? item.precioActualEUR : parseFloat(item.precioActual || 0);
-                            const precioNuevoEUR = item.precioNuevoEUR !== undefined ? item.precioNuevoEUR : parseFloat(item.precioNuevo || 0);
+                        ahorros.forEach((item, idx) => {
+                            const precioActualEUR = item.precioActualEUR !== undefined && item.precioActualEUR !== null ? item.precioActualEUR : parseFloat(item.precioActual || 0);
+                            const precioNuevoEUR = item.precioNuevoEUR !== undefined && item.precioNuevoEUR !== null ? item.precioNuevoEUR : parseFloat(item.precioNuevo || 0);
                             const unidadesAno = parseFloat(item.unidadesAno || 0);
                             const ahorroUnitarioEUR = precioActualEUR - precioNuevoEUR;
                             const ahorroItem = ahorroUnitarioEUR * unidadesAno;
+                            console.log(`💰 Ahorro ${idx + 1} calculado:`, { precioActualEUR, precioNuevoEUR, unidadesAno, ahorroUnitarioEUR, ahorroItem });
                             ahorroTotal += ahorroItem;
                         });
+                        
+                        console.log('💰 Ahorro total calculado:', ahorroTotal);
                     } catch (error) {
                         console.error('❌ Error calculando ahorros:', error);
                     }
+                } else {
+                    console.log('⚠️ No hay ahorros en localStorage');
                 }
                 
                 console.log('📊 Estadísticas calculadas:', {
@@ -4840,21 +4852,34 @@ Sistema de Seguimiento Automechanika`;
                 return;
             }
             
-            console.log('💰 Animando ahorro:', { elementId, target, duration });
+            console.log('💰 Animando ahorro:', { elementId, target, duration, tipo: typeof target });
+            
+            // Asegurar que target sea un número válido
+            const targetNum = parseFloat(target) || 0;
+            console.log('💰 Target numérico:', targetNum);
             
             // Asegurar que el valor inicial sea 0
             element.textContent = formatearMoneda(0);
             
+            // Si el target es 0 o muy pequeño, mostrar directamente
+            if (targetNum <= 0) {
+                console.log('⚠️ Ahorro total es 0 o negativo, mostrando 0,00 €');
+                element.textContent = formatearMoneda(0);
+                return;
+            }
+            
             const start = 0;
-            const increment = target / (duration / 16);
+            const increment = targetNum / (duration / 16);
             let current = start;
+            
+            console.log('💰 Iniciando animación desde', start, 'hasta', targetNum, 'con incremento', increment);
             
             const timer = setInterval(() => {
                 current += increment;
-                if (current >= target) {
-                    current = target;
+                if (current >= targetNum) {
+                    current = targetNum;
                     clearInterval(timer);
-                    const ahorroFormateado = formatearMoneda(target);
+                    const ahorroFormateado = formatearMoneda(targetNum);
                     element.textContent = ahorroFormateado;
                     console.log('✅ Ahorro animado completado:', ahorroFormateado);
                     element.classList.add('glow');
