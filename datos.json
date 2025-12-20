@@ -1259,7 +1259,11 @@
       "precioActual": "42",
       "precioNuevo": "38",
       "unidadesAno": "1000",
-      "ahorroTotal": 4000
+      "ahorroTotal": 3411.999999999999,
+      "precioActualEUR": 35.826,
+      "precioNuevoEUR": 32.414,
+      "tasaCambio": 0.853,
+      "moneda": "USD"
     },
     {
       "id": "ahorro_1766141135837",
@@ -1268,7 +1272,11 @@
       "precioActual": "80",
       "precioNuevo": "75",
       "unidadesAno": "500",
-      "ahorroTotal": 2500
+      "ahorroTotal": 2132.499999999997,
+      "moneda": "USD",
+      "tasaCambio": 0.853,
+      "precioActualEUR": 68.24,
+      "precioNuevoEUR": 63.975
     },
     {
       "id": "ahorro_1766141168518",
@@ -1277,7 +1285,11 @@
       "precioActual": "33",
       "precioNuevo": "29",
       "unidadesAno": "3000",
-      "ahorroTotal": 12000
+      "ahorroTotal": 10236.000000000007,
+      "moneda": "USD",
+      "tasaCambio": 0.853,
+      "precioActualEUR": 28.149,
+      "precioNuevoEUR": 24.737
     }
   ]
 }
