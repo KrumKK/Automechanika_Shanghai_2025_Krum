@@ -711,32 +711,36 @@
             text-align: center;
             color: white;
             max-width: 800px;
-            padding: 20px;
+            padding: 10px;
             max-height: 100vh;
-            overflow-y: auto;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
         
         .splash-route {
-            margin-bottom: 30px;
+            margin-bottom: 15px;
             opacity: 0;
             animation: fadeInUp 1s ease-out 0.5s forwards;
         }
         
         .route-point {
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 600;
-            margin: 8px 0;
+            margin: 4px 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 6px;
         }
         
         .route-line {
             width: 2px;
-            height: 40px;
+            height: 30px;
             background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
-            margin: 5px auto;
+            margin: 3px auto;
             position: relative;
             overflow: hidden;
         }
@@ -762,16 +766,16 @@
         }
         
         .splash-stats {
-            margin: 20px 0;
+            margin: 10px 0;
             opacity: 0;
             animation: fadeInScale 0.8s ease-out 3s forwards;
         }
         
         .stat-item {
-            margin: 8px 0;
-            padding: 12px 16px;
+            margin: 4px 0;
+            padding: 8px 12px;
             background: rgba(59, 130, 246, 0.1);
-            border-radius: 12px;
+            border-radius: 10px;
             border: 2px solid rgba(59, 130, 246, 0.3);
             transition: all 0.3s;
         }
@@ -782,7 +786,7 @@
         }
         
         .stat-number {
-            font-size: 36px;
+            font-size: 28px;
             font-weight: 800;
             background: linear-gradient(135deg, #3b82f6, #8b5cf6);
             -webkit-background-clip: text;
@@ -790,7 +794,7 @@
             background-clip: text;
             display: inline-block;
             text-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
-            margin-right: 12px;
+            margin-right: 10px;
         }
         
         .stat-number.glow {
@@ -798,23 +802,23 @@
         }
         
         .stat-label {
-            font-size: 12px;
+            font-size: 10px;
             color: #cbd5e1;
             font-weight: 500;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.3px;
         }
         
         .splash-message {
-            margin: 20px 0;
+            margin: 10px 0;
             opacity: 0;
             animation: fadeInUp 1s ease-out 6s forwards;
         }
         
         .splash-title {
-            font-size: 32px;
+            font-size: 24px;
             font-weight: 800;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             background: linear-gradient(135deg, #60a5fa, #ec4899);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -823,50 +827,50 @@
         }
         
         .splash-subtitle {
-            font-size: 18px;
+            font-size: 14px;
             color: #cbd5e1;
-            margin-bottom: 5px;
+            margin-bottom: 3px;
             font-weight: 600;
         }
         
         .splash-date {
-            font-size: 14px;
+            font-size: 12px;
             color: #94a3b8;
-            margin-bottom: 15px;
+            margin-bottom: 8px;
         }
         
         .splash-divider {
-            width: 250px;
-            height: 2px;
+            width: 200px;
+            height: 1px;
             background: linear-gradient(to right, transparent, #3b82f6, transparent);
-            margin: 10px auto;
+            margin: 5px auto;
         }
         
         .splash-credit {
-            font-size: 12px;
+            font-size: 10px;
             color: #64748b;
-            margin-top: 10px;
+            margin-top: 5px;
         }
         
         .splash-button {
             opacity: 0;
             animation: fadeInScale 0.8s ease-out 9s forwards;
-            margin-top: 15px;
+            margin-top: 8px;
         }
         
         .btn-access {
             background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
             color: white;
             border: none;
-            padding: 14px 40px;
-            font-size: 16px;
+            padding: 12px 35px;
+            font-size: 14px;
             font-weight: 700;
             border-radius: 50px;
             cursor: pointer;
             box-shadow: 0 10px 40px rgba(59, 130, 246, 0.4);
             transition: all 0.3s;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             position: relative;
             overflow: hidden;
         }
@@ -1078,16 +1082,16 @@
                     <span class="stat-number" id="stat4">0</span>
                     <span class="stat-label">⭐ Oportunidades Innovación</span>
                 </div>
-                <div class="stat-item" style="background: rgba(16, 185, 129, 0.15); border: 2px solid rgba(16, 185, 129, 0.3);">
-                    <span class="stat-number" id="stat5" style="color: #10b981; text-shadow: 0 0 20px rgba(16, 185, 129, 0.5);">0 €</span>
-                    <span class="stat-label" style="color: #10b981;">💰 Ahorro Conseguido Ya</span>
+                <div class="stat-item" style="background: rgba(16, 185, 129, 0.15); border: 2px solid rgba(16, 185, 129, 0.3); margin: 4px 0; padding: 8px 12px;">
+                    <span class="stat-number" id="stat5" style="color: #10b981; text-shadow: 0 0 20px rgba(16, 185, 129, 0.5); font-size: 28px;">0 €</span>
+                    <span class="stat-label" style="color: #10b981; font-size: 10px;">💰 Ahorro Conseguido Ya</span>
                 </div>
             </div>
             
             <!-- FASE 3: Mensaje (6-9 seg) -->
             <div class="splash-message" id="splashMessage">
                 <div class="splash-title">MISIÓN COMPLETADA</div>
-                <div class="splash-title" style="font-size: 28px; margin-top: 5px;">KRUM KOVACHEV</div>
+                <div class="splash-title" style="font-size: 20px; margin-top: 3px;">KRUM KOVACHEV</div>
                 <div class="splash-subtitle">AUTOMECHANIKA SHANGHAI 2025</div>
                 <div class="splash-date">19 Nov - 6 Dic</div>
                 <div class="splash-divider"></div>
@@ -1099,7 +1103,7 @@
                 <button class="btn-access" onclick="closeSplash()">
                     <span style="position: relative; z-index: 1;">🚀 ACCEDER AL SISTEMA</span>
                 </button>
-                <div class="splash-credit" style="margin-top: 20px;">V12 by Krum Kovachev</div>
+                <div class="splash-credit" style="margin-top: 8px; font-size: 10px;">V12 by Krum Kovachev</div>
             </div>
         </div>
     </div>
