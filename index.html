@@ -171,6 +171,12 @@
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: background-color 0.3s ease;
+        }
+        
+        .item-card.finalizado {
+            background: #f0fdf4;
+            border: 2px solid #86efac;
         }
         
         .item-header {
@@ -408,6 +414,141 @@
             font-size: 12px;
             cursor: pointer;
             width: 100%;
+        }
+        
+        .respuesta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 12px;
+            padding: 12px;
+            background: #f9fafb;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .respuesta-item textarea {
+            min-height: 60px;
+            resize: vertical;
+            font-family: inherit;
+            padding: 10px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        
+        .respuesta-controls {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-formato {
+            background: #6366f1;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 6px 12px;
+            font-size: 11px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        
+        .btn-formato:hover {
+            background: #4f46e5;
+        }
+        
+        .btn-formato.active {
+            background: #10b981;
+        }
+        
+        .btn-delete-respuesta {
+            background: #ef4444;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 6px 12px;
+            cursor: pointer;
+            font-size: 12px;
+            margin-left: auto;
+        }
+        
+        .btn-add-respuesta {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 12px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 8px;
+        }
+        
+        .conclusion-final-section {
+            margin-top: 20px;
+            padding: 15px;
+            background: #fef3c7;
+            border-radius: 8px;
+            border: 2px solid #fbbf24;
+        }
+        
+        .conclusion-final-section h3 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #92400e;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .conclusion-final-section textarea {
+            width: 100%;
+            min-height: 100px;
+            resize: vertical;
+            font-family: inherit;
+            padding: 12px;
+            border: 1px solid #fbbf24;
+            border-radius: 6px;
+            font-size: 13px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+        
+        .conclusion-controls {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-finalizado {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .btn-finalizado:hover {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+        }
+        
+        .btn-finalizado.finalizado {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        }
+        
+        .btn-finalizado.finalizado:hover {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
         }
         
         .priority-badge {
@@ -1516,6 +1657,9 @@
                 if (!item.fotos || !Array.isArray(item.fotos)) item.fotos = [];
                 if (!item.fotos_extra) item.fotos_extra = [];
                 if (!item.documentos) item.documentos = [];
+                if (!item.respuestas || !Array.isArray(item.respuestas)) item.respuestas = [];
+                if (item.conclusionFinal === undefined) item.conclusionFinal = '';
+                if (item.finalizado === undefined) item.finalizado = false;
             });
             
             appData.adicional.forEach(item => {
@@ -1534,6 +1678,9 @@
                 if (!item.fotos || !Array.isArray(item.fotos)) item.fotos = [];
                 if (!item.fotos_extra) item.fotos_extra = [];
                 if (!item.documentos) item.documentos = [];
+                if (!item.respuestas || !Array.isArray(item.respuestas)) item.respuestas = [];
+                if (item.conclusionFinal === undefined) item.conclusionFinal = '';
+                if (item.finalizado === undefined) item.finalizado = false;
             });
             
             loadConfig();
@@ -2668,7 +2815,7 @@
                 const allFotos = [...(Array.isArray(item.fotos) ? item.fotos : []), ...(item.fotos_extra || [])];
                 
                 return `
-                <div class="item-card">
+                <div class="item-card ${item.finalizado ? 'finalizado' : ''}">
                     <div class="item-header" style="position: relative;">
                         <div class="item-company" id="company-title-reuniones-${realIdx}">
                             ${item.company}
@@ -2765,7 +2912,7 @@
                 const allFotos = [...(item.fotos || []), ...(item.fotos_extra || [])];
                 
                 return `
-                <div class="item-card">
+                <div class="item-card ${item.finalizado ? 'finalizado' : ''}">
                     <div class="item-header" style="position: relative;">
                         <div class="item-company" id="company-title-adicional-${realIdx}">
                             ${item.empresa}
@@ -3208,6 +3355,62 @@
                         </div>
                         <button class="btn-add-accion" onclick="addAccion('${type}', ${index})">➕ Añadir Acción</button>
                     </div>
+                    
+                    <div class="form-group" style="margin-top: 20px;">
+                        <label>💬 Respuestas</label>
+                        <div id="respuestas-list-${type}-${index}">
+                            ${item.respuestas && item.respuestas.length > 0 ? item.respuestas.map((respuesta, rIdx) => {
+                                const texto = typeof respuesta === 'string' ? respuesta : (respuesta.texto || '');
+                                const formato = typeof respuesta === 'object' ? (respuesta.formato || {}) : {};
+                                const tieneNegrita = formato.negrita || false;
+                                const tieneLista = formato.lista || false;
+                                return `
+                                <div class="respuesta-item">
+                                    <textarea id="respuesta-textarea-${type}-${index}-${rIdx}" 
+                                        oninput="autoResizeTextarea(this); updateRespuesta('${type}', ${index}, ${rIdx}, this.value)"
+                                        placeholder="Escribe tu respuesta aquí...">${escapeHtml(texto)}</textarea>
+                                    <div class="respuesta-controls">
+                                        <button class="btn-formato ${tieneNegrita ? 'active' : ''}" 
+                                            onclick="toggleFormatoRespuesta('${type}', ${index}, ${rIdx}, 'negrita')"
+                                            title="Negrita">
+                                            <strong>B</strong>
+                                        </button>
+                                        <button class="btn-formato ${tieneLista ? 'active' : ''}" 
+                                            onclick="toggleFormatoRespuesta('${type}', ${index}, ${rIdx}, 'lista')"
+                                            title="Lista">
+                                            • Lista
+                                        </button>
+                                        <button class="btn-delete-respuesta" onclick="deleteRespuesta('${type}', ${index}, ${rIdx})">🗑️ Eliminar</button>
+                                    </div>
+                                </div>
+                            `;
+                            }).join('') : '<p style="font-size: 12px; color: #9ca3af; margin-bottom: 8px;">Sin respuestas registradas</p>'}
+                        </div>
+                        <button class="btn-add-respuesta" onclick="addRespuesta('${type}', ${index})">➕ Añadir Respuesta</button>
+                    </div>
+                    
+                    <div class="conclusion-final-section">
+                        <h3>📝 Conclusión Final</h3>
+                        <textarea id="conclusion-textarea-${type}-${index}" 
+                            oninput="autoResizeTextarea(this); updateConclusionFinal('${type}', ${index}, this.value)"
+                            placeholder="Escribe la conclusión final y decisión sobre esta empresa...">${escapeHtml(item.conclusionFinal || '')}</textarea>
+                        <div class="conclusion-controls">
+                            <button class="btn-formato" 
+                                onclick="toggleFormatoConclusion('${type}', ${index}, 'negrita')"
+                                title="Negrita">
+                                <strong>B</strong>
+                            </button>
+                            <button class="btn-formato" 
+                                onclick="toggleFormatoConclusion('${type}', ${index}, 'lista')"
+                                title="Lista">
+                                • Lista
+                            </button>
+                            <button class="btn-finalizado ${item.finalizado ? 'finalizado' : ''}" 
+                                onclick="toggleFinalizado('${type}', ${index})">
+                                ${item.finalizado ? '✅ Finalizado' : '✓ Marcar como Finalizado'}
+                            </button>
+                        </div>
+                    </div>
                 </div>
             `;
         }
@@ -3534,6 +3737,192 @@
             saveSeguimiento();
             
             renderAll();
+        }
+        
+        // Función auxiliar para guardar respuestas y conclusión final en localStorage
+        function saveRespuestasYConclusion(type, index) {
+            const item = type === 'reuniones' ? appData.reuniones[index] : appData.adicional[index];
+            const textosData = JSON.parse(localStorage.getItem('textos_modificados_automechanika') || '{}');
+            const itemId = item.id;
+            
+            if (type === 'reuniones') {
+                if (!textosData[itemId]) textosData[itemId] = {};
+                textosData[itemId].respuestas = item.respuestas || [];
+                textosData[itemId].conclusionFinal = item.conclusionFinal || '';
+                textosData[itemId].finalizado = item.finalizado || false;
+                textosData[itemId].seguimiento = item.seguimiento;
+                textosData[itemId].company = item.company || '';
+                textosData[itemId].person = item.person || '';
+                textosData[itemId].product = item.product || '';
+                textosData[itemId].time = item.time || '';
+                textosData[itemId].stand = item.stand || '';
+                textosData[itemId].comments = item.comments || '';
+                textosData[itemId].departamento = item.departamento || 'Lizarte';
+                textosData[itemId].prioridad = item.prioridad !== undefined ? item.prioridad : 1;
+                textosData[itemId].fotos = item.fotos || [];
+                textosData[itemId].fotos_extra = item.fotos_extra || [];
+            } else {
+                if (!textosData[itemId]) textosData[itemId] = {};
+                textosData[itemId].respuestas = item.respuestas || [];
+                textosData[itemId].conclusionFinal = item.conclusionFinal || '';
+                textosData[itemId].finalizado = item.finalizado || false;
+                textosData[itemId].seguimiento = item.seguimiento;
+                textosData[itemId].empresa = item.empresa || '';
+                textosData[itemId].producto = item.producto || '';
+                textosData[itemId].notas = item.notas || '';
+                textosData[itemId].oportunidad = item.oportunidad || '';
+                textosData[itemId].departamento = item.departamento || 'Lizarte';
+                textosData[itemId].prioridad = item.prioridad !== undefined ? item.prioridad : 1;
+                textosData[itemId].fotos = item.fotos || [];
+                textosData[itemId].fotos_extra = item.fotos_extra || [];
+            }
+            
+            localStorage.setItem('textos_modificados_automechanika', JSON.stringify(textosData));
+            saveData();
+            showSaveIndicator();
+        }
+        
+        function addRespuesta(type, index) {
+            const item = type === 'reuniones' ? appData.reuniones[index] : appData.adicional[index];
+            if (!item.respuestas) item.respuestas = [];
+            item.respuestas.push({ texto: '', formato: { negrita: false, lista: false } });
+            
+            saveRespuestasYConclusion(type, index);
+            renderAll();
+            
+            // Scroll a la nueva respuesta después de renderizar
+            setTimeout(() => {
+                const textareaId = `respuesta-textarea-${type}-${index}-${item.respuestas.length - 1}`;
+                const textarea = document.getElementById(textareaId);
+                if (textarea) {
+                    textarea.focus();
+                    textarea.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }, 100);
+        }
+        
+        function updateRespuesta(type, index, respIdx, value) {
+            const item = type === 'reuniones' ? appData.reuniones[index] : appData.adicional[index];
+            if (!item.respuestas || !item.respuestas[respIdx]) return;
+            
+            if (typeof item.respuestas[respIdx] === 'string') {
+                // Convertir string antiguo a objeto
+                item.respuestas[respIdx] = { texto: value, formato: { negrita: false, lista: false } };
+            } else {
+                item.respuestas[respIdx].texto = value;
+            }
+            
+            saveRespuestasYConclusion(type, index);
+        }
+        
+        function deleteRespuesta(type, index, respIdx) {
+            if (!confirm('¿Eliminar esta respuesta?')) return;
+            const item = type === 'reuniones' ? appData.reuniones[index] : appData.adicional[index];
+            if (!item.respuestas) item.respuestas = [];
+            item.respuestas.splice(respIdx, 1);
+            
+            saveRespuestasYConclusion(type, index);
+            renderAll();
+        }
+        
+        function toggleFormatoRespuesta(type, index, respIdx, formato) {
+            const item = type === 'reuniones' ? appData.reuniones[index] : appData.adicional[index];
+            if (!item.respuestas || !item.respuestas[respIdx]) return;
+            
+            if (typeof item.respuestas[respIdx] === 'string') {
+                // Convertir string antiguo a objeto
+                item.respuestas[respIdx] = { 
+                    texto: item.respuestas[respIdx], 
+                    formato: { negrita: false, lista: false } 
+                };
+            }
+            
+            if (!item.respuestas[respIdx].formato) {
+                item.respuestas[respIdx].formato = { negrita: false, lista: false };
+            }
+            
+            item.respuestas[respIdx].formato[formato] = !item.respuestas[respIdx].formato[formato];
+            
+            saveRespuestasYConclusion(type, index);
+            renderAll();
+        }
+        
+        function updateConclusionFinal(type, index, value) {
+            const item = type === 'reuniones' ? appData.reuniones[index] : appData.adicional[index];
+            item.conclusionFinal = value;
+            
+            saveRespuestasYConclusion(type, index);
+        }
+        
+        function toggleFormatoConclusion(type, index, formato) {
+            const item = type === 'reuniones' ? appData.reuniones[index] : appData.adicional[index];
+            const textareaId = `conclusion-textarea-${type}-${index}`;
+            const textarea = document.getElementById(textareaId);
+            
+            if (!textarea) {
+                console.error('❌ No se encontró el textarea de conclusión');
+                return;
+            }
+            
+            const texto = textarea.value || '';
+            const inicio = textarea.selectionStart;
+            const fin = textarea.selectionEnd;
+            const textoSeleccionado = texto.substring(inicio, fin);
+            
+            if (formato === 'negrita') {
+                // Aplicar negrita: **texto**
+                if (textoSeleccionado) {
+                    const textoAntes = texto.substring(0, inicio);
+                    const textoDespues = texto.substring(fin);
+                    item.conclusionFinal = textoAntes + '**' + textoSeleccionado + '**' + textoDespues;
+                } else {
+                    // Si no hay selección, añadir marcadores al final
+                    item.conclusionFinal = texto + '****';
+                }
+                saveRespuestasYConclusion(type, index);
+                renderAll();
+                
+                // Restaurar cursor después de renderizar
+                setTimeout(() => {
+                    const newTextarea = document.getElementById(textareaId);
+                    if (newTextarea) {
+                        if (textoSeleccionado) {
+                            newTextarea.setSelectionRange(inicio + 2, fin + 2);
+                        } else {
+                            newTextarea.setSelectionRange(item.conclusionFinal.length - 2, item.conclusionFinal.length - 2);
+                        }
+                        newTextarea.focus();
+                    }
+                }, 50);
+            } else if (formato === 'lista') {
+                // Aplicar lista: añadir • al inicio de cada línea
+                const lineas = texto.split('\n');
+                const tieneLista = lineas.some(linea => linea.trim().startsWith('•'));
+                
+                if (tieneLista) {
+                    // Quitar formato de lista
+                    item.conclusionFinal = lineas.map(linea => linea.replace(/^•\s*/, '')).join('\n');
+                } else {
+                    // Añadir formato de lista
+                    item.conclusionFinal = lineas.map(linea => linea.trim() ? '• ' + linea.trim() : '').join('\n');
+                }
+                
+                saveRespuestasYConclusion(type, index);
+                renderAll();
+            }
+        }
+        
+        function toggleFinalizado(type, index) {
+            const item = type === 'reuniones' ? appData.reuniones[index] : appData.adicional[index];
+            item.finalizado = !item.finalizado;
+            
+            saveRespuestasYConclusion(type, index);
+            renderAll();
+        }
+        
+        function autoResizeTextarea(element) {
+            element.style.height = 'auto';
+            element.style.height = element.scrollHeight + 'px';
         }
         
         function addFoto(type, index) {
@@ -4416,6 +4805,80 @@ Sistema de Seguimiento Automechanika`;
                 } else {
                     empresaHTML += `
                         <div style="color: #a0aec0; font-style: italic; padding: 10pt;">No hay acciones registradas</div>`;
+                }
+                
+                empresaHTML += `
+                    </div>
+                </td>
+            </tr>
+            
+            <!-- Fila 4: Respuestas (ancho completo, después de Acciones Pendientes) -->
+            <tr>
+                <td colspan="2" style="vertical-align: top; padding-top: 20pt;">
+                    <div style="padding: 15pt; background-color: #f0f9ff; border-left: 4px solid #3b82f6;">
+                        <h3 style="font-size: 12pt; margin-bottom: 10pt; color: #4a5568; border-bottom: 2px solid #3b82f6; padding-bottom: 3pt;">💬 Respuestas</h3>`;
+                
+                if (item.respuestas && item.respuestas.length > 0) {
+                    empresaHTML += `<div class="respuestas-list">`;
+                    item.respuestas.forEach((respuesta, rIdx) => {
+                        const texto = typeof respuesta === 'string' ? respuesta : (respuesta.texto || '');
+                        const formato = typeof respuesta === 'object' ? (respuesta.formato || {}) : {};
+                        let textoFormateado = escapeHtml(texto);
+                        
+                        // Aplicar formato negrita (**texto**)
+                        if (formato.negrita) {
+                            textoFormateado = textoFormateado.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                        }
+                        
+                        // Aplicar formato lista (• al inicio de línea)
+                        if (formato.lista) {
+                            textoFormateado = textoFormateado.split('\n').map(linea => {
+                                if (linea.trim() && !linea.trim().startsWith('•')) {
+                                    return '• ' + linea.trim();
+                                }
+                                return linea;
+                            }).join('\n');
+                        }
+                        
+                        if (texto && texto.trim()) {
+                            empresaHTML += `
+                            <div style="margin-bottom: 12pt; padding: 10pt; background: #ffffff; border-left: 3px solid #3b82f6; white-space: pre-wrap; word-wrap: break-word;">${rIdx + 1}. ${textoFormateado.replace(/\n/g, '<br>')}</div>`;
+                        }
+                    });
+                    empresaHTML += `</div>`;
+                } else {
+                    empresaHTML += `
+                        <div style="color: #a0aec0; font-style: italic; padding: 10pt;">No hay respuestas registradas</div>`;
+                }
+                
+                empresaHTML += `
+                    </div>
+                </td>
+            </tr>
+            
+            <!-- Fila 5: Conclusión Final (ancho completo, después de Respuestas) -->
+            <tr>
+                <td colspan="2" style="vertical-align: top; padding-top: 20pt;">
+                    <div style="padding: 15pt; background-color: #fef3c7; border-left: 4px solid #fbbf24;">
+                        <h3 style="font-size: 12pt; margin-bottom: 10pt; color: #92400e; border-bottom: 2px solid #fbbf24; padding-bottom: 3pt;">📝 Conclusión Final ${item.finalizado ? '<span style="background: #10b981; color: white; padding: 4pt 10pt; border-radius: 6pt; font-size: 9pt; margin-left: 10pt;">✅ FINALIZADO</span>' : ''}</h3>`;
+                
+                if (item.conclusionFinal && item.conclusionFinal.trim()) {
+                    let conclusionFormateada = escapeHtml(item.conclusionFinal);
+                    // Aplicar formato negrita (**texto**)
+                    conclusionFormateada = conclusionFormateada.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                    // Aplicar formato lista (• al inicio de línea)
+                    conclusionFormateada = conclusionFormateada.split('\n').map(linea => {
+                        if (linea.trim() && !linea.trim().startsWith('•')) {
+                            return '• ' + linea.trim();
+                        }
+                        return linea;
+                    }).join('\n');
+                    
+                    empresaHTML += `
+                        <div style="padding: 12pt; background: #ffffff; border: 1px solid #fbbf24; white-space: pre-wrap; word-wrap: break-word; min-height: 100pt;">${conclusionFormateada.replace(/\n/g, '<br>')}</div>`;
+                } else {
+                    empresaHTML += `
+                        <div style="color: #a0aec0; font-style: italic; padding: 10pt;">No hay conclusión final registrada</div>`;
                 }
                 
                 empresaHTML += `
