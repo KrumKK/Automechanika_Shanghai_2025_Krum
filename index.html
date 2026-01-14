@@ -1715,6 +1715,16 @@
             appData.reuniones.forEach(item => {
                 if (textosModificados[item.id] && !fueEliminada(item.id)) {
                     Object.assign(item, textosModificados[item.id]);
+                    // Asegurar que respuestas, conclusionFinal y finalizado se copien explícitamente
+                    if (textosModificados[item.id].respuestas !== undefined) {
+                        item.respuestas = textosModificados[item.id].respuestas;
+                    }
+                    if (textosModificados[item.id].conclusionFinal !== undefined) {
+                        item.conclusionFinal = textosModificados[item.id].conclusionFinal;
+                    }
+                    if (textosModificados[item.id].finalizado !== undefined) {
+                        item.finalizado = textosModificados[item.id].finalizado;
+                    }
                 }
             });
             
@@ -1722,6 +1732,16 @@
             appData.adicional.forEach(item => {
                 if (textosModificados[item.id] && !fueEliminada(item.id)) {
                     Object.assign(item, textosModificados[item.id]);
+                    // Asegurar que respuestas, conclusionFinal y finalizado se copien explícitamente
+                    if (textosModificados[item.id].respuestas !== undefined) {
+                        item.respuestas = textosModificados[item.id].respuestas;
+                    }
+                    if (textosModificados[item.id].conclusionFinal !== undefined) {
+                        item.conclusionFinal = textosModificados[item.id].conclusionFinal;
+                    }
+                    if (textosModificados[item.id].finalizado !== undefined) {
+                        item.finalizado = textosModificados[item.id].finalizado;
+                    }
                 }
             });
             
@@ -3742,6 +3762,11 @@
         // Función auxiliar para guardar respuestas y conclusión final en localStorage
         function saveRespuestasYConclusion(type, index) {
             const item = type === 'reuniones' ? appData.reuniones[index] : appData.adicional[index];
+            if (!item) {
+                console.error('❌ Error: item no encontrado en saveRespuestasYConclusion', type, index);
+                return;
+            }
+            
             const textosData = JSON.parse(localStorage.getItem('textos_modificados_automechanika') || '{}');
             const itemId = item.id;
             
@@ -3778,6 +3803,11 @@
             }
             
             localStorage.setItem('textos_modificados_automechanika', JSON.stringify(textosData));
+            console.log('💾 Guardado respuestas y conclusión para', type, index, 'ID:', itemId, {
+                respuestas: textosData[itemId].respuestas,
+                conclusionFinal: textosData[itemId].conclusionFinal,
+                finalizado: textosData[itemId].finalizado
+            });
             saveData();
             showSaveIndicator();
         }
@@ -4236,7 +4266,9 @@ Sistema de Seguimiento Automechanika`;
                     // Crear una copia del original
                     const merged = { ...original };
                     // Lista de campos de texto que pueden tener contenido largo
-                    const camposTexto = ['comments', 'notas', 'oportunidad', 'product', 'producto', 'company', 'empresa', 'person'];
+                    const camposTexto = ['comments', 'notas', 'oportunidad', 'product', 'producto', 'company', 'empresa', 'person', 'conclusionFinal'];
+                    // Campos especiales que siempre deben usar el valor modificado si existe
+                    const camposEspeciales = ['respuestas', 'finalizado'];
                     
                     // Aplicar modificaciones
                     Object.keys(modificado).forEach(key => {
@@ -4246,6 +4278,11 @@ Sistema de Seguimiento Automechanika`;
                             // Preservar arrays dentro de seguimiento (acciones)
                             if (modificado[key].acciones && Array.isArray(modificado[key].acciones)) {
                                 merged[key].acciones = modificado[key].acciones;
+                            }
+                        } else if (camposEspeciales.includes(key)) {
+                            // Para campos especiales (respuestas, finalizado), usar siempre el modificado si existe
+                            if (modificado[key] !== undefined) {
+                                merged[key] = modificado[key];
                             }
                         } else if (Array.isArray(modificado[key])) {
                             // Para arrays, usar el modificado directamente
@@ -4284,6 +4321,16 @@ Sistema de Seguimiento Automechanika`;
                         // Hacer merge preservando texto original si el modificado está vacío
                         const merged = mergeItemData(item, textosModificados[item.id]);
                         Object.assign(item, merged);
+                        // Asegurar que respuestas, conclusionFinal y finalizado se copien explícitamente
+                        if (textosModificados[item.id].respuestas !== undefined) {
+                            item.respuestas = textosModificados[item.id].respuestas;
+                        }
+                        if (textosModificados[item.id].conclusionFinal !== undefined) {
+                            item.conclusionFinal = textosModificados[item.id].conclusionFinal;
+                        }
+                        if (textosModificados[item.id].finalizado !== undefined) {
+                            item.finalizado = textosModificados[item.id].finalizado;
+                        }
                     }
                 });
                 
@@ -4334,6 +4381,16 @@ Sistema de Seguimiento Automechanika`;
                         // Hacer merge preservando texto original si el modificado está vacío
                         const merged = mergeItemData(item, textosModificados[item.id]);
                         Object.assign(item, merged);
+                        // Asegurar que respuestas, conclusionFinal y finalizado se copien explícitamente
+                        if (textosModificados[item.id].respuestas !== undefined) {
+                            item.respuestas = textosModificados[item.id].respuestas;
+                        }
+                        if (textosModificados[item.id].conclusionFinal !== undefined) {
+                            item.conclusionFinal = textosModificados[item.id].conclusionFinal;
+                        }
+                        if (textosModificados[item.id].finalizado !== undefined) {
+                            item.finalizado = textosModificados[item.id].finalizado;
+                        }
                     }
                 });
                 
