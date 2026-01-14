@@ -4369,7 +4369,12 @@ Sistema de Seguimiento Automechanika`;
                 
                 // Actualizar empresas existentes en reuniones
                 datosBase.reuniones.forEach(item => {
-                    if (textosModificados[item.id]) {
+                    // Buscar por ID como string y como número
+                    const itemIdStr = String(item.id);
+                    const itemIdNum = Number(item.id);
+                    const datosModificados = textosModificados[item.id] || textosModificados[itemIdStr] || textosModificados[itemIdNum];
+                    
+                    if (datosModificados) {
                         console.log('📤 Exportando reunión ID:', item.id, 'Company:', item.company);
                         console.log('📋 Datos en textosModificados:', {
                             respuestas: datosModificados.respuestas,
