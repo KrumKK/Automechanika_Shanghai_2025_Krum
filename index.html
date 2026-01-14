@@ -2407,7 +2407,7 @@
                 if (!textosData[item.id]) {
                     textosData[item.id] = {};
                 }
-                // Guardar TODA la estructura completa del item
+                // Guardar TODA la estructura completa del item (incluyendo respuestas, conclusionFinal y finalizado)
                 textosData[item.id] = {
                     company: item.company || '',
                     person: item.person || '',
@@ -2419,6 +2419,9 @@
                     prioridad: item.prioridad !== undefined ? item.prioridad : 1,
                     fotos: item.fotos || [],
                     fotos_extra: item.fotos_extra || [],
+                    respuestas: item.respuestas || [],
+                    conclusionFinal: item.conclusionFinal || '',
+                    finalizado: item.finalizado || false,
                     seguimiento: item.seguimiento || {
                         responsable: "",
                         contactado: false,
@@ -2436,7 +2439,7 @@
                 if (!textosData[item.id]) {
                     textosData[item.id] = {};
                 }
-                // Guardar TODA la estructura completa del item
+                // Guardar TODA la estructura completa del item (incluyendo respuestas, conclusionFinal y finalizado)
                 textosData[item.id] = {
                     empresa: item.empresa || '',
                     producto: item.producto || '',
@@ -2446,6 +2449,9 @@
                     prioridad: item.prioridad !== undefined ? item.prioridad : 1,
                     fotos: item.fotos || [],
                     fotos_extra: item.fotos_extra || [],
+                    respuestas: item.respuestas || [],
+                    conclusionFinal: item.conclusionFinal || '',
+                    finalizado: item.finalizado || false,
                     seguimiento: item.seguimiento || {
                         responsable: "",
                         contactado: false,
@@ -4291,6 +4297,18 @@ Sistema de Seguimiento Automechanika`;
                 // Aplicar textos modificados Y añadir empresas nuevas
                 console.log('📝 Aplicando textos modificados...');
                 const textosModificados = JSON.parse(localStorage.getItem('textos_modificados_automechanika') || '{}');
+                console.log('📊 Total items en textosModificados:', Object.keys(textosModificados).length);
+                // Verificar si ALTEZZA está en textosModificados
+                const altezzaId = '1763364468847';
+                if (textosModificados[altezzaId]) {
+                    console.log('✅ ALTEZZA encontrada en textosModificados:', {
+                        respuestas: textosModificados[altezzaId].respuestas,
+                        conclusionFinal: textosModificados[altezzaId].conclusionFinal,
+                        finalizado: textosModificados[altezzaId].finalizado
+                    });
+                } else {
+                    console.log('⚠️ ALTEZZA NO encontrada en textosModificados. IDs disponibles:', Object.keys(textosModificados).slice(0, 10));
+                }
                 
                 // Cargar lista de empresas eliminadas ANTES de añadir nuevas
                 const empresasEliminadas = JSON.parse(localStorage.getItem('empresas_eliminadas_automechanika') || '{}');
@@ -4352,19 +4370,33 @@ Sistema de Seguimiento Automechanika`;
                 // Actualizar empresas existentes en reuniones
                 datosBase.reuniones.forEach(item => {
                     if (textosModificados[item.id]) {
+                        console.log('📤 Exportando reunión ID:', item.id, 'Company:', item.company);
+                        console.log('📋 Datos en textosModificados:', {
+                            respuestas: datosModificados.respuestas,
+                            conclusionFinal: datosModificados.conclusionFinal,
+                            finalizado: datosModificados.finalizado
+                        });
                         // Hacer merge preservando texto original si el modificado está vacío
-                        const merged = mergeItemData(item, textosModificados[item.id]);
+                        const merged = mergeItemData(item, datosModificados);
                         Object.assign(item, merged);
                         // Asegurar que respuestas, conclusionFinal y finalizado se copien explícitamente
-                        if (textosModificados[item.id].respuestas !== undefined) {
-                            item.respuestas = textosModificados[item.id].respuestas;
+                        if (datosModificados.respuestas !== undefined) {
+                            item.respuestas = datosModificados.respuestas;
+                            console.log('✅ Respuestas copiadas al exportar:', item.respuestas);
                         }
-                        if (textosModificados[item.id].conclusionFinal !== undefined) {
-                            item.conclusionFinal = textosModificados[item.id].conclusionFinal;
+                        if (datosModificados.conclusionFinal !== undefined) {
+                            item.conclusionFinal = datosModificados.conclusionFinal;
+                            console.log('✅ Conclusión final copiada al exportar:', item.conclusionFinal);
                         }
-                        if (textosModificados[item.id].finalizado !== undefined) {
-                            item.finalizado = textosModificados[item.id].finalizado;
+                        if (datosModificados.finalizado !== undefined) {
+                            item.finalizado = datosModificados.finalizado;
+                            console.log('✅ Finalizado copiado al exportar:', item.finalizado);
                         }
+                        console.log('📦 Item final después del merge:', {
+                            respuestas: item.respuestas,
+                            conclusionFinal: item.conclusionFinal,
+                            finalizado: item.finalizado
+                        });
                     }
                 });
                 
@@ -4411,20 +4443,39 @@ Sistema de Seguimiento Automechanika`;
                 
                 // Actualizar empresas existentes en adicional
                 datosBase.adicional.forEach(item => {
-                    if (textosModificados[item.id]) {
+                    // Buscar por ID como string y como número
+                    const itemIdStr = String(item.id);
+                    const itemIdNum = Number(item.id);
+                    const datosModificados = textosModificados[item.id] || textosModificados[itemIdStr] || textosModificados[itemIdNum];
+                    
+                    if (datosModificados) {
+                        console.log('📤 Exportando adicional ID:', item.id, 'Empresa:', item.empresa);
+                        console.log('📋 Datos en textosModificados:', {
+                            respuestas: datosModificados.respuestas,
+                            conclusionFinal: datosModificados.conclusionFinal,
+                            finalizado: datosModificados.finalizado
+                        });
                         // Hacer merge preservando texto original si el modificado está vacío
-                        const merged = mergeItemData(item, textosModificados[item.id]);
+                        const merged = mergeItemData(item, datosModificados);
                         Object.assign(item, merged);
                         // Asegurar que respuestas, conclusionFinal y finalizado se copien explícitamente
-                        if (textosModificados[item.id].respuestas !== undefined) {
-                            item.respuestas = textosModificados[item.id].respuestas;
+                        if (datosModificados.respuestas !== undefined) {
+                            item.respuestas = datosModificados.respuestas;
+                            console.log('✅ Respuestas copiadas al exportar:', item.respuestas);
                         }
-                        if (textosModificados[item.id].conclusionFinal !== undefined) {
-                            item.conclusionFinal = textosModificados[item.id].conclusionFinal;
+                        if (datosModificados.conclusionFinal !== undefined) {
+                            item.conclusionFinal = datosModificados.conclusionFinal;
+                            console.log('✅ Conclusión final copiada al exportar:', item.conclusionFinal);
                         }
-                        if (textosModificados[item.id].finalizado !== undefined) {
-                            item.finalizado = textosModificados[item.id].finalizado;
+                        if (datosModificados.finalizado !== undefined) {
+                            item.finalizado = datosModificados.finalizado;
+                            console.log('✅ Finalizado copiado al exportar:', item.finalizado);
                         }
+                        console.log('📦 Item final después del merge:', {
+                            respuestas: item.respuestas,
+                            conclusionFinal: item.conclusionFinal,
+                            finalizado: item.finalizado
+                        });
                     }
                 });
                 
