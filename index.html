@@ -1640,7 +1640,7 @@
                 console.log('⚠️ Inicializando con estructura vacía');
             }
             
-            // Inicializar campos si no existen en el JSON
+            // Inicializar campos básicos si no existen en el JSON (ANTES de aplicar modificaciones)
             appData.reuniones.forEach(item => {
                 if (!item.seguimiento) {
                     item.seguimiento = {
@@ -1657,9 +1657,6 @@
                 if (!item.fotos || !Array.isArray(item.fotos)) item.fotos = [];
                 if (!item.fotos_extra) item.fotos_extra = [];
                 if (!item.documentos) item.documentos = [];
-                if (!item.respuestas || !Array.isArray(item.respuestas)) item.respuestas = [];
-                if (item.conclusionFinal === undefined) item.conclusionFinal = '';
-                if (item.finalizado === undefined) item.finalizado = false;
             });
             
             appData.adicional.forEach(item => {
@@ -1678,9 +1675,6 @@
                 if (!item.fotos || !Array.isArray(item.fotos)) item.fotos = [];
                 if (!item.fotos_extra) item.fotos_extra = [];
                 if (!item.documentos) item.documentos = [];
-                if (!item.respuestas || !Array.isArray(item.respuestas)) item.respuestas = [];
-                if (item.conclusionFinal === undefined) item.conclusionFinal = '';
-                if (item.finalizado === undefined) item.finalizado = false;
             });
             
             loadConfig();
@@ -1692,6 +1686,7 @@
             // Aplicar modificaciones de localStorage (textos modificados y nuevas empresas)
             console.log('📝 Aplicando modificaciones de localStorage...');
             const textosModificados = JSON.parse(localStorage.getItem('textos_modificados_automechanika') || '{}');
+            console.log('📋 Total items en textosModificados:', Object.keys(textosModificados).length);
             
             // Función auxiliar para verificar si un ID fue eliminado
             const fueEliminada = (id) => {
@@ -1714,16 +1709,20 @@
             appData.reuniones = appData.reuniones.filter(item => !fueEliminada(item.id));
             appData.reuniones.forEach(item => {
                 if (textosModificados[item.id] && !fueEliminada(item.id)) {
+                    console.log('📥 Cargando datos desde localStorage para reunión ID:', item.id, textosModificados[item.id]);
                     Object.assign(item, textosModificados[item.id]);
                     // Asegurar que respuestas, conclusionFinal y finalizado se copien explícitamente
                     if (textosModificados[item.id].respuestas !== undefined) {
                         item.respuestas = textosModificados[item.id].respuestas;
+                        console.log('✅ Respuestas cargadas para ID', item.id, ':', item.respuestas);
                     }
                     if (textosModificados[item.id].conclusionFinal !== undefined) {
                         item.conclusionFinal = textosModificados[item.id].conclusionFinal;
+                        console.log('✅ Conclusión final cargada para ID', item.id, ':', item.conclusionFinal);
                     }
                     if (textosModificados[item.id].finalizado !== undefined) {
                         item.finalizado = textosModificados[item.id].finalizado;
+                        console.log('✅ Finalizado cargado para ID', item.id, ':', item.finalizado);
                     }
                 }
             });
@@ -1731,17 +1730,52 @@
             appData.adicional = appData.adicional.filter(item => !fueEliminada(item.id));
             appData.adicional.forEach(item => {
                 if (textosModificados[item.id] && !fueEliminada(item.id)) {
+                    console.log('📥 Cargando datos desde localStorage para adicional ID:', item.id, textosModificados[item.id]);
                     Object.assign(item, textosModificados[item.id]);
                     // Asegurar que respuestas, conclusionFinal y finalizado se copien explícitamente
                     if (textosModificados[item.id].respuestas !== undefined) {
                         item.respuestas = textosModificados[item.id].respuestas;
+                        console.log('✅ Respuestas cargadas para ID', item.id, ':', item.respuestas);
                     }
                     if (textosModificados[item.id].conclusionFinal !== undefined) {
                         item.conclusionFinal = textosModificados[item.id].conclusionFinal;
+                        console.log('✅ Conclusión final cargada para ID', item.id, ':', item.conclusionFinal);
                     }
                     if (textosModificados[item.id].finalizado !== undefined) {
                         item.finalizado = textosModificados[item.id].finalizado;
+                        console.log('✅ Finalizado cargado para ID', item.id, ':', item.finalizado);
                     }
+                }
+            });
+            
+            // Inicializar respuestas, conclusionFinal y finalizado DESPUÉS de aplicar modificaciones (solo si no existen)
+            appData.reuniones.forEach(item => {
+                if (!item.respuestas || !Array.isArray(item.respuestas)) {
+                    item.respuestas = [];
+                    console.log('⚠️ Inicializando respuestas vacías para ID', item.id);
+                }
+                if (item.conclusionFinal === undefined) {
+                    item.conclusionFinal = '';
+                    console.log('⚠️ Inicializando conclusión final vacía para ID', item.id);
+                }
+                if (item.finalizado === undefined) {
+                    item.finalizado = false;
+                    console.log('⚠️ Inicializando finalizado false para ID', item.id);
+                }
+            });
+            
+            appData.adicional.forEach(item => {
+                if (!item.respuestas || !Array.isArray(item.respuestas)) {
+                    item.respuestas = [];
+                    console.log('⚠️ Inicializando respuestas vacías para ID', item.id);
+                }
+                if (item.conclusionFinal === undefined) {
+                    item.conclusionFinal = '';
+                    console.log('⚠️ Inicializando conclusión final vacía para ID', item.id);
+                }
+                if (item.finalizado === undefined) {
+                    item.finalizado = false;
+                    console.log('⚠️ Inicializando finalizado false para ID', item.id);
                 }
             });
             
