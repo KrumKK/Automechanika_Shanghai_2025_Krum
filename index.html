@@ -4834,12 +4834,13 @@ Sistema de Seguimiento Automechanika`;
                 const estadoClass = `estado-${seg.estado || 'pendiente'}`;
                 
                 let empresaHTML = '';
-                // Salto de página solo si no es la primera empresa
+                // Salto de página solo si no es la primera empresa del documento
                 if (!esPrimeraEmpresa) {
+                    empresaHTML += `<div style="page-break-before: always; break-before: page;"></div>`;
                     empresaHTML += `<!--[if gte mso 9]><br clear=all style='mso-special-character:line-break; page-break-before:always'><![endif]-->`;
                 }
                 empresaHTML += `
-    <div class="empresa-page" style="width: 29.7cm; height: 21cm; margin: 0; padding: 1.5cm;">
+    <div class="empresa-page" style="width: 29.7cm; min-height: 21cm; margin: 0; padding: 1.5cm; page-break-after: auto; break-after: auto;">
         <table style="width: 100%; border-collapse: collapse;">
             <!-- Fila 1: Nombre + Información Básica (izquierda) y Seguimiento (derecha) -->
             <tr>
@@ -5040,15 +5041,16 @@ Sistema de Seguimiento Automechanika`;
 
             // REUNIONES - cada empresa en página nueva (orden del JSON/HTML, sin ordenar por hora)
             appData.reuniones.forEach((item, index) => {
-                // Primera empresa sin salto de página, resto con salto
-                const esPrimera = index === 0;
+                // Primera empresa del documento sin salto de página, resto con salto
+                const esPrimera = index === 0 && appData.adicional.length === 0;
                 html += generarEmpresaHTML(item, true, esPrimera);
             });
 
             // INFO ADICIONAL - cada empresa en página nueva (después de todas las reuniones)
             appData.adicional.forEach((item, index) => {
-                // Todas las adicionales tienen salto de página (porque vienen después de reuniones)
-                html += generarEmpresaHTML(item, false, false);
+                // Primera adicional solo sin salto si no hay reuniones, resto con salto
+                const esPrimera = index === 0 && appData.reuniones.length === 0;
+                html += generarEmpresaHTML(item, false, esPrimera);
             });
 
             // Función para generar sección de Nuevos Coches (agrupada)
