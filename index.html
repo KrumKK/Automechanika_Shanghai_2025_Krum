@@ -464,6 +464,21 @@
             background: #10b981;
         }
         
+        .notas-editor {
+            outline: none;
+        }
+        
+        .notas-editor:empty:before {
+            content: attr(placeholder);
+            color: #9ca3af;
+            pointer-events: none;
+        }
+        
+        .notas-editor:focus {
+            border-color: #6366f1 !important;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+        
         .btn-delete-respuesta {
             background: #ef4444;
             color: white;
@@ -2933,11 +2948,32 @@
                         
                         <div class="form-group">
                             <label>📝 Notas / Comentarios</label>
-                            <textarea 
-                                class="auto-resize-textarea"
-                                onchange="updateTexto('reuniones', ${realIdx}, 'comments', this.value)"
+                            <div style="margin-bottom: 8px; display: flex; gap: 8px; flex-wrap: wrap;">
+                                <button class="btn-formato" 
+                                    onclick="aplicarFormatoNotas('reuniones', ${realIdx}, 'comments', 'bold')"
+                                    title="Negrita">
+                                    <strong>B</strong>
+                                </button>
+                                <input type="color" 
+                                    id="color-picker-comments-${realIdx}"
+                                    value="#000000"
+                                    style="width: 40px; height: 32px; border: 1px solid #d1d5db; border-radius: 6px; cursor: pointer;"
+                                    onchange="aplicarFormatoNotas('reuniones', ${realIdx}, 'comments', 'color', this.value)"
+                                    title="Color del texto">
+                                <button class="btn-formato" 
+                                    onclick="limpiarFormatoNotas('reuniones', ${realIdx}, 'comments')"
+                                    title="Limpiar formato">
+                                    🧹 Limpiar
+                                </button>
+                            </div>
+                            <div 
+                                id="notas-editor-comments-${realIdx}"
+                                contenteditable="true"
+                                class="notas-editor"
+                                oninput="updateTextoFormateado('reuniones', ${realIdx}, 'comments', this.innerHTML)"
+                                onblur="updateTextoFormateado('reuniones', ${realIdx}, 'comments', this.innerHTML)"
                                 placeholder="Añade notas o comentarios sobre esta reunión..."
-                                style="min-height: 80px;">${item.comments || ''}</textarea>
+                                style="min-height: 80px; padding: 10px; border: 1px solid #d1d5db; border-radius: 6px; background: white; font-size: 14px; line-height: 1.5; white-space: pre-wrap; word-wrap: break-word;">${item.comments || ''}</div>
                         </div>
                         
                         <div class="fotos-section">
@@ -3026,11 +3062,32 @@
                         
                         <div class="form-group">
                             <label>📝 Notas</label>
-                            <textarea 
-                                class="auto-resize-textarea"
-                                onchange="updateTexto('adicional', ${realIdx}, 'notas', this.value)"
+                            <div style="margin-bottom: 8px; display: flex; gap: 8px; flex-wrap: wrap;">
+                                <button class="btn-formato" 
+                                    onclick="aplicarFormatoNotas('adicional', ${realIdx}, 'notas', 'bold')"
+                                    title="Negrita">
+                                    <strong>B</strong>
+                                </button>
+                                <input type="color" 
+                                    id="color-picker-notas-${realIdx}"
+                                    value="#000000"
+                                    style="width: 40px; height: 32px; border: 1px solid #d1d5db; border-radius: 6px; cursor: pointer;"
+                                    onchange="aplicarFormatoNotas('adicional', ${realIdx}, 'notas', 'color', this.value)"
+                                    title="Color del texto">
+                                <button class="btn-formato" 
+                                    onclick="limpiarFormatoNotas('adicional', ${realIdx}, 'notas')"
+                                    title="Limpiar formato">
+                                    🧹 Limpiar
+                                </button>
+                            </div>
+                            <div 
+                                id="notas-editor-notas-${realIdx}"
+                                contenteditable="true"
+                                class="notas-editor"
+                                oninput="updateTextoFormateado('adicional', ${realIdx}, 'notas', this.innerHTML)"
+                                onblur="updateTextoFormateado('adicional', ${realIdx}, 'notas', this.innerHTML)"
                                 placeholder="Añade notas sobre esta empresa..."
-                                style="min-height: 60px;">${item.notas || ''}</textarea>
+                                style="min-height: 60px; padding: 10px; border: 1px solid #d1d5db; border-radius: 6px; background: white; font-size: 14px; line-height: 1.5; white-space: pre-wrap; word-wrap: break-word;">${item.notas || ''}</div>
                         </div>
                         
                         <div class="form-group">
@@ -3990,6 +4047,94 @@
             renderAll();
         }
         
+        // Funciones para formato de notas/comentarios
+        function aplicarFormatoNotas(type, index, field, formato, color = null) {
+            const editorId = `notas-editor-${field}-${index}`;
+            const editor = document.getElementById(editorId);
+            
+            if (!editor) {
+                console.error('❌ No se encontró el editor de notas');
+                return;
+            }
+            
+            // Guardar selección
+            const selection = window.getSelection();
+            const range = selection.rangeCount > 0 ? selection.getRangeAt(0) : null;
+            
+            if (!range || range.collapsed) {
+                // Si no hay selección, mostrar mensaje
+                if (formato === 'bold') {
+                    alert('Selecciona el texto que quieres poner en negrita');
+                } else if (formato === 'color') {
+                    alert('Selecciona el texto al que quieres cambiar el color');
+                }
+                return;
+            }
+            
+            // Enfocar el editor para que funcione execCommand
+            editor.focus();
+            
+            if (formato === 'bold') {
+                // Aplicar negrita
+                document.execCommand('bold', false, null);
+            } else if (formato === 'color' && color) {
+                // Aplicar color
+                document.execCommand('foreColor', false, color);
+            }
+            
+            // Actualizar el contenido guardado
+            updateTextoFormateado(type, index, field, editor.innerHTML);
+        }
+        
+        function limpiarFormatoNotas(type, index, field) {
+            const editorId = `notas-editor-${field}-${index}`;
+            const editor = document.getElementById(editorId);
+            
+            if (!editor) {
+                console.error('❌ No se encontró el editor de notas');
+                return;
+            }
+            
+            // Limpiar todo el formato HTML, mantener solo el texto
+            const textoLimpio = editor.innerText || editor.textContent || '';
+            editor.innerHTML = textoLimpio;
+            
+            // Actualizar el contenido guardado
+            updateTextoFormateado(type, index, field, editor.innerHTML);
+        }
+        
+        function updateTextoFormateado(type, index, field, htmlValue) {
+            const item = type === 'reuniones' ? appData.reuniones[index] : appData.adicional[index];
+            if (!item) return;
+            
+            // Guardar el HTML formateado
+            item[field] = htmlValue;
+            
+            // Guardar en localStorage
+            const textosData = JSON.parse(localStorage.getItem('textos_modificados_automechanika') || '{}');
+            const itemId = item.id;
+            
+            if (!textosData[itemId]) textosData[itemId] = {};
+            textosData[itemId][field] = htmlValue;
+            
+            // Guardar también otros campos importantes
+            if (type === 'reuniones') {
+                textosData[itemId].company = item.company || '';
+                textosData[itemId].person = item.person || '';
+                textosData[itemId].product = item.product || '';
+                textosData[itemId].time = item.time || '';
+                textosData[itemId].stand = item.stand || '';
+                textosData[itemId].departamento = item.departamento || 'Lizarte';
+            } else {
+                textosData[itemId].empresa = item.empresa || '';
+                textosData[itemId].producto = item.producto || '';
+                textosData[itemId].oportunidad = item.oportunidad || '';
+                textosData[itemId].departamento = item.departamento || 'Lizarte';
+            }
+            
+            localStorage.setItem('textos_modificados_automechanika', JSON.stringify(textosData));
+        }
+        
         function autoResizeTextarea(element) {
             element.style.height = 'auto';
             element.style.height = element.scrollHeight + 'px';
@@ -4912,15 +5057,15 @@ Sistema de Seguimiento Automechanika`;
             <tr>
                 <td colspan="2" style="vertical-align: top; padding-top: 20pt;">`;
 
-                // Notas/Comentarios - Ancho completo
+                // Notas/Comentarios - Ancho completo (con formato HTML)
                 if (esReunion) {
                     empresaHTML += `
                     <h3 style="font-size: 12pt; margin-bottom: 10pt; color: #4a5568; border-bottom: 2px solid #e2e8f0; padding-bottom: 3pt;">Notas / Comentarios</h3>
-                    <div class="texto-largo" style="padding: 15pt; background: #ffffff; border: 1px solid #e2e8f0; white-space: pre-wrap; word-wrap: break-word; min-height: 200pt;">${item.comments ? escapeHtml(item.comments).replace(/\n/g, '<br>') : '<em style="color: #a0aec0;">Sin notas</em>'}</div>`;
+                    <div class="texto-largo" style="padding: 15pt; background: #ffffff; border: 1px solid #e2e8f0; white-space: pre-wrap; word-wrap: break-word; min-height: 200pt;">${item.comments ? item.comments.replace(/\n/g, '<br>') : '<em style="color: #a0aec0;">Sin notas</em>'}</div>`;
                 } else {
                     empresaHTML += `
                     <h3 style="font-size: 12pt; margin-bottom: 10pt; color: #4a5568; border-bottom: 2px solid #e2e8f0; padding-bottom: 3pt;">Notas</h3>
-                    <div class="texto-largo" style="padding: 15pt; background: #ffffff; border: 1px solid #e2e8f0; white-space: pre-wrap; word-wrap: break-word; min-height: 150pt; margin-bottom: 15pt;">${item.notas ? escapeHtml(item.notas).replace(/\n/g, '<br>') : '<em style="color: #a0aec0;">Sin notas</em>'}</div>`;
+                    <div class="texto-largo" style="padding: 15pt; background: #ffffff; border: 1px solid #e2e8f0; white-space: pre-wrap; word-wrap: break-word; min-height: 150pt; margin-bottom: 15pt;">${item.notas ? item.notas.replace(/\n/g, '<br>') : '<em style="color: #a0aec0;">Sin notas</em>'}</div>`;
                     
                     if (item.oportunidad) {
                         empresaHTML += `
