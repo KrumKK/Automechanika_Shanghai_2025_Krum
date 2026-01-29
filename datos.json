@@ -60,7 +60,7 @@
         "email": "jbastan@lizarte.com"
       },
       "departamento": "Lizarte",
-      "prioridad": 1,
+      "prioridad": 3,
       "fotos_extra": [],
       "respuestas": [],
       "conclusionFinal": "",
@@ -123,7 +123,7 @@
         "email": "jhualde@lizarte.com"
       },
       "departamento": "Innovación",
-      "prioridad": 0,
+      "prioridad": 3,
       "fotos_extra": [],
       "respuestas": [
         {
@@ -207,7 +207,7 @@
         "proximaAccion": "",
         "fechaSeguimiento": "",
         "acciones": [],
-        "estado": "pendiente"
+        "estado": "finalizado"
       },
       "departamento": "Lizarte",
       "prioridad": 3,
@@ -226,7 +226,7 @@
       "id": 1763957712020,
       "fotos": [],
       "seguimiento": {
-        "responsable": "Calidad",
+        "responsable": "Compras",
         "contactado": false,
         "respuestaRecibida": false,
         "proximaAccion": "",
@@ -235,11 +235,11 @@
           "Siguiente paso: solicitar muestras de las referencias top que estamos comprando actualmente para poder compararlas con nuestros proveedores habituales.",
           "Muy importante que Calidad de el OK tras las verificaciones pertinentes. "
         ],
-        "estado": "pendiente",
+        "estado": "contactado",
         "email": "jbaztan@lizarte.com"
       },
       "departamento": "Lizarte",
-      "prioridad": 1,
+      "prioridad": 0,
       "fotos_extra": [],
       "respuestas": [
         {
@@ -265,20 +265,22 @@
         "fotos/reunion_aierfu_foto1.jpg"
       ],
       "seguimiento": {
-        "responsable": "Calidad",
+        "responsable": "Compras",
         "contactado": false,
         "respuestaRecibida": false,
         "proximaAccion": "",
         "fechaSeguimiento": "",
         "acciones": [
-          "Revisar las cremalleras que han mandado para homologar.",
-          "Hablar con Dane para preguntar quién solicito las muestras, son para BMW pero salta la parte del usillo en el cremallera o es así?"
+          "Pedir muestra de NCR 06965600 Passat y Tiguan; B8 importante ",
+          "Hablar con Dane para preguntar quién solicito las muestras, son para BMW pero salta la parte del usillo en el cremallera o es así?",
+          "Revisar catalogo del proveedor",
+          "Contactar con Dane: Preguntar si tienen medios y cómo hacen para medir la holgura entre el husillo y sin fin. (Mostrar interés\"\"\")"
         ],
         "estado": "pendiente",
-        "email": "jhualde@lizarte.com"
+        "email": "krum@lizarte.com"
       },
       "departamento": "Lizarte",
-      "prioridad": 2,
+      "prioridad": 0,
       "fotos_extra": [],
       "respuestas": [],
       "conclusionFinal": "",
@@ -309,7 +311,7 @@
         "email": "jbaztan@lizarte.com"
       },
       "departamento": "Lizarte",
-      "prioridad": 1,
+      "prioridad": 3,
       "fotos_extra": [],
       "respuestas": [],
       "conclusionFinal": "",
@@ -340,7 +342,7 @@
         "email": "jbaztan@lizarte.com"
       },
       "departamento": "Lizarte",
-      "prioridad": 2,
+      "prioridad": 3,
       "fotos_extra": [],
       "respuestas": [],
       "conclusionFinal": "",
@@ -403,7 +405,7 @@
         "email": "jbaztan@lizarte.com"
       },
       "departamento": "Lizarte",
-      "prioridad": 1,
+      "prioridad": 3,
       "fotos_extra": [],
       "respuestas": [],
       "conclusionFinal": "",
@@ -423,24 +425,25 @@
         "fotos/reunion_kitpamt_foto2.jpg"
       ],
       "seguimiento": {
-        "responsable": "Compras",
+        "responsable": "Calidad",
         "contactado": false,
         "respuestaRecibida": false,
         "proximaAccion": "",
         "fechaSeguimiento": "",
         "acciones": [
-          "Pedir email de contacto y catálogo.",
-          "Muy interesante para componentes de Encory, también tienen cremalleras con usillos."
+          "Pedir catálogo poner en copia a JH,JB,JB",
+          "Muy interesante para componentes de Encory, también tienen cremalleras con husillos.",
+          ""
         ],
         "estado": "contactado",
-        "email": "krum@lizarte.com"
+        "email": "jhualde@lizarte.com"
       },
       "departamento": "Lizarte",
       "prioridad": 0,
       "fotos_extra": [],
       "respuestas": [
         {
-          "texto": "Hemos comprobado el sensor de la 06964000 y funciona correctamente, solicito precio. El turco nos los ofrece a 40€ y el proveedor a 12$. ",
+          "texto": "Hemos comprobado el sensor de la 06964000 y funciona correctamente, solicito precio. El turco nos los ofrece a 40€ y el proveedor a 11$. ",
           "formato": {
             "negrita": false,
             "lista": false
@@ -475,7 +478,7 @@
         "email": "jbaztan@lizarte.com"
       },
       "departamento": "Lizarte",
-      "prioridad": 2,
+      "prioridad": 0,
       "fotos_extra": [],
       "respuestas": [],
       "conclusionFinal": "",
@@ -501,7 +504,7 @@
         "fechaSeguimiento": "",
         "acciones": [
           "Valorar la idea como posible producto a comercializar. Había muchos stands en la feria ofreciendo productos similares, lo que indica que hay demanda y potencial de mercado. Merece la pena estudiarlo con más detalle.",
-          ""
+          "ThermoKing análizar Krum"
         ],
         "estado": "pendiente",
         "email": "krum@lizarte.com"
@@ -652,10 +655,10 @@
         "fechaSeguimiento": "",
         "acciones": [
           "Pedir referencias de Encory y precios para valorar vs proveedor actual",
-          "Pedidas las medidas a I+D para contactar con el proveedor"
+          "Se ha mandado email con las medidas para solicitar muestras. Verificar las dimensiones y Javier B. pedir muestras"
         ],
-        "estado": "pendiente",
-        "email": "jhualde@lizarte.com"
+        "estado": "contactado",
+        "email": "jbobadilla@lizarte.com"
       },
       "departamento": "Lizarte",
       "prioridad": 0,
@@ -721,7 +724,7 @@
         "email": "jbaztan@lizarte.com"
       },
       "departamento": "Lizarte",
-      "prioridad": 0,
+      "prioridad": 1,
       "fotos_extra": [],
       "respuestas": [],
       "conclusionFinal": "",
@@ -865,8 +868,7 @@
         "proximaAccion": "",
         "fechaSeguimiento": "",
         "acciones": [
-          "Pendiente solicitar catálogo. Una vez recibido, revisar referencias disponibles, comparar con las cabezas de inyector que necesitamos actualmente y solicitar precios. Si los números cuadran, valorar tanto el uso interno como la posibilidad de comercialización.",
-          "Pedir muestra de varios modelos."
+          "JB, tenemos casquero que verifica las cabezas y nos mando solo material bueno. "
         ],
         "estado": "contactado",
         "email": "jbaztan@lziarte.com"
@@ -943,7 +945,8 @@
         "fechaSeguimiento": "",
         "acciones": [
           "Contactar con David lo antes posible para solicitar catálogo completo, listado de referencias que fabrican para VW, y precios para las calidades 10.9 y 12.9. Confirmar la posibilidad de obtener 12.9 al precio de 10.9. Cruzar con nuestras necesidades internas de tornillería y valorar homologación urgente si los números cuadran.",
-          "Mikel Malón, está en conversación con él, para determinar la calidad de los tornillos. "
+          "Mikel Malón, está en conversación con él, para determinar la calidad de los tornillos. ",
+          "Contactar de nuevo con David Liu "
         ],
         "estado": "proceso",
         "email": "jbaztan@lizarte.com"
@@ -961,7 +964,7 @@
       "producto": "Puntas, herramientas, pistolas",
       "notas": "Sin duda, <b>el mejor stand de herramientas que he visto en toda la feria. JTC AUTO TOOLS</b> destaca claramente por encima del resto tanto en la presentación de sus productos como en la amplitud de su gama. La imagen profesional del stand transmite seriedad y la variedad de herramientas expuestas demuestra que tienen un catálogo muy completo para el sector de automoción. Un punto importante que he identificado durante la visita es la posibilidad de<b> utilizar este proveedor para comprar herramientas que en nuestro día a día tienen un desgaste excesivo.</b> En cualquier entorno de producción o taller, hay herramientas que se deterioran rápidamente por el uso intensivo y que necesitamos reponer con frecuencia. Si conseguimos un proveedor de calidad aceptable a buen precio, podemos reducir significativamente el coste de reposición de estas herramientas de alto consumo .Datos del proveedor:\n\nEmpresa: JTC AUTO TOOLS\nWeb: jtc.com.tw (Taiwán)\nContacto: Antony Lin\nEmail: antony@jtc.com.tw",
       "oportunidad": "Oportunidad de negocio identificada:\n\nReducción de costes en herramientas de alto desgaste: Actualmente, las herramientas que se desgastan rápidamente suponen un coste recurrente importante. Si conseguimos aprovisionarnos de un fabricante asiático de calidad a mejor precio, el ahorro acumulado a lo largo del año puede ser considerable. No hablamos de comprar herramientas baratas de mala calidad, sino de encontrar un equilibrio óptimo entre durabilidad y precio.\n\nProveedor de origen taiwanés: A diferencia de muchos fabricantes chinos, JTC es de Taiwán, donde la industria de herramientas tiene muy buena reputación por su calidad. Esto reduce el riesgo de problemas de calidad que a veces se asocian con productos de origen chino.\nPosible comercialización: Dado que es el mejor stand de herramientas de la feria, podría valorarse también la opción de comercializar algunas de sus herramientas a través de Lizarte, especialmente herramientas específicas para automoción que encajen con nuestro público objetivo (talleres, profesionales del sector). Sería una línea complementaria al recambio.\n\nEquipamiento interno: Más allá del consumible de desgaste, también podríamos valorar la compra de herramientas de mayor calidad para equipar nuestras instalaciones, mejorando la eficiencia del trabajo en producción.",
-      "prioridad": 3,
+      "prioridad": 1,
       "seguimiento": {
         "responsable": "Compras",
         "contactado": false,
@@ -1064,14 +1067,16 @@
       "producto": "Herramientas ",
       "notas": "Proveedor de<b> pistolas de impacto portátiles</b> – Herramientas de montaje\nEmpresa que ofrece pistolas de impacto portátiles, un <b>tipo de herramienta cada vez más demandada por producción y necesaria para Encory/BMW</b>. Lo más interesante de este producto es que permite trabajar con un <b>par de apriete controlado</b>, algo fundamental para garantizar la calidad del montaje en componentes de automoción donde el apriete incorrecto puede provocar fallos graves.\nEn nuestro proceso de montaje actual, contar con herramientas que aseguren un par de apriete preciso y repetible es clave para mantener la calidad del producto final. Las pistolas de impacto portátiles con control de par eliminan la variabilidad del apriete manual y reducen el riesgo de errores humanos, ya sea por apriete insuficiente (que puede provocar holguras y vibraciones) o por apriete excesivo (que puede dañar roscas o componentes).\n<b>El hecho de que sean portátiles añade versatilidad: </b>pueden utilizarse en diferentes puestos de trabajo sin necesidad de instalaciones fijas, lo que facilita la organización de la producción y permite adaptarse a diferentes necesidades.\n\nContacto; info@sevenplustools.com",
       "oportunidad": "Mejora de calidad en producción: Incorporar pistolas de impacto con par controlado en nuestros procesos de montaje eleva el nivel de calidad y consistencia del producto. Cada tornillo, cada unión, queda apretada exactamente con el par especificado. Esto reduce reclamaciones por fallos de montaje y refuerza la fiabilidad del producto Lizarte.\nReducción de errores y reprocesos: El control de par evita tanto el apriete insuficiente como el excesivo. Menos errores de montaje significa menos tiempo perdido en reprocesos y menos coste por producto defectuoso.\nTrazabilidad y control: Algunas pistolas de impacto modernas permiten registrar los datos de apriete, lo que añade trazabilidad al proceso productivo. Esto puede ser un argumento de calidad frente a clientes exigentes o en auditorías.",
-      "prioridad": 3,
+      "prioridad": 0,
       "seguimiento": {
         "responsable": "Compras",
         "contactado": false,
         "respuestaRecibida": false,
         "proximaAccion": "",
         "fechaSeguimiento": "",
-        "acciones": [],
+        "acciones": [
+          "Krum contacta de momento no hay respuesta."
+        ],
         "estado": "pendiente",
         "email": "jbaztan@lizarte.com"
       },
@@ -1411,7 +1416,7 @@
           "Enviarles las referencias de cascos que nos interesan para ver coincidencias y precios.",
           "Solicitar dos muestras de la bomba 04550803 para validar calidad y confirmar que resuelve los problemas de garantías que tenemos actualmente."
         ],
-        "estado": "pendiente",
+        "estado": "proceso",
         "email": "krum@lizarte.com"
       },
       "respuestas": [],
